@@ -4,7 +4,7 @@ Documentation and Style Guide
 
 
 
-					***Comments***
+					****Comments****
 Use  /// at the top line of each action to tell what it does.
 
 For scripts you should use ///  at the top line to show what parameters it takes in (if any).
