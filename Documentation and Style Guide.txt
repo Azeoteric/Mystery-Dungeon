@@ -1,0 +1,89 @@
+Documentation and Style Guide
+
+
+
+
+
+					***Comments***
+Use  /// at the top line of each action to tell what it does.
+
+For scripts you should use ///  at the top line to show what parameters it takes in (if any).
+
+Use // for comments explaining what said block of code does.
+
+
+
+
+
+					***Naming***
+
+Sprites should be named like spr_name.
+
+Backgrounds should be named like bg_name.
+
+Rooms should be named like rm_name.
+
+Objects should be named like obj_name.
+
+Scripts should be named like scr_name.
+
+Fonts should be named like fnt_name.
+
+Sounds should be named like snd_name.
+
+Boolean variables should be named like is_action to make them stand out.
+
+Variables should describe what they represent. (No letters unless for interation of loops)
+
+
+
+				***Coding*** 
+
+				
+Limit magic numbers!!
+Only use numbers in the create eventx` of objects. 
+
+For nested statements indent so it its easier to show scope.
+
+Use Marcos to hold any constants that will be global and should not change in-game.
+
+Declare fields and local variables one per line.
+
+Put the body of if statements on the line after the condition.
+
+Put spaces in between math opperators so x*3+4/y should be x * 3 + 4 / y.
+
+
+
+
+This:
+
+	if (cond) {
+		scr_action();
+	}
+
+is preferable to:
+
+	if (cond == true) {
+	   scr_action();
+	}
+
+
+This:
+
+	if (!cond) {
+		scr_action();
+	}
+is preferable to:
+
+	if (cond == false) {
+		scr_action();
+	}
+	
+This:
+
+	x += 1;
+	
+is preferable to:
+
+	x = x + 1;
