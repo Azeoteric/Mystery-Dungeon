@@ -45,7 +45,7 @@ Only use numbers in the create eventx` of objects.
 
 For nested statements indent so it its easier to show scope.
 
-Use Marcos to hold any constants that will be global and should not change in-game.
+Use Macros to hold any constants that will be global and should not change in-game.
 
 Declare fields and local variables one per line.
 
