@@ -25,7 +25,7 @@
     <object>objects\obj_player</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_room</room>
+    <room>rooms\rm_ruins</room>
   </rooms>
   <constants number="6">
     <constant name="CELL_WIDTH">32</constant>
