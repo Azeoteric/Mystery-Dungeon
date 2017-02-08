@@ -1,0 +1,6 @@
+obj_level_generator:
+-make FLOOR_NOT_NODE generate correctly (room generation overrides it)
+-add collisions to hallways and rooms 
+-add logic to hallways (make them connect with rooms if the room
+	has less than a certain amount of hallways connected to
+	it. otherwise avoid the room)

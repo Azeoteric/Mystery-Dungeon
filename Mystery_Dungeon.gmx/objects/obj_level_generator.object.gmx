@@ -105,9 +105,21 @@ scr_generate_nodes_for_room(cx, cy, cx + rm_width, cy + rm_height, irandom(1) + 
 // Fill in grid 
 
 while (nodes_generated &lt; nodes_desired || rooms_generated &lt; rooms_desired) {
-    // Set controller position at a node
+    
+    /*
+    // Choose a random node
+    var random_node = irandom(nodeCount - 1);
+    // Set controller position at that node
+    cx = nodeLocations[random_node, 0];
+    cy = nodeLocations[random_node, 1];
+    for (var i = random_node; i &lt; nodeCount; i++) {
+        nodeLocations[i, 0] = nodeLocations[i + 1, 0];
+        nodeLocations[i, 1] = nodeLocations[i + 1, 0];
+    } */
+    
     cx = nodeLocations[nodeCount - 1, 0];
     cy = nodeLocations[nodeCount - 1, 1];
+    
     nodeLocations[nodeCount - 1, 0] = -1;
     nodeLocations[nodeCount - 1, 1] = -1;
     nodeCount--;
