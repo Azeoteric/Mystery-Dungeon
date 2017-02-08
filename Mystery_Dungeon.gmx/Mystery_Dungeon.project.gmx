@@ -22,6 +22,8 @@
     <script>scripts\scr_move.gml</script>
     <script>scripts\scr_stairs.gml</script>
     <script>scripts\scr_generate_nodes_for_room.gml</script>
+    <script>scripts\scr_get_direction.gml</script>
+    <script>scripts\scr_does_room_fit.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_level</object>
@@ -32,7 +34,7 @@
     <room>rooms\rm_test</room>
     <room>rooms\rm_ruins</room>
   </rooms>
-  <constants number="7">
+  <constants number="8">
     <constant name="CELL_WIDTH">32</constant>
     <constant name="CELL_HEIGHT">32</constant>
     <constant name="FLOOR">-5</constant>
@@ -40,6 +42,7 @@
     <constant name="VOID">-7</constant>
     <constant name="STAIRS">-8</constant>
     <constant name="NODE">-9</constant>
+    <constant name="FLOOR_NOT_NODE">-10</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
