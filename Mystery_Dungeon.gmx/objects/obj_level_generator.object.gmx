@@ -54,6 +54,8 @@ var height = room_height div CELL_HEIGHT;
     // This determines how large the room is
     nodes_generated = 0;
     nodes_desired = 15;
+    rooms_generated = 0;
+    rooms_desired = 6
     
     // Length of current hallway
     hallway_length = 0;
@@ -78,12 +80,13 @@ randomize();
 rm_height = irandom(4) + 4;
 rm_width = irandom(4) + 4;
 ds_grid_set_region(grid, cx, cy, cx + rm_width, cy + rm_height, FLOOR);
+rooms_generated++;
 
 // Set nodes on starting room
 scr_generate_nodes_for_room(cx, cy, cx + rm_width, cy + rm_height, irandom(1) + 1, grid);
 // Fill in grid 
 
-while (nodes_generated &lt; nodes_desired) {
+while (nodes_generated &lt; nodes_desired || rooms_generated &lt; rooms_desired) {
     // Set controller position at a node
     cx = nodeLocations[nodeCount - 1, 0];
     cy = nodeLocations[nodeCount - 1, 1];
@@ -110,6 +113,7 @@ while (nodes_generated &lt; nodes_desired) {
             rect_y2 = clamp(cy + (rm_height div 2), 5, height - 6);
             
             ds_grid_set_region(grid, rect_x1, rect_y1, rect_x2, rect_y2, FLOOR);
+            rooms_generated++;
             scr_generate_nodes_for_room(rect_x1, rect_y1, rect_x2, rect_y2, irandom(2) + 1, grid);
             break;
         // going up
@@ -129,6 +133,7 @@ while (nodes_generated &lt; nodes_desired) {
             rect_y2 = clamp(cy, 5, height - 6);
             
             ds_grid_set_region(grid, rect_x1, rect_y1, rect_x2, rect_y2, FLOOR);
+            rooms_generated++;
             scr_generate_nodes_for_room(rect_x1, rect_y1, rect_x2, rect_y2, irandom(2) + 1, grid);
             break;
         //going left
@@ -147,6 +152,7 @@ while (nodes_generated &lt; nodes_desired) {
             rect_y2 = clamp(cy + (rm_height div 2), 5, height - 6);
             
             ds_grid_set_region(grid, rect_x1, rect_y1, rect_x2, rect_y2, FLOOR);
+            rooms_generated++;
             scr_generate_nodes_for_room(rect_x1, rect_y1, rect_x2, rect_y2, irandom(2) + 1, grid);
             }
             break;
@@ -167,6 +173,7 @@ while (nodes_generated &lt; nodes_desired) {
             rect_y2 = clamp(cy + rm_height, 5, height - 6);
             
             ds_grid_set_region(grid, rect_x1, rect_y1, rect_x2, rect_y2, FLOOR);
+            rooms_generated++;
             scr_generate_nodes_for_room(rect_x1, rect_y1, rect_x2, rect_y2, irandom(2) + 1, grid);
             break;
     }
