@@ -1,4 +1,4 @@
-// Arguements (x1, y1, x2, y2, numberOfNodes, grid)
+/// scr_generate_nodes_for_room(x1, y1, x2, y2, numberOfNodes, grid)
 // the ordered pairs (x1, y1) and (x2, y2) define a unique rectangle
 
 // NOTICE: THIS FUNCTION MODIFIES THE ARRAY "nodeLocations" AND THE 
