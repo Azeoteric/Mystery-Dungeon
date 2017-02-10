@@ -49,7 +49,7 @@ var cy = height div 2;
 
 // Create the player
 instance_create(cx * CELL_WIDTH + CELL_WIDTH / 2, cy * CELL_HEIGHT + CELL_HEIGHT / 2, obj_player);
-grid[# cx, cy] = NODE;
+
 
 // Give the controller a random direction
 var cdir = irandom(3);
@@ -60,43 +60,45 @@ scr_make_room(cx, cy);
 loop = 0;
 rooms = 1;
 // Create the level using 1000 steps;
-repeat (250) {
+repeat (irandom(50) + 50) {
     loop++;
-    if(loop % 2 == 0 &amp;&amp; (scr_does_room_fit(cx - 3, cy - 3, cx + 3, cx + 3, grid, width - 1, height - 1) &amp;&amp; (rooms &lt; 8))) {
-              scr_make_room(cx, cy); 
+    if((scr_does_room_fit(cx - 3, cy - 3, cx + 3, cx + 3, grid, width - 6, height - 6) &amp;&amp; (rooms &lt; 8))) {
+          scr_make_room(cx, cy); 
               rooms++;
     }
        
-    movement = (irandom(4) + 1);
+    movement = (irandom(3) + 5);
     
     
     // Randomize the controller direction 
     if (irandom(odds) == odds) {
         cdir = irandom(3);
     }
-
-    // Move the controller 
-     for(i = 0; i &lt; movement; i++) {
-           grid[# cx, cy] = FLOOR;
-           var xdir = lengthdir_x(1, cdir * 90);
-           var ydir = lengthdir_y(1, cdir * 90);
-           
-           cx += xdir;
-           cy += ydir;        
-            
-           // Grid Boundries
-           cx = clamp(cx, 1, width - 2);   
-           cy = clamp(cy, 1, height - 2);      
-        
-         }
-
+     var xdir = lengthdir_x(1, cdir * 90);
+     var ydir = lengthdir_y(1, cdir * 90);
+     // Move the controller 
     
-
-     
-     
-}    
-
-
+ for(i = 0; i &lt; movement; i++) {          
+     if(grid[# cx, cy] == VOID){  
+          grid[# cx, cy] = FLOOR;               
+          cx += xdir;
+          cy += ydir;        
+          // Grid Boundries
+          cx = clamp(cx, 1, width - 2);   
+          cy = clamp(cy, 1, height - 2);      
+          }
+          else {
+              cx += xdir;
+              cy += ydir;        
+              // Grid Boundries
+              cx = clamp(cx, 1, width - 2);   
+              cy = clamp(cy, 1, height - 2);
+          }
+      }
+}
+if(rooms &lt; 6) {
+     room_restart()
+}
 // Making Walls
 for (var ypos = 1; ypos &lt; height - 1; ypos++) {
     for (var xpos = 1; xpos &lt; height - 1; xpos++) {
@@ -211,7 +213,7 @@ for (var ypos = 0; ypos &lt; height * 2; ypos++) {
         }
     }
 }
-//scr_stairs(width, height);
+scr_stairs(width, height);
 </string>
           </argument>
         </arguments>

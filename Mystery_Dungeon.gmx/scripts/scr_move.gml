@@ -22,4 +22,4 @@ if (scr_grid_place_meeting(x, y + vspd)) {
 
 // Move Vetically
 y+= vspd;
-
+is_moving = true;

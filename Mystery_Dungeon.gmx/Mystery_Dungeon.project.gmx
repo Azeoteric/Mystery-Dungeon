@@ -6,6 +6,8 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\spr_node</sprite>
+    <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_player</sprite>
   </sprites>
   <backgrounds name="background">
@@ -27,10 +29,12 @@
     <script>scripts\scr_does_room_fit.gml</script>
   </scripts>
   <objects name="objects">
+    <object>objects\obj_stairs</object>
     <object>objects\obj_level</object>
     <object>objects\obj_player</object>
     <object>objects\obj_level_generator</object>
     <object>objects\obj_level_maker_test</object>
+    <object>objects\obj_node</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test2</room>
