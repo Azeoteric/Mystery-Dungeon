@@ -6,7 +6,6 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_node</sprite>
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_player</sprite>
   </sprites>
@@ -22,11 +21,16 @@
   <scripts name="scripts">
     <script>scripts\scr_grid_place_meeting.gml</script>
     <script>scripts\scr_move.gml</script>
-    <script>scripts\scr_stairs.gml</script>
     <script>scripts\scr_generate_nodes_for_room.gml</script>
-    <script>scripts\scr_get_direction.gml</script>
-    <script>scripts\scr_make_room.gml</script>
     <script>scripts\scr_does_room_fit.gml</script>
+    <script>scripts\scr_get_direction.gml</script>
+    <scripts name="Spawning Objects">
+      <script>scripts\scr_player.gml</script>
+      <scripts name="Room assets">
+        <script>scripts\scr_stairs.gml</script>
+        <script>scripts\scr_make_room.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_stairs</object>
@@ -34,7 +38,6 @@
     <object>objects\obj_player</object>
     <object>objects\obj_level_generator</object>
     <object>objects\obj_level_maker_test</object>
-    <object>objects\obj_node</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test2</room>

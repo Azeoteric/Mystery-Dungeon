@@ -1,5 +1,5 @@
 ///scr_stairs(width, height)
-is_stairs_set = false;
+is_player_set = false;
 //Create the controller at the top of the grid
 var xStr = 0;
 var yStr = 0;
@@ -13,20 +13,16 @@ var sdir = irandom(3);
 var odds = 1;
 
 // scans the level
-while(!is_stairs_set) {
+while(!is_player_set) {
   repeat ((width - 1) * (height - 1)) {
-   if(is_stairs_set) {
+   if(is_player_set) {
      exit; 
     }
         // Chance of placing a stairs if it is surronded by floor tiles,
-        if (ds_grid_get_max(grid, xStr - 1, yStr - 1, xStr + 1, yStr + 1) == FLOOR) && 
-           (ds_grid_get_min(grid, xStr - 1, yStr - 1, xStr + 1, yStr + 1) == NODE ) &&
-           (grid[# xStr, yStr] == FLOOR) {
+        if (grid[# xStr, yStr] == NODE) {
             if (irandom(10) < 1) {
-               grid[# xStr, yStr] = STAIRS;
-              // tile_add(bg_stairs, 0, 0, CELL_WIDTH, CELL_HEIGHT, xStr * CELL_WIDTH, yStr * CELL_HEIGHT, -11);
-               instance_create(xStr * CELL_WIDTH, yStr * CELL_HEIGHT, obj_stairs);
-               is_stairs_set = true;
+               instance_create(((xStr * CELL_WIDTH) + 16), ((yStr * CELL_HEIGHT) + 16), obj_player);
+               is_player_set = true;
             }
         }
         // Randomize the controller direction 

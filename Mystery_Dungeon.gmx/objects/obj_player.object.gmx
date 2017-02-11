@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///Setting up player
-is_moving = false;
 </string>
           </argument>
         </arguments>

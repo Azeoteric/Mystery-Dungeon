@@ -44,11 +44,9 @@ ds_grid_set_region(grid, 0, 0, width - 1, height - 1, VOID);
 randomize();
 
 //Create the controller in the center of the grid
-var cx = width div 2;
-var cy = height div 2;
+var cx = irandom(width - 8) + 4;//width div 2;
+var cy = irandom(height - 8) + 4;//height div 2;
 
-// Create the player
-instance_create(cx * CELL_WIDTH + CELL_WIDTH / 2, cy * CELL_HEIGHT + CELL_HEIGHT / 2, obj_player);
 
 
 // Give the controller a random direction
@@ -56,18 +54,19 @@ var cdir = irandom(3);
 
 // The odds variable for changing direction
 var odds = 1;
-scr_make_room(cx, cy);
+
+scr_make_room(cx, cy, true);
 loop = 0;
 rooms = 1;
 // Create the level using 1000 steps;
-repeat (irandom(50) + 50) {
+repeat (irandom(75) + 75) {
     loop++;
-    if((scr_does_room_fit(cx - 3, cy - 3, cx + 3, cx + 3, grid, width - 6, height - 6) &amp;&amp; (rooms &lt; 8))) {
-          scr_make_room(cx, cy); 
+    if((irandom(100) &gt; 75) &amp;&amp; (!ds_grid_value_exists(grid, cx - 8, cy - 8, cx + 8, cy + 8, NODE) &amp;&amp; (rooms &lt; 12))) {
+          scr_make_room(cx, cy, false, width, height); 
               rooms++;
     }
        
-    movement = (irandom(3) + 5);
+    movement = (irandom(3) + 6);
     
     
     // Randomize the controller direction 
@@ -79,24 +78,24 @@ repeat (irandom(50) + 50) {
      // Move the controller 
     
  for(i = 0; i &lt; movement; i++) {          
-     if(grid[# cx, cy] == VOID){  
+     if(grid[# cx, cy] == VOID) {  
           grid[# cx, cy] = FLOOR;               
-          cx += xdir;
-          cy += ydir;        
-          // Grid Boundries
-          cx = clamp(cx, 1, width - 2);   
-          cy = clamp(cy, 1, height - 2);      
-          }
-          else {
-              cx += xdir;
-              cy += ydir;        
-              // Grid Boundries
-              cx = clamp(cx, 1, width - 2);   
-              cy = clamp(cy, 1, height - 2);
-          }
+       }
+     else {
+       i = movement;
+       }
+     
+     cx += xdir;
+     cy += ydir;        
+     
+     // Grid Boundries
+     cx = clamp(cx, 4, width - 4);   
+     cy = clamp(cy, 4, height - 4);
+              
+          
       }
 }
-if(rooms &lt; 6) {
+if(rooms &lt; 8) {
      room_restart()
 }
 // Making Walls
@@ -213,7 +212,12 @@ for (var ypos = 0; ypos &lt; height * 2; ypos++) {
         }
     }
 }
+// Makes the stairs
 scr_stairs(width, height);
+// Create the player
+scr_player(width, height);
+//instance_create(cx * CELL_WIDTH + CELL_WIDTH / 2, cy * CELL_HEIGHT + CELL_HEIGHT / 2, obj_player);
+
 </string>
           </argument>
         </arguments>
