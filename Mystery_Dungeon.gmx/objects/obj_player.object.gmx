@@ -56,7 +56,7 @@ var hspd = (key_right + key_left) * spd;
 var vspd = (key_down + key_up) * spd;
 
 //Move
-scr_move(hspd, vspd);
+    scr_move(hspd, vspd);
 
 </string>
           </argument>

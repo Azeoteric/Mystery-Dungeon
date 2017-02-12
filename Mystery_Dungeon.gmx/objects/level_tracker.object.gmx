@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,27 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create the level
-//Resize the room
-global.level = 1; 
-room_width = (CELL_WIDTH / 16)  * 720;
-room_height = (CELL_HEIGHT / 16) * 720;
-
-//Set Grid Width
-width = room_width div CELL_WIDTH;
-height = room_height div CELL_HEIGHT;
-
-
-// Create the grid
-grid = ds_grid_create(width, height);
-scr_make_floor(grid, width, height);
-
+            <string>global.level = 1;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="32">
+    <event eventtype="7" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -62,16 +48,7 @@ scr_make_floor(grid, width, height);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Next Level
-if(global.level &gt;= 5) {
-     room_goto(rm_boss);
-} 
- 
-global.level += 1;
-scr_make_floor(grid, width, height);
-
-
-
+            <string>global.level = 1;
 </string>
           </argument>
         </arguments>

@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create the level
-//Resize the room
-global.level = 1; 
+            <string>///Makes Boss Room
 room_width = (CELL_WIDTH / 16)  * 720;
 room_height = (CELL_HEIGHT / 16) * 720;
 
@@ -38,40 +36,93 @@ height = room_height div CELL_HEIGHT;
 
 // Create the grid
 grid = ds_grid_create(width, height);
-scr_make_floor(grid, width, height);
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Next Level
-if(global.level &gt;= 5) {
-     room_goto(rm_boss);
-} 
- 
-global.level += 1;
-scr_make_floor(grid, width, height);
+//Fill the grid with the void
+ds_grid_set_region(grid, 0, 0, width - 1, height - 1, VOID);
+
+//Randomized the world
+randomize();
+
+//Create the controller in random parts of the grid
+var cx = width div 2;
+var cy = height div 2;
+scr_make_room(cx, cy, true);
+
+cy += 5;
+scr_make_room(cx, cy, true);
+
+cx += 5;
+cy -= 5;
+scr_make_room(cx, cy, true);
+
+cy -= 5;
+scr_make_room(cx, cy, true);
+
+cx -= 5;
+scr_make_room(cx, cy, true);
+
+cx -= 5;
+scr_make_room(cx, cy, true);
+
+cy += 5;
+scr_make_room(cx, cy, true);
+
+cy += 5;
+cx += 5;
+cy++;
+repeat(10) {
+ grid[# cx, cy] = FLOOR;
+  cy++;
+}   
+scr_make_room(cx, cy, true);          
+instance_create(cx * CELL_WIDTH + CELL_WIDTH div 2, cy * CELL_HEIGHT + CELL_HEIGHT div 2, obj_player);
+
+cx -= 5;
+scr_make_room(cx, cy, true);
+
+cx += 10;
+scr_make_room(cx, cy, true);
+
+cx = width div 2;
+cy = height div 2
+
+cx += 10;
+cy -= 5;
+scr_make_room(cx, cy, true);
+
+cx -= 20;
+scr_make_room(cx, cy, true);
+
+cx = width div 2;
+cy -= 5;
+scr_make_room(cx, cy, true);
+
+cx -= 5;
+scr_make_room(cx, cy, true);
+
+cx += 10
+scr_make_room(cx, cy, true);
+
+cx -= 5
+cy -= 5; 
+scr_make_room(cx, cy, true); 
+
+cx += 10;
+scr_make_room(cx, cy, true); 
 
 
+cy = width div 2;
+cy += 5;
+scr_make_room(cx, cy, true); 
 
+cx -= 20;
+scr_make_room(cx, cy, true); 
+
+cy -= 20;
+scr_make_room(cx, cy, true); 
+
+
+scr_tile(width, height, grid);
 </string>
           </argument>
         </arguments>

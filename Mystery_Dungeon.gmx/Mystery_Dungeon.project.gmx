@@ -33,6 +33,8 @@
     <scripts name="Spawning Objects">
       <script>scripts\scr_player.gml</script>
       <scripts name="Room assets">
+        <script>scripts\scr_tile.gml</script>
+        <script>scripts\scr_make_floor.gml</script>
         <script>scripts\scr_stairs.gml</script>
         <script>scripts\scr_make_room.gml</script>
       </scripts>
@@ -51,14 +53,16 @@
     <objects name="Player">
       <object>objects\obj_player</object>
     </objects>
-    <objects name="room makers">
+    <objects name="Room Makers">
       <object>objects\obj_level_generator</object>
       <object>objects\obj_level_maker_test</object>
+      <object>objects\obj_boss_room</object>
       <object>objects\obj_level</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test2</room>
+    <room>rooms\rm_boss</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_ruins</room>
   </rooms>
