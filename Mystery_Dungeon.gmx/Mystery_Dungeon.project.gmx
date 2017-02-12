@@ -6,6 +6,8 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\spr_action_menu</sprite>
+    <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_player</sprite>
   </sprites>
@@ -19,11 +21,15 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_grid_place_meeting.gml</script>
-    <script>scripts\scr_move.gml</script>
+    <script>scripts\scr_text.gml</script>
     <script>scripts\scr_generate_nodes_for_room.gml</script>
     <script>scripts\scr_does_room_fit.gml</script>
     <script>scripts\scr_get_direction.gml</script>
+    <scripts name="Player Mechanics">
+      <script>scripts\scr_move.gml</script>
+      <script>scripts\scr_grid_place_meeting.gml</script>
+      <script>scripts\scr_get_input.gml</script>
+    </scripts>
     <scripts name="Spawning Objects">
       <script>scripts\scr_player.gml</script>
       <scripts name="Room assets">
@@ -32,12 +38,24 @@
       </scripts>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_large</font>
+  </fonts>
   <objects name="objects">
-    <object>objects\obj_stairs</object>
-    <object>objects\obj_level</object>
-    <object>objects\obj_player</object>
-    <object>objects\obj_level_generator</object>
-    <object>objects\obj_level_maker_test</object>
+    <objects name="Room assets">
+      <object>objects\obj_stairs</object>
+      <object>objects\obj_leave_floor_menu</object>
+      <object>objects\obj_floor_text</object>
+      <object>objects\obj_arrow</object>
+    </objects>
+    <objects name="Player">
+      <object>objects\obj_player</object>
+    </objects>
+    <objects name="room makers">
+      <object>objects\obj_level_generator</object>
+      <object>objects\obj_level_maker_test</object>
+      <object>objects\obj_level</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test2</room>
@@ -45,12 +63,12 @@
     <room>rooms\rm_ruins</room>
   </rooms>
   <constants number="8">
-    <constant name="CELL_WIDTH">32</constant>
-    <constant name="CELL_HEIGHT">32</constant>
+    <constant name="CELL_WIDTH">48</constant>
+    <constant name="CELL_HEIGHT">48</constant>
     <constant name="WALL">-5</constant>
     <constant name="VOID">-6</constant>
-    <constant name="FLOOR">-7</constant>
-    <constant name="STAIRS">-8</constant>
+    <constant name="STAIRS">-7</constant>
+    <constant name="FLOOR">-8</constant>
     <constant name="NODE">-9</constant>
     <constant name="FLOOR_NOT_NODE">-10</constant>
   </constants>

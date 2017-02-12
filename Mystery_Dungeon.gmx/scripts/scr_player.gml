@@ -21,8 +21,8 @@ while(!is_player_set) {
         // Chance of placing a stairs if it is surronded by floor tiles,
         if (grid[# xStr, yStr] == NODE) {
             if (irandom(10) < 1) {
-               instance_create(((xStr * CELL_WIDTH) + 16), ((yStr * CELL_HEIGHT) + 16), obj_player);
-               is_player_set = true;
+               instance_create(((xStr * CELL_WIDTH) + CELL_WIDTH div 2), ((yStr * CELL_HEIGHT) + CELL_HEIGHT div 2), obj_player);
+               is_player_set = true;  
             }
         }
         // Randomize the controller direction 

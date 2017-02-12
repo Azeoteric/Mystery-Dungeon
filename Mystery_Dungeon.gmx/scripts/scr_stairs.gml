@@ -24,7 +24,7 @@ while(!is_stairs_set) {
            (grid[# xStr, yStr] == FLOOR) {
             if (irandom(10) < 1) {
                grid[# xStr, yStr] = STAIRS;
-              // tile_add(bg_stairs, 0, 0, CELL_WIDTH, CELL_HEIGHT, xStr * CELL_WIDTH, yStr * CELL_HEIGHT, -11);
+               //tile_add(bg_stairs, 0, 0, CELL_WIDTH, CELL_HEIGHT, xStr * CELL_WIDTH, yStr * CELL_HEIGHT, -11);
                instance_create(xStr * CELL_WIDTH, yStr * CELL_HEIGHT, obj_stairs);
                is_stairs_set = true;
             }

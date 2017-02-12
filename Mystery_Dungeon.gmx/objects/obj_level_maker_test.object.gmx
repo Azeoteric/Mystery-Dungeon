@@ -56,11 +56,11 @@ var cdir = irandom(3);
 var odds = 1;
 
 scr_make_room(cx, cy, true);
-loop = 0;
+// Counts the numb
 rooms = 1;
-// Create the level using 1000 steps;
+// Create the level using between 75-150 steps;
 repeat (irandom(75) + 75) {
-    loop++;
+
     if((irandom(100) &gt; 75) &amp;&amp; (!ds_grid_value_exists(grid, cx - 8, cy - 8, cx + 8, cy + 8, NODE) &amp;&amp; (rooms &lt; 12))) {
           scr_make_room(cx, cy, false, width, height); 
               rooms++;
