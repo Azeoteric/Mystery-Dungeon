@@ -33,6 +33,7 @@
     <scripts name="Spawning Objects">
       <script>scripts\scr_player.gml</script>
       <scripts name="Room assets">
+        <script>scripts\scr_delete_tiles.gml</script>
         <script>scripts\scr_tile.gml</script>
         <script>scripts\scr_make_floor.gml</script>
         <script>scripts\scr_stairs.gml</script>

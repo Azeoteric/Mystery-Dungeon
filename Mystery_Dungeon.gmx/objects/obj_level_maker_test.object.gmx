@@ -27,14 +27,13 @@
             <kind>1</kind>
             <string>///Create the level
 //Resize the room
-global.level = 1; 
+level = 1; 
 room_width = (CELL_WIDTH / 16)  * 720;
 room_height = (CELL_HEIGHT / 16) * 720;
 
 //Set Grid Width
 width = room_width div CELL_WIDTH;
 height = room_height div CELL_HEIGHT;
-
 
 // Create the grid
 grid = ds_grid_create(width, height);
@@ -63,11 +62,23 @@ scr_make_floor(grid, width, height);
           <argument>
             <kind>1</kind>
             <string>/// Next Level
-if(global.level &gt;= 5) {
+with (obj_player) {
+     instance_destroy()
+}
+
+with (obj_stairs) {
+     instance_destroy()
+}
+
+if (level &gt;= 5) {
      room_goto(rm_boss);
-} 
- 
-global.level += 1;
+}
+
+level += 1;
+//if (tile_exists(bg_walltiles)) {
+  scr_delete_tiles(grid);
+      //tile_delete(bg_walltiles);
+//}
 scr_make_floor(grid, width, height);
 
 

@@ -5,6 +5,7 @@ var height = argument[2]
 
 //Fill the grid with the void
 ds_grid_set_region(grid, 0, 0, width - 1, height - 1, VOID);
+scr_tile(width, height, grid);
 
 //Randomized the world
 randomize();

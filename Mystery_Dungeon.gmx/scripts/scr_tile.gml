@@ -35,7 +35,7 @@ for (ypos  = 0;  ypos < height; ypos++) {
             // Draw floor
             tile_add(bg_node, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
             }
-            if (grid[# xpos, ypos] == FLOOR_NOT_NODE) {
+            if (grid[# xpos, ypos] == VOID) {
             // Draw floor
             tile_add(bg_floor2, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
             }
