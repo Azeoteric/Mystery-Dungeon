@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Setting up player
+is_movable = true;
 </string>
           </argument>
         </arguments>
@@ -56,9 +57,35 @@ var hspd = (key_right + key_left) * spd;
 var vspd = (key_down + key_up) * spd;
 
 //Move
-    scr_move(hspd, vspd);
-    
+if(is_movable) {
+   scr_move(hspd, vspd);
+}    
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(!instance_exists(obj_leave_floor_menu)) {
+       instance_create(x, y + 60, obj_leave_floor_menu); 
+}
 </string>
           </argument>
         </arguments>

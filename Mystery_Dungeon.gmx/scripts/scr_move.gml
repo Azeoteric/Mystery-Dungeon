@@ -8,9 +8,7 @@ if (scr_grid_place_meeting(x + hspd, y)) {
       x += sign(hspd)                     
    }
    if(scr_meeting_stairs(x + sign(hspd), y)){
-       with(obj_level_maker_test) {
              event_user(0);
-       }
     }
 hspd = 0;
 }
@@ -23,10 +21,8 @@ if (scr_grid_place_meeting(x, y + vspd)) {
       y += sign(vspd)                     
    }
    if(scr_meeting_stairs(x, y + sign(vspd))){
-    with(obj_level_maker_test) {
          event_user(0);
    }
-    }
 vspd = 0;
 }
 

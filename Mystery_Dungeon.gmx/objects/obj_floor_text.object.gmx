@@ -26,8 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///Setting up values
+depth = -2001;
 print = "";
-spd = 0.2;
+spd = 0.3;
 time = 0;
 text_length = 10;
 
@@ -84,11 +85,14 @@ draw_set_valign(fa_middle);
 draw_set_font(fnt_large);
 draw_set_color(c_white);
 
-draw_text(room_width/2, room_height/2 + 75, print);
-scr_text("Leave Floor? #No\t\tYes");
+draw_text(x, y, print);
+text = "Leave Floor?#Yes       No";
+scr_text(text);
 
-if (time = text_length) {
-instance_create(x, y, obj_arrow);
+if (time &gt; string_length(text)) {
+   if(!instance_exists(obj_arrow)) {
+      instance_create(x + 20, y + 13 , obj_arrow);
+      }
 }
 
 </string>

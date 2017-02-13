@@ -26,7 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///Setup
+depth = -2000;
 instance_create(x, y, obj_floor_text);
+obj_player.is_movable = false;
 </string>
           </argument>
         </arguments>

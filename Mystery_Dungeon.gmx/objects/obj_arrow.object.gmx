@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set up arrows
+depth = -2002;
+is_left = true;
+is_right = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,7 +51,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(obj_floor_text) {
+            <string>///Delete text
+with(obj_floor_text) {
    instance_destroy();
 }
 </string>
@@ -50,7 +77,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_get_input();
+            <string>///Moves arrow
+scr_get_input();
+move = key_right + key_left;
+if (move &lt; 0 &amp;&amp; is_left){
+   x -= 105;
+   is_left = false;
+   is_right = true;
+
+}
+if (move &gt; 0 &amp;&amp; is_right){
+   x += 105;
+   is_left = true;
+   is_right = false;
+}
+
+if (key_act &amp;&amp; is_left) {
+   obj_player.is_movable = true;
+   instance_destroy();
+}
+
+if (key_act &amp;&amp; is_right) {
+   obj_player.is_movable = true;
+   with(obj_level_maker_test){
+      event_user(0);
+   }
+}
 </string>
           </argument>
         </arguments>
