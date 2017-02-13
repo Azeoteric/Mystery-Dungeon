@@ -25,27 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create the level
-//Resize the room
-level = 0;
-
-room_width = (CELL_WIDTH / 16)  * 720;
-room_height = (CELL_HEIGHT / 16) * 720;
-
-//Set Grid Width
-width = room_width div CELL_WIDTH;
-height = room_height div CELL_HEIGHT;
-
-// Create the grid
-grid = ds_grid_create(width, height);
-scr_make_floor(grid, width, height);
-
+            <string>global.level = -10;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="32">
+    <event eventtype="9" enumb="65">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -62,47 +48,7 @@ scr_make_floor(grid, width, height);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Makes a random  (Testing ONLY!!!!)
-room_restart();
-
-
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Makes the Next Level
-
-if (global.floor_count &gt; 5) {
-     room_goto(rm_boss);
-} 
-else{
-     global.floor_count++;
-     room_restart();
-}
-
-
-
-
+            <string>global.level++;
 </string>
           </argument>
         </arguments>

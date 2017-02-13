@@ -265,7 +265,7 @@ for (xx = 0; xx &lt; width - 1; xx++) {
           <argument>
             <kind>1</kind>
             <string>/// Restart room
-room_restart();
+//room_restart();
 </string>
           </argument>
         </arguments>

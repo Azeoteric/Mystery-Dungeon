@@ -1,4 +1,4 @@
-///scr_delete_tiles(grid)
+///scr_delete_walls(grid)
 // Get tile sizes 
 grid = argument[0];
 var tw = CELL_WIDTH / 2;

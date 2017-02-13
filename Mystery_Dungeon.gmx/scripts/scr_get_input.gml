@@ -21,6 +21,7 @@ key_up_pressed = -(keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("
                 || gamepad_button_check_pressed(0,gp_padu));
 key_down_pressed = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))
                 || gamepad_button_check_pressed(0,gp_padd);
+                
 key_act = keyboard_check_pressed(ord("X"))|| keyboard_check_pressed(vk_space)
                 || gamepad_button_check_pressed(0, gp_face3);
 key_act2 = keyboard_check_released(ord("X"))|| keyboard_check_released(vk_space)

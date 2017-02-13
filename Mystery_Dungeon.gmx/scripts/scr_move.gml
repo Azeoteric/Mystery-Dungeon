@@ -7,7 +7,12 @@ if (scr_grid_place_meeting(x + hspd, y)) {
    while (!scr_grid_place_meeting(x + sign(hspd), y)) {
       x += sign(hspd)                     
    }
-   hspd = 0;
+   if(scr_meeting_stairs(x + sign(hspd), y)){
+       with(obj_level_maker_test) {
+             event_user(0);
+       }
+    }
+hspd = 0;
 }
 // Move Horizontally
 x += hspd;
@@ -17,9 +22,13 @@ if (scr_grid_place_meeting(x, y + vspd)) {
    while (!scr_grid_place_meeting(x, y + sign(vspd))) {
       y += sign(vspd)                     
    }
-   vspd = 0;
+   if(scr_meeting_stairs(x, y + sign(vspd))){
+    with(obj_level_maker_test) {
+         event_user(0);
+   }
+    }
+vspd = 0;
 }
 
 // Move Vetically
-y+= vspd;
-is_moving = true;
+y += vspd;

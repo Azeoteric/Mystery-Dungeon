@@ -23,10 +23,10 @@ var cdir = irandom(3);
 var odds = 1;
 
 scr_make_room(cx, cy, true);
-// Counts the numb
+// Counts the number of rooms on the floor.
 rooms = 1;
-// Create the level using between 75-150 steps;
-repeat (irandom(75) + 75) {
+// Create the level using between 100 - 200 steps;
+repeat (irandom(100) + 100) {
 
     if((irandom(100) > 75) && (!ds_grid_value_exists(grid, cx - 8, cy - 8, cx + 8, cy + 8, NODE) && (rooms < 12))) {
           scr_make_room(cx, cy, false, width, height); 
@@ -62,8 +62,8 @@ repeat (irandom(75) + 75) {
           
       }
 }
-if(rooms < 8) {
-     room_restart()
+if(rooms <= 8) {
+   room_restart();
 }
 // Tiles the room
 scr_tile(width, height, grid);
