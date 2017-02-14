@@ -28,7 +28,7 @@ rooms = 1;
 // Create the level using between 100 - 200 steps;
 repeat (irandom(100) + 100) {
 
-    if((irandom(100) > 75) && (!ds_grid_value_exists(grid, cx - 8, cy - 8, cx + 8, cy + 8, NODE) && (rooms < 12))) {
+    if((irandom(100) > 75) && (!ds_grid_value_exists(grid, cx - 8, cy - 8, cx + 8, cy + 8, NODE) && (rooms < 8))) {
           scr_make_room(cx, cy, false, width, height); 
               rooms++;
     }
@@ -62,7 +62,7 @@ repeat (irandom(100) + 100) {
           
       }
 }
-if(rooms <= 8) {
+if(rooms <= 4) {
    room_restart();
 }
 // Tiles the room

@@ -3,37 +3,11 @@ var cx = argument[0];
 var cy = argument[1];
 var is_double_room = argument[2];
 
-    
+    ds_grid_set_region(grid, cx - 2, cy - 2, cx + 2, cy + 2, FLOOR);
     grid[# cx, cy] = NODE;
-    //instance_create(cx * CELL_WIDTH, cy * CELL_HEIGHT, obj_node); 
     
-    grid[# cx + 1, cy] = FLOOR;
-    grid[# cx, cy + 1] = FLOOR;
-    grid[# cx - 1, cy] = FLOOR;
-    grid[# cx, cy - 1] = FLOOR;
-    grid[# cx + 1, cy + 1] = FLOOR;
-    grid[# cx - 1, cy + 1] = FLOOR;
-    grid[# cx + 1, cy - 1] = FLOOR;
-    grid[# cx - 1, cy - 1] = FLOOR;    
-   
-    grid[# cx + 1, cy + 2] = FLOOR;
-    grid[# cx + 2, cy + 1] = FLOOR;
-    grid[# cx - 1, cy - 2] = FLOOR;
-    grid[# cx - 2, cy - 1] = FLOOR;
-    grid[# cx - 2, cy + 1] = FLOOR;
-    grid[# cx - 1, cy + 2] = FLOOR;
-    grid[# cx + 2, cy - 1] = FLOOR;
-    grid[# cx + 1, cy - 2] = FLOOR; 
-     
-    grid[# cx + 2, cy] = FLOOR;
-    grid[# cx, cy + 2] = FLOOR;
-    grid[# cx - 2, cy] = FLOOR;
-    grid[# cx, cy - 2] = FLOOR;
-    grid[# cx + 2, cy + 2] = FLOOR;
-    grid[# cx - 2, cy + 2] = FLOOR;
-    grid[# cx + 2, cy - 2] = FLOOR;
-    grid[# cx - 2, cy - 2] = FLOOR;    
     
+        //30% chance of making a connecting room in a random direction
     if((irandom(100) > 70) && (!is_double_room))  {
          var width = argument[3];
          var height = argument[4];
