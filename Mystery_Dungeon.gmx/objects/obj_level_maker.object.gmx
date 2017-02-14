@@ -38,7 +38,7 @@ height = room_height div CELL_HEIGHT;
 
 // Create the grid
 grid = ds_grid_create(width, height);
-scr_make_floor(grid, width, height);
+scr_make_floor(grid, width, height, 4, 12, 100);
 
 </string>
           </argument>

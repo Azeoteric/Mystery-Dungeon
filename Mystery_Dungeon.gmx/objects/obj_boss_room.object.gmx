@@ -76,7 +76,8 @@ repeat(10) {
   cy++;
 }   
 scr_make_room(cx, cy, true);          
-instance_create(cx * CELL_WIDTH + CELL_WIDTH div 2, cy * CELL_HEIGHT + CELL_HEIGHT div 2, obj_player);
+tempX = cx * CELL_WIDTH + CELL_WIDTH div 2;
+tempY = cy * CELL_HEIGHT + CELL_HEIGHT div 2;
 
 cx -= 5;
 scr_make_room(cx, cy, true);
@@ -122,7 +123,7 @@ scr_make_room(cx, cy, true);
 cy -= 20;
 scr_make_room(cx, cy, true); 
 
-
+instance_create(tempX, tempY, obj_player);
 scr_tile(width, height, grid);
 </string>
           </argument>
