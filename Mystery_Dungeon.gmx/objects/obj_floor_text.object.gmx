@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Setting up values
-depth = -2001;
+depth = -20001;
 print = "";
 spd = 0.3;
 time = 0;
@@ -54,7 +54,8 @@ text_length = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(obj_leave_floor_menu) {
+            <string>///Deletes the menu
+with(obj_leave_floor_menu) {
    instance_destroy();
 }
 </string>

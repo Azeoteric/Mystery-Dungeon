@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///Setup
-depth = -2000;
+depth = -20000;
 instance_create(x, y, obj_floor_text);
-obj_player.is_movable = false;
+global.is_game_running = false;
 </string>
           </argument>
         </arguments>

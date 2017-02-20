@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.floor_count = 1;
+            <string>///Sets up unchangable varibales
+global.floor_count = 1;
+global.is_game_running = true;
 </string>
           </argument>
         </arguments>

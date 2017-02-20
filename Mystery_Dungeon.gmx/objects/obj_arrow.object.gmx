@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set up arrows
-depth = -2002;
+            <string>///Set up arrow
+depth = -20002;
 is_left = true;
 is_right = false;
 </string>
@@ -93,13 +93,13 @@ if (move &gt; 0 &amp;&amp; is_right){
 }
 
 if (key_act &amp;&amp; is_left) {
-   obj_player.is_movable = true;
+   global.is_game_running = true;
    instance_destroy();
 }
 
 if (key_act &amp;&amp; is_right) {
-   obj_player.is_movable = true;
-   with(obj_level_maker_test){
+   global.is_game_running = false;
+   with(obj_level_maker){
       event_user(0);
    }
 }

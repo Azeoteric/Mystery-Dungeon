@@ -47,7 +47,7 @@
   </fonts>
   <objects name="objects">
     <objects name="Room assets">
-      <object>objects\obj_floor_counter</object>
+      <object>objects\obj_game_variables</object>
       <object>objects\obj_stairs</object>
       <object>objects\obj_leave_floor_menu</object>
       <object>objects\obj_floor_text</object>
@@ -58,7 +58,7 @@
     </objects>
     <objects name="Room Makers">
       <object>objects\obj_level_generator</object>
-      <object>objects\obj_level_maker_test</object>
+      <object>objects\obj_level_maker</object>
       <object>objects\obj_boss_room</object>
       <object>objects\obj_level</object>
     </objects>

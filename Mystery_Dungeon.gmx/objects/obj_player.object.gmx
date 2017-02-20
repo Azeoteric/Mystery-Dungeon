@@ -26,7 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>///Setting up player
-is_movable = true;
+if(room = rm_test2) {
+grid = obj_level_maker.grid;
+}
+if(room = rm_boss) {
+grid = obj_boss_room.grid;
+}
+global.is_game_running = true;
 </string>
           </argument>
         </arguments>
@@ -57,7 +63,7 @@ var hspd = (key_right + key_left) * spd;
 var vspd = (key_down + key_up) * spd;
 
 //Move
-if(is_movable) {
+if(global.is_game_running) {
    scr_move(hspd, vspd);
 }    
 

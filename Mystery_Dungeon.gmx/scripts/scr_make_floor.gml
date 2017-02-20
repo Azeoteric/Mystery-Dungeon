@@ -1,8 +1,10 @@
-///scr_make_floor(grid, width, height)
+///scr_make_floor(grid, width, height, min_rooms, max_rooms, num_tiles)
 grid = argument[0];
 var width = argument[1];
-var height = argument[2]
-
+var height = argument[2];
+var min_rooms = argument[3];
+var max_rooms = argument[4];
+var num_tiles = argument[5];
 //Fill the grid with the void
 ds_grid_set_region(grid, 0, 0, width - 1, height - 1, VOID);
 scr_tile(width, height, grid);
@@ -26,9 +28,9 @@ scr_make_room(cx, cy, true);
 // Counts the number of rooms on the floor.
 rooms = 1;
 // Create the level using between 100 - 200 steps;
-repeat (irandom(100) + 100) {
+repeat (irandom(num_tiles) + num_tiles) {
 
-    if((irandom(100) > 75) && (!ds_grid_value_exists(grid, cx - 8, cy - 8, cx + 8, cy + 8, NODE) && (rooms < 12))) {
+    if((irandom(100) > 75) && (!ds_grid_value_exists(grid, cx - 8, cy - 8, cx + 8, cy + 8, NODE) && (rooms < max_rooms))) {
           scr_make_room(cx, cy, false, width, height); 
               rooms++;
     }
@@ -62,7 +64,7 @@ repeat (irandom(100) + 100) {
           
       }
 }
-if(rooms <= 8) {
+if(rooms <= min_rooms) {
    room_restart();
 }
 // Tiles the room
