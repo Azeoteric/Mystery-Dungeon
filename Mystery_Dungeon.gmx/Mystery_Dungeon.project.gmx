@@ -62,6 +62,9 @@
       <object>objects\obj_boss_room</object>
       <object>objects\obj_level</object>
     </objects>
+    <objects name="Projectiles">
+      <object>objects\obj_arrow_projectile</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test2</room>
