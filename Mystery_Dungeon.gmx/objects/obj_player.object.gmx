@@ -11,6 +11,26 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
+        <id>103</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_hspeed</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -34,27 +54,32 @@ grid = obj_boss_room.grid;
 }
 global.is_game_running = true;
 attackTimer = 0;
+DEFAULT_FIRE_RATE = 30;
+current_fire_rate = DEFAULT_FIRE_RATE;
+canAttack = true;
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
-        <id>103</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_hspeed</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>0</string>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -110,17 +135,13 @@ if(global.is_game_running) {
             <kind>1</kind>
             <string>///Attack
 
+
+
 shouldAttack = false //No projectile is fired if no attack key is pressed.
 xDirection = 0 // 1 if to the right, -1 if to the left and 0 if no movement.
 yDirection = 0 // 1 if down, -1 if up, and 0 if no movement.
 
 //Checks the projectile should have a horizontal velocity component.
-if (attackTimer &lt; 10) {
-    attackTimer++;
-}
-else{
-    attackTimer = 0;
-}
 
 if (keyboard_check(vk_right))
 {
@@ -145,11 +166,17 @@ else if (keyboard_check(vk_down))
     shouldAttack = true;
 }
 
-if (shouldAttack &amp;&amp; attackTimer &gt;= 10)
+if (alarm[0] == -1 &amp;&amp; shouldAttack) {
+    alarm[0] = current_fire_rate;
+    canAttack = true;
+}
+
+if (shouldAttack &amp;&amp; canAttack)
 {
     var projectile = (instance_create(x, y, obj_arrow_projectile));
     projectile.xDirection = xDirection;
     projectile.yDirection = yDirection;
+    canAttack = false;
     
 }
 
