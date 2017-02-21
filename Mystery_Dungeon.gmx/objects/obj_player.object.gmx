@@ -34,6 +34,7 @@ grid = obj_boss_room.grid;
 }
 global.is_game_running = true;
 attackTimer = 0;
+gamepad_set_axis_deadzone(0,0.7);
 </string>
           </argument>
         </arguments>
