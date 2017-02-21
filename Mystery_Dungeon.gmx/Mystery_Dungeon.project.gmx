@@ -7,6 +7,18 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_action_menu</sprite>
+    <sprites name="Cupcake Princess">
+      <sprite>sprites\spr_cp_idle</sprite>
+      <sprite>sprites\spr_cp_wlk_dwn</sprite>
+      <sprite>sprites\spr_cp_wlk_rght</sprite>
+      <sprite>sprites\spr_cp_wlk_up</sprite>
+      <sprites name="Sprinkles">
+        <sprite>sprites\spr_sprinkle_grn</sprite>
+        <sprite>sprites\spr_sprinkle_prpl</sprite>
+        <sprite>sprites\spr_sprinkle_red</sprite>
+        <sprite>sprites\spr_sprinkle_yllw</sprite>
+      </sprites>
+    </sprites>
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_player</sprite>

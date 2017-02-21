@@ -47,17 +47,17 @@ for (ypos  = 0;  ypos &lt; height; ypos++) {
     for (xpos = 0; xpos &lt; height; xpos++) {
         if (grid[# xpos, ypos] == FLOOR) {
             // Draw floor
-            tile_add(bg_wall, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 50), (ypos * MAP_HEIGHT) + (y - 90), -9000);
+            tile_add(bg_wall, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);
         }  
         
         if (grid[# xpos, ypos] == NODE) {
             // Draw nodes
-            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 50), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
+            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
         }
      }
      
 }
-tile_add(bg_floor2, 0, 0, MAP_WIDTH, MAP_HEIGHT, (obj_player.x * MAP_WIDTH) + (x - 50), (obj_player * MAP_HEIGHT) + (y - 90), -9000);
+
 </string>
           </argument>
         </arguments>
@@ -112,10 +112,12 @@ if(key_back) {
     for (xpos = 0; xpos &lt; height; xpos++) {
      var tile;
      //Clears all the tiles on the minimap
-     tile = tile_layer_find(-9000,(xpos * MAP_WIDTH) + (x - 50), (ypos * MAP_WIDTH) + (y - 90));   
-     if tile_exists(tile) tile_delete(tile);
+     tile = tile_layer_find(-9000,(xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_WIDTH) + (y - 90));   
+     if (tile_exists(tile)) {
+        tile_delete(tile);
      }
    }
+ }
 instance_destroy();
 global.is_game_running = true;
 }

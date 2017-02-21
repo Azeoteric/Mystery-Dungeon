@@ -16,7 +16,8 @@ key_aim_down = keyboard_check(vk_down) || (gamepad_axis_value(0,gp_axisrv) > 0);
 key_map = (keyboard_check_pressed(ord("F")) || gamepad_button_check_pressed(0,gp_padl));
 
 //key_down_pressed = keyboard_check_pressed(ord("S")) || gamepad_button_check_pressed(0,gp_padd);
-                                
+
+                               
 //Non-Movement Keypresses
 key_act = keyboard_check_pressed(ord("X"))|| keyboard_check_pressed(vk_space)
                 || gamepad_button_check_pressed(0, gp_face1);
@@ -24,3 +25,14 @@ key_act2 = keyboard_check_released(ord("X"))|| keyboard_check_released(vk_space)
                 || gamepad_button_check_released(0, gp_face4);                  
 key_back = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0,gp_face2);                              
  
+//Just some helpful variables
+if (-key_up || key_down || key_right || -key_left)   
+{
+    is_moving = true;
+}
+else
+{
+    is_moving = false;
+}
+hmove = key_right + key_left;
+vmove = key_up + key_down;
