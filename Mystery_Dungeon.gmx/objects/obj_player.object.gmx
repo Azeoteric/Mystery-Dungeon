@@ -33,27 +33,9 @@ if(room = rm_boss) {
 grid = obj_boss_room.grid;
 }
 global.is_game_running = true;
+attackTimer = 0;
+gamepad_set_axis_deadzone(0,0.7);
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>103</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_hspeed</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -76,16 +58,36 @@ global.is_game_running = true;
           <argument>
             <kind>1</kind>
             <string>/// Input and move
-scr_get_input();
-
-var spd  = 3;
-var hspd = (key_right + key_left) * spd;
-var vspd = (key_down + key_up) * spd;
-
 //Move
 if(global.is_game_running) {
+   scr_get_input();
+   var spd  = 3;
+   var tempx = x;
+   var tempy = y; 
+   var hspd = (key_right + key_left) * spd;
+   var vspd = (key_down + key_up) * spd;
    scr_move(hspd, vspd);
+   if(key_map) {
+      if(y &lt; 90){
+        tempy = 90;   
+      }
+      if(y &gt; room_height - 90){
+        tempy = room_height - 90;
+      }
+      if(x &lt; 160){
+        tempx = 160;   
+      }
+      if(x &gt; room_width - 160){
+        tempx = room_width - 160;
+      }
+      instance_create(tempx, tempy, obj_minimap);
+      
+   }
 }    
+if(!global.is_game_running) {
+    shouldAttack = false;
+}
+
 
 </string>
           </argument>
@@ -114,34 +116,46 @@ xDirection = 0 // 1 if to the right, -1 if to the left and 0 if no movement.
 yDirection = 0 // 1 if down, -1 if up, and 0 if no movement.
 
 //Checks the projectile should have a horizontal velocity component.
-if (keyboard_check(vk_right))
+if (attackTimer &lt; 10) {
+    attackTimer++;
+}
+else{
+    attackTimer = 0;
+}
+shootx = key_aim_right + key_aim_left;
+if (shootx &gt; 0)
 {
     xDirection = 1;
     shouldAttack = true;
 }
-else if (keyboard_check(vk_left))
+else if (shootx &lt; 0)
 {
     xDirection = -1;
     shouldAttack = true;
 }
 
 //Checks if the projectile has a vertical velocity component.
-if (keyboard_check(vk_up))
+
+shooty = key_aim_down + key_aim_up;
+if (shooty &lt; 0)
 {
     yDirection = -1;
     shouldAttack = true;
 }
-else if (keyboard_check(vk_down))
+else if (shooty &gt; 0)
 {
     yDirection = 1;
     shouldAttack = true;
 }
-if (shouldAttack)
+if (shouldAttack &amp;&amp; attackTimer &gt;= 10 &amp;&amp; global.is_game_running)
 {
     var projectile = (instance_create(x, y, obj_arrow_projectile));
     projectile.xDirection = xDirection;
     projectile.yDirection = yDirection;
+    
 }
+
+
 </string>
           </argument>
         </arguments>

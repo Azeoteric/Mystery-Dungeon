@@ -10,6 +10,7 @@
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_minimap_box</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
@@ -47,6 +48,8 @@
   </fonts>
   <objects name="objects">
     <objects name="Room assets">
+      <object>objects\obj_minimap_box</object>
+      <object>objects\obj_minimap</object>
       <object>objects\obj_game_variables</object>
       <object>objects\obj_stairs</object>
       <object>objects\obj_leave_floor_menu</object>
@@ -72,9 +75,11 @@
     <room>rooms\rm_test</room>
     <room>rooms\rm_ruins</room>
   </rooms>
-  <constants number="8">
+  <constants number="10">
     <constant name="CELL_WIDTH">48</constant>
     <constant name="CELL_HEIGHT">48</constant>
+    <constant name="MAP_WIDTH">4</constant>
+    <constant name="MAP_HEIGHT">4</constant>
     <constant name="WALL">-5</constant>
     <constant name="VOID">-6</constant>
     <constant name="STAIRS">-7</constant>
