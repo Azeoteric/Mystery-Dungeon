@@ -34,7 +34,7 @@ grid = obj_boss_room.grid;
 }
 global.is_game_running = true;
 attackTimer = 0;
-gamepad_set_axis_deadzone(0,0.3);
+gamepad_set_axis_deadzone(0,0.7);
 </string>
           </argument>
         </arguments>
@@ -78,14 +78,14 @@ gamepad_set_axis_deadzone(0,0.3);
           <argument>
             <kind>1</kind>
             <string>/// Input and move
-//Makes sure the game is running
-if(global.is_game_running) {
 scr_get_input();
 
 var spd  = 3;
 var hspd = (key_right + key_left) * spd;
 var vspd = (key_down + key_up) * spd;
+
 //Move
+if(global.is_game_running) {
    scr_move(hspd, vspd);
 }    
 
