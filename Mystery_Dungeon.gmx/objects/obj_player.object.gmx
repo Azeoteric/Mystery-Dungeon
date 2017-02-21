@@ -37,6 +37,26 @@ global.is_game_running = true;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>103</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_hspeed</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -89,29 +109,39 @@ if(global.is_game_running) {
             <kind>1</kind>
             <string>///Attack
 
-//Attacks to the right
+shouldAttack = false //No projectile is fired if no attack key is pressed.
+xDirection = 0 // 1 if to the right, -1 if to the left and 0 if no movement.
+yDirection = 0 // 1 if down, -1 if up, and 0 if no movement.
+
+//Checks the projectile should have a horizontal velocity component.
 if (keyboard_check(vk_right))
 {
-    show_debug_message("Testing for arrow projectile");
-    instance_create(x, y, obj_arrow_projectile)
+    xDirection = 1;
+    shouldAttack = true;
 }
-
-//Attacks to the left
-if (keyboard_check(vk_left))
+else if (keyboard_check(vk_left))
 {
-    instance_create(x, y, obj_arrow_projectile)
+    xDirection = -1;
+    shouldAttack = true;
 }
 
-//Attacks up
+//Checks if the projectile has a vertical velocity component.
 if (keyboard_check(vk_up))
 {
-    instance_create(x, y, obj_arrow_projectile)
+    yDirection = -1;
+    shouldAttack = true;
+}
+else if (keyboard_check(vk_down))
+{
+    yDirection = 1;
+    shouldAttack = true;
 }
 
-//Attacks down
-if (keyboard_check(vk_down))
+if (shouldAttack)
 {
-    instance_create(x, y, obj_arrow_projectile)
+    var projectile = (instance_create(x, y, obj_arrow_projectile));
+    projectile.xDirection = xDirection;
+    projectile.yDirection = yDirection;
 }
 </string>
           </argument>
