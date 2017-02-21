@@ -122,30 +122,31 @@ if (attackTimer &lt; 10) {
 else{
     attackTimer = 0;
 }
-
-if (keyboard_check(vk_right))
+shootx = key_aim_right + key_aim_left;
+if (shootx &gt; 0)
 {
     xDirection = 1;
     shouldAttack = true;
 }
-else if (keyboard_check(vk_left))
+else if (shootx &lt; 0)
 {
     xDirection = -1;
     shouldAttack = true;
 }
 
 //Checks if the projectile has a vertical velocity component.
-if (keyboard_check(vk_up))
+
+shooty = key_aim_down + key_aim_up;
+if (shooty &lt; 0)
 {
     yDirection = -1;
     shouldAttack = true;
 }
-else if (keyboard_check(vk_down))
+else if (shooty &gt; 0)
 {
     yDirection = 1;
     shouldAttack = true;
 }
-
 if (shouldAttack &amp;&amp; attackTimer &gt;= 10)
 {
     var projectile = (instance_create(x, y, obj_arrow_projectile));
