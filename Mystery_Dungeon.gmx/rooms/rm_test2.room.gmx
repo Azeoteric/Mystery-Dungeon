@@ -3,8 +3,8 @@
   <caption></caption>
   <width>720</width>
   <height>720</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>90</vsnap>
+  <hsnap>160</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
