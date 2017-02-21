@@ -33,6 +33,7 @@ if(room = rm_boss) {
 grid = obj_boss_room.grid;
 }
 global.is_game_running = true;
+attackTimer = 0;
 </string>
           </argument>
         </arguments>
@@ -114,6 +115,13 @@ xDirection = 0 // 1 if to the right, -1 if to the left and 0 if no movement.
 yDirection = 0 // 1 if down, -1 if up, and 0 if no movement.
 
 //Checks the projectile should have a horizontal velocity component.
+if (attackTimer &lt; 10) {
+    attackTimer++;
+}
+else{
+    attackTimer = 0;
+}
+
 if (keyboard_check(vk_right))
 {
     xDirection = 1;
@@ -137,12 +145,15 @@ else if (keyboard_check(vk_down))
     shouldAttack = true;
 }
 
-if (shouldAttack)
+if (shouldAttack &amp;&amp; attackTimer &gt;= 10)
 {
     var projectile = (instance_create(x, y, obj_arrow_projectile));
     projectile.xDirection = xDirection;
     projectile.yDirection = yDirection;
+    
 }
+
+
 </string>
           </argument>
         </arguments>
