@@ -91,6 +91,9 @@ scr_move(hspd, vspd);
 if(!global.is_game_running) {
     shouldAttack = false;
 }
+if(key_map) {
+   instance_create(x, y, obj_minimap);
+}
 </string>
           </argument>
         </arguments>

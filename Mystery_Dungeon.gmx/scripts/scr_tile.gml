@@ -32,11 +32,11 @@ for (ypos  = 0;  ypos < height; ypos++) {
             tile_add(bg_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);
         }  
         if (grid[# xpos, ypos] == NODE) {
-            // Draw floor
+            // Draw nodes
             tile_add(bg_node, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
             }
             if (grid[# xpos, ypos] == VOID) {
-            // Draw floor
+            // Draw void
             tile_add(bg_floor2, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
             }
     

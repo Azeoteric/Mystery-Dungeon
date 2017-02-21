@@ -13,9 +13,9 @@ key_aim_up = -(keyboard_check(vk_up) || (gamepad_axis_value(0,gp_axisrv) < 0));
 key_down = keyboard_check(ord('S')) || (gamepad_axis_value(0,gp_axislv) > 0); 
 key_aim_down = keyboard_check(vk_down) || (gamepad_axis_value(0,gp_axisrv) > 0);
 
-key_up_pressed = -(keyboard_check_pressed(ord("W")) || gamepad_button_check_pressed(0,gp_padu));
+key_map = (keyboard_check_pressed(ord("F")) || gamepad_button_check_pressed(0,gp_padu));
 
-key_down_pressed = keyboard_check_pressed(ord("S")) || gamepad_button_check_pressed(0,gp_padd);
+//key_down_pressed = keyboard_check_pressed(ord("S")) || gamepad_button_check_pressed(0,gp_padd);
                                 
 //Non-Movement Keypresses
 key_act = keyboard_check_pressed(ord("X"))|| keyboard_check_pressed(vk_space)
