@@ -88,8 +88,8 @@
     <room>rooms\rm_ruins</room>
   </rooms>
   <constants number="10">
-    <constant name="CELL_WIDTH">48</constant>
-    <constant name="CELL_HEIGHT">48</constant>
+    <constant name="CELL_WIDTH">72</constant>
+    <constant name="CELL_HEIGHT">72</constant>
     <constant name="MAP_WIDTH">4</constant>
     <constant name="MAP_HEIGHT">4</constant>
     <constant name="WALL">-5</constant>

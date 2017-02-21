@@ -63,7 +63,7 @@ image_speed = .3;
 if(global.is_game_running) {
    scr_get_input();
    image_speed = .3;
-   var spd  = 3;
+   var spd = 3;
    var tempx = x;
    var tempy = y; 
    
