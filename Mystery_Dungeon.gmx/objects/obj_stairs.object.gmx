@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -11;
+            <string>///Sets up the stairs
+depth = -11;
 </string>
           </argument>
         </arguments>

@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Variable Init
+scr_grid();
 depth = -17;
 speedFactor = 4;
 xDirection = 0;
@@ -98,6 +99,17 @@ vspeed = yDirection * speedFactor
 if (abs(x) &gt; 10000 || abs(y) &gt; 10000)
 {
     instance_destroy()
+}
+
+    var is_x_meeting = (grid[# bbox_right div CELL_WIDTH, bbox_top div CELL_HEIGHT] == WALL)  || 
+                       (grid[# bbox_left div CELL_WIDTH, bbox_top div CELL_HEIGHT] == WALL);
+    
+                      
+    var is_y_meeting = (grid[# bbox_left div CELL_WIDTH, bbox_bottom  div CELL_HEIGHT]  == WALL)  || 
+                       (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT]  == WALL);
+
+if (is_x_meeting || is_y_meeting) {
+   instance_destroy();
 }
 </string>
           </argument>

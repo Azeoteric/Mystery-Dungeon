@@ -30,18 +30,8 @@ height = 0;
 width = 0;
 global.is_game_running = false;
 instance_create(x, y, obj_minimap_box);
+scr_grid();
 
-if(room = rm_boss){
-     height = obj_boss_room.height;   
-     width = obj_boss_room.width; 
-     grid = obj_boss_room.grid;
-}
-
-if(room = rm_test2){
-     height = obj_level_maker.height;   
-     width = obj_level_maker.width; 
-     grid = obj_level_maker.grid;
-}
 // Draw the Level
 for (ypos  = 0;  ypos &lt; height; ypos++) {
     for (xpos = 0; xpos &lt; height; xpos++) {
@@ -54,10 +44,24 @@ for (ypos  = 0;  ypos &lt; height; ypos++) {
             // Draw nodes
             tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
         }
+        
+        if (grid[# xpos, ypos] == PLAYER) {
+            // Draw nodes
+            tile_add(bg_player, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
+        }
+        if (grid[# xpos, ypos] == PLAYER_PATH) {
+            // Draw nodes
+            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
+        }
+
+        if (grid[# xpos, ypos] == STAIRS) {
+            // Draw stairs
+            tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
+        }
+        
      }
      
-}
-
+} 
 </string>
           </argument>
         </arguments>

@@ -26,22 +26,75 @@
           <argument>
             <kind>1</kind>
             <string>///Setting up player
-if(room = rm_test2) {
-grid = obj_level_maker.grid;
-}
-if(room = rm_boss) {
-grid = obj_boss_room.grid;
-}
+scr_grid();
 global.is_game_running = true;
 attackTimer = 0;
 gamepad_set_axis_deadzone(0,0.3);
 image_speed = .3;
+xStart = x; 
+yStart = y; 
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Minimap tracking
+
+//Checks for any tiles that are still labeled as player and makes them player-path.
+for (var ypos = 1; ypos &lt; height - 1; ypos++) {
+    for (var xpos = 1; xpos &lt; height - 1; xpos++) {
+    if (grid[# xpos, ypos] == PLAYER &amp;&amp; 
+               xpos != bbox_right div CELL_WIDTH &amp;&amp; xpos != bbox_left div CELL_WIDTH &amp;&amp;
+                ypos != bbox_top div CELL_HEIGHT &amp;&amp; ypos != bbox_bottom div CELL_HEIGHT){
+               
+               grid[# xpos, ypos] = PLAYER_PATH;
+               }
+    }
+  } 
+ // */
+ //Makes the current tile(s) player tiles.
+ if (grid[# bbox_right div CELL_WIDTH, bbox_top div CELL_HEIGHT] == FLOOR
+   || grid[# bbox_right div CELL_WIDTH, bbox_top div CELL_HEIGHT] == PLAYER_PATH) {
+             grid[# bbox_right div CELL_WIDTH, bbox_top div CELL_HEIGHT] = PLAYER;
+ }
+  
+  if (grid[# bbox_left div CELL_WIDTH, bbox_top div CELL_HEIGHT] == FLOOR
+   || grid[# bbox_left div CELL_WIDTH, bbox_top div CELL_HEIGHT] == PLAYER_PATH) {
+             grid[# bbox_left div CELL_WIDTH, bbox_top div CELL_HEIGHT] = PLAYER;    
+ }
+ 
+if (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == FLOOR
+   || grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == PLAYER_PATH) {
+             grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] = PLAYER;
+ }
+  
+  if (grid[# bbox_left div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == FLOOR
+   || grid[# bbox_left div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == PLAYER_PATH) {
+             grid[# bbox_left div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] = PLAYER;    
+ }
+ 
+  
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>

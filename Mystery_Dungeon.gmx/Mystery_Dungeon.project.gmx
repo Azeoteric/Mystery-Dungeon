@@ -29,11 +29,14 @@
     <background>background\bg_wall</background>
     <background>background\bg_walltiles</background>
     <background>background\bg_stairs</background>
+    <background>background\bg_stairs_sm</background>
+    <background>background\bg_player</background>
     <background>background\bg_node</background>
     <background>background\bg_floor2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scr_grid.gml</script>
     <script>scripts\scr_text.gml</script>
     <script>scripts\scr_generate_nodes_for_room.gml</script>
     <script>scripts\scr_does_room_fit.gml</script>
@@ -87,7 +90,7 @@
     <room>rooms\rm_test</room>
     <room>rooms\rm_ruins</room>
   </rooms>
-  <constants number="10">
+  <constants number="11">
     <constant name="CELL_WIDTH">72</constant>
     <constant name="CELL_HEIGHT">72</constant>
     <constant name="MAP_WIDTH">4</constant>
@@ -97,7 +100,8 @@
     <constant name="STAIRS">-7</constant>
     <constant name="FLOOR">-8</constant>
     <constant name="NODE">-9</constant>
-    <constant name="FLOOR_NOT_NODE">-10</constant>
+    <constant name="PLAYER">-10</constant>
+    <constant name="PLAYER_PATH">-11</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

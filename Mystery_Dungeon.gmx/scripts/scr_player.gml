@@ -22,6 +22,7 @@ while(!is_player_set) {
         if (grid[# xStr, yStr] == NODE) {
             if (irandom(10) < 1) {
                instance_create(((xStr * CELL_WIDTH) + CELL_WIDTH div 2), ((yStr * CELL_HEIGHT) + CELL_HEIGHT div 2), obj_player);
+               grid[# xStr, yStr] = PLAYER;
                is_player_set = true;  
             }
         }
