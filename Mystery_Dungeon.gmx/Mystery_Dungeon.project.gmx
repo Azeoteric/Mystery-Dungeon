@@ -90,7 +90,7 @@
     <room>rooms\rm_test</room>
     <room>rooms\rm_ruins</room>
   </rooms>
-  <constants number="11">
+  <constants number="12">
     <constant name="CELL_WIDTH">72</constant>
     <constant name="CELL_HEIGHT">72</constant>
     <constant name="MAP_WIDTH">4</constant>
@@ -100,8 +100,9 @@
     <constant name="STAIRS">-7</constant>
     <constant name="FLOOR">-8</constant>
     <constant name="NODE">-9</constant>
-    <constant name="PLAYER">-10</constant>
-    <constant name="PLAYER_PATH">-11</constant>
+    <constant name="NODE_MAPPED">-10</constant>
+    <constant name="PLAYER">-11</constant>
+    <constant name="PLAYER_PATH">-12</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

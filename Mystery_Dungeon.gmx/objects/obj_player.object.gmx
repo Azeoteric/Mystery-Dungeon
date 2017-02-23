@@ -56,14 +56,13 @@ yStart = y;
           <argument>
             <kind>1</kind>
             <string>///Minimap tracking
-
+tempx = x * CELL_WIDTH;
+tempy = y * CELL_HEIGHT;
 //Checks for any tiles that are still labeled as player and makes them player-path.
 for (var ypos = 1; ypos &lt; height - 1; ypos++) {
     for (var xpos = 1; xpos &lt; height - 1; xpos++) {
     if (grid[# xpos, ypos] == PLAYER &amp;&amp; 
-               xpos != bbox_right div CELL_WIDTH &amp;&amp; xpos != bbox_left div CELL_WIDTH &amp;&amp;
-                ypos != bbox_top div CELL_HEIGHT &amp;&amp; ypos != bbox_bottom div CELL_HEIGHT){
-               
+               (xpos != bbox_right div CELL_WIDTH || ypos != bbox_top div CELL_HEIGHT)){
                grid[# xpos, ypos] = PLAYER_PATH;
                }
     }
@@ -90,7 +89,16 @@ if (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == FLOOR
              grid[# bbox_left div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] = PLAYER;    
  }
  
-  
+ if (ds_grid_value_exists(grid, tempx - 5, tempy - 5, tempx + 5, tempy + 5, NODE)) {
+    for (i = tempx - 5; i &lt;= tempx + 5; i++){
+        for (j = tempy - 5; j &lt;= tempy + 5; j++){
+            if(grid[# i, j] == NODE){
+            ds_grid_set_region(grid, i - 5, j - 5, i + 5, j + 5, PLAYER_PATH);
+            grid[# i, j] = NODE_MAPPED;           
+            } 
+        }    
+    }
+ } 
 </string>
           </argument>
         </arguments>
