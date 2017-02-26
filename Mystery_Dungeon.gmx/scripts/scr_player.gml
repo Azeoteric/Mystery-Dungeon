@@ -18,11 +18,10 @@ while(!is_player_set) {
    if(is_player_set) {
      exit; 
     }
-        // Chance of placing a stairs if it is surronded by floor tiles,
+        // Chance of placing a placing player
         if (grid[# xStr, yStr] == NODE) {
             if (irandom(10) < 1) {
                instance_create(((xStr * CELL_WIDTH) + CELL_WIDTH div 2), ((yStr * CELL_HEIGHT) + CELL_HEIGHT div 2), obj_player);
-               grid[# xStr, yStr] = PLAYER;
                is_player_set = true;  
             }
         }
