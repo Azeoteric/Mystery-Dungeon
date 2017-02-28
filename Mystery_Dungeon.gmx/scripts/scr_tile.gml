@@ -44,9 +44,13 @@ for (ypos  = 0;  ypos < height; ypos++) {
             // Draw void
             tile_add(bg_floor2, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
         }
-    
+        if (grid[# xpos, ypos] == VOID) {
+            // Draw void
+            tile_add(bg_floor2, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
+        }
  }   
 }
+/*
 // Get tile sizes 
 var tw = CELL_WIDTH / 2;
 var th = CELL_HEIGHT / 2;
@@ -121,3 +125,4 @@ for (var ypos = 0; ypos < height * 2; ypos++) {
         }
     }
 }
+*/

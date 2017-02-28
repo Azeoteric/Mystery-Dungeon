@@ -31,6 +31,7 @@
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_minimap_box</sprite>
+    <sprite>sprites\spr_test_enemy</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
@@ -70,6 +71,7 @@
     <font>fonts\fnt_large</font>
   </fonts>
   <objects name="objects">
+    <object>objects\obj_enemy</object>
     <objects name="Room assets">
       <object>objects\obj_minimap_box</object>
       <object>objects\obj_minimap</object>
