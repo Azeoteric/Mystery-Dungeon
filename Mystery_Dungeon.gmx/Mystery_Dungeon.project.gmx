@@ -9,9 +9,9 @@
     <sprite>sprites\spr_action_menu</sprite>
     <sprites name="Cupcake Princess">
       <sprite>sprites\spr_cp_idle</sprite>
-      <sprite>sprites\spr_cp_wlk_up</sprite>
-      <sprite>sprites\spr_cp_wlk_rght</sprite>
       <sprite>sprites\spr_cp_wlk_dwn</sprite>
+      <sprite>sprites\spr_cp_wlk_rght</sprite>
+      <sprite>sprites\spr_cp_wlk_up</sprite>
       <sprites name="Sprinkles">
         <sprite>sprites\spr_sprinkle_grn</sprite>
         <sprite>sprites\spr_sprinkle_prpl</sprite>
@@ -19,15 +19,7 @@
         <sprite>sprites\spr_sprinkle_yllw</sprite>
       </sprites>
     </sprites>
-    <sprites name="Bread Hamster">
-      <sprite>sprites\spr_bh_idle</sprite>
-      <sprite>sprites\spr_bh_wlk_up</sprite>
-      <sprite>sprites\spr_bh_wlk_rght</sprite>
-    </sprites>
     <sprite>sprites\spr_arrow</sprite>
-    <sprites name="Sword Guy">
-      <sprite>sprites\spr_sg_idle</sprite>
-    </sprites>
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_minimap_box</sprite>
