@@ -60,7 +60,16 @@ tempx1 = bbox_left div CELL_WIDTH;
 tempy1 = bbox_top div CELL_HEIGHT;
 tempx2 = bbox_right div CELL_WIDTH;
 tempy2 = bbox_bottom div CELL_HEIGHT;
-
+var stairsx;
+var stairsy; 
+for (var ypos = 1; ypos &lt; height - 1; ypos++) {
+    for (var xpos = 1; xpos &lt; height - 1; xpos++) {
+    if (grid[# xpos, ypos] == STAIRS){
+       stairsx = xpos; 
+       stairsy = ypos; 
+    }
+    }
+ }
 //Checks for any tiles that are still labeled as player and makes them player-path.
 for (var ypos = 1; ypos &lt; height - 1; ypos++) {
     for (var xpos = 1; xpos &lt; height - 1; xpos++) {
@@ -93,32 +102,16 @@ if (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == FLOOR
  }
  //Fills in rooms with filling in the stairs
  if (ds_grid_value_exists(grid, tempx1 - 3, tempy1 - 3, tempx2 + 3, tempy2 + 3, NODE)) {
- var stairsx;
- var stairsy; 
- var is_stairs_close = ds_grid_value_exists(grid, tempx1 - 3, tempy1 - 3, tempx2 + 3, tempy2 + 3, STAIRS);
-    if (is_stairs_close) {
-       for (i = tempx1 - 3; i &lt;= tempx2 + 3; i++){
-           for (j = tempy1 - 3; j &lt;= tempy2 + 3; j++){
-               if(grid[# i, j] == STAIRS){
-                stairsx = i;
-                stairsy = j;     
-                }  
-           } 
-     }
-     }
-    for (i = tempx1 - 3; i &lt;= tempx2 + 3; i++){
+   for (i = tempx1 - 3; i &lt;= tempx2 + 3; i++){
         for (j = tempy1 - 3; j &lt;= tempy2 + 3; j++){
             if(grid[# i, j] == NODE){
             ds_grid_set_region(grid, i - 2, j - 2, i + 2, j + 2, PLAYER_PATH);
             grid[# i, j] = NODE_MAPPED;
-            } 
-        }    
-    }
-    if (is_stairs_close){ 
-       grid[# stairsx, stairsy] = STAIRS;  
-    }
- }
- 
+            grid[# stairsx, stairsy] = STAIRS;  
+            }
+         }
+       }
+}            
 </string>
           </argument>
         </arguments>
