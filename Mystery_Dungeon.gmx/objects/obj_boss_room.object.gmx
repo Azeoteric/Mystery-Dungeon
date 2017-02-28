@@ -76,6 +76,7 @@ repeat(10) {
   cy++;
 }   
 scr_make_room(cx, cy, true); 
+grid[# cx, cy] = PLAYER; 
 tempX = cx * CELL_WIDTH + CELL_WIDTH div 2;
 tempY = cy * CELL_HEIGHT + CELL_HEIGHT div 2;
 
