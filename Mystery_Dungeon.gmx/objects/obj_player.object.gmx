@@ -107,10 +107,12 @@ if (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == FLOOR
             if(grid[# i, j] == NODE){
             ds_grid_set_region(grid, i - 2, j - 2, i + 2, j + 2, PLAYER_PATH);
             grid[# i, j] = NODE_MAPPED;
-            grid[# stairsx, stairsy] = STAIRS;  
+            if(room != rm_boss){
+                    grid[# stairsx, stairsy] = STAIRS;  
             }
          }
-       }
+      }
+    }
 }            
 </string>
           </argument>
@@ -144,24 +146,7 @@ if(global.is_game_running) {
    var hspd = (key_right + key_left) * spd;
    var vspd = (key_down + key_up) * spd;
    scr_move(hspd, vspd);
-   //Makes sure that the minimap is always in the center of the room.
-   if(key_map) {
-      if(y &lt; 180){
-        tempy = 180;   
-      }
-      if(y &gt; room_height - 180){
-        tempy = room_height - 180;
-      }
-      if(x &lt; 320){
-        tempx = 320;   
-      }
-      if(x &gt; room_width - 320){
-        tempx = room_width - 320;
-      }
-      instance_create(tempx, tempy, obj_minimap);
-      
-   }
-}    
+}
 if(!global.is_game_running) {
     shouldAttack = false;
      image_speed = 0;
@@ -271,6 +256,45 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
       else if(hmove &lt; 0) {
             sprite_index = spr_cp_wlk_lft;
       }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Makes sure that the minimap is always in the center of the room.
+   if(global.is_game_running) {
+   if(key_map) {
+      if(y &lt; 180){
+        tempy = 180;   
+      }
+      if(y &gt; room_height - 180){
+        tempy = room_height - 180;
+      }
+      if(x &lt; 320){
+        tempx = 320;   
+      }
+      if(x &gt; room_width - 320){
+        tempx = room_width - 320;
+      }
+      instance_create(tempx, tempy, obj_minimap);
+      
+   }    
+}
 </string>
           </argument>
         </arguments>
