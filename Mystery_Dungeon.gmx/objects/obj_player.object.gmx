@@ -146,17 +146,17 @@ if(global.is_game_running) {
    scr_move(hspd, vspd);
    //Makes sure that the minimap is always in the center of the room.
    if(key_map) {
-      if(y &lt; 90){
-        tempy = 90;   
+      if(y &lt; 180){
+        tempy = 180;   
       }
-      if(y &gt; room_height - 90){
-        tempy = room_height - 90;
+      if(y &gt; room_height - 180){
+        tempy = room_height - 180;
       }
-      if(x &lt; 160){
-        tempx = 160;   
+      if(x &lt; 320){
+        tempx = 320;   
       }
-      if(x &gt; room_width - 160){
-        tempx = room_width - 160;
+      if(x &gt; room_width - 320){
+        tempx = room_width - 320;
       }
       instance_create(tempx, tempy, obj_minimap);
       
@@ -268,7 +268,9 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
        else if(hmove &gt; 0) {
             sprite_index = spr_cp_wlk_rght;
       }
-
+      else if(hmove &lt; 0) {
+            sprite_index = spr_cp_wlk_lft;
+      }
 </string>
           </argument>
         </arguments>
@@ -291,7 +293,8 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!instance_exists(obj_leave_floor_menu)) {
+            <string>///Makes map
+if(!instance_exists(obj_leave_floor_menu)) {
        instance_create(x, y + 60, obj_leave_floor_menu); 
 }
 </string>

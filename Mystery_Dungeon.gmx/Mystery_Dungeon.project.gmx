@@ -12,6 +12,7 @@
       <sprite>sprites\spr_cp_wlk_up</sprite>
       <sprite>sprites\spr_cp_wlk_rght</sprite>
       <sprite>sprites\spr_cp_wlk_dwn</sprite>
+      <sprite>sprites\spr_cp_wlk_lft</sprite>
       <sprites name="Sprinkles">
         <sprite>sprites\spr_sprinkle_grn</sprite>
         <sprite>sprites\spr_sprinkle_prpl</sprite>
@@ -42,6 +43,11 @@
     <background>background\bg_player</background>
     <background>background\bg_node</background>
     <background>background\bg_floor2</background>
+    <backgrounds name="Level">
+      <background>background\bg_level1_floor</background>
+      <background>background\bg_level1_wall</background>
+      <background>background\bg_level1_empty</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -95,16 +101,16 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_test2</room>
     <room>rooms\rm_boss</room>
+    <room>rooms\rm_test2</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_ruins</room>
   </rooms>
   <constants number="12">
     <constant name="CELL_WIDTH">72</constant>
     <constant name="CELL_HEIGHT">72</constant>
-    <constant name="MAP_WIDTH">4</constant>
-    <constant name="MAP_HEIGHT">4</constant>
+    <constant name="MAP_WIDTH">6</constant>
+    <constant name="MAP_HEIGHT">6</constant>
     <constant name="WALL">-5</constant>
     <constant name="VOID">-6</constant>
     <constant name="STAIRS">-7</constant>

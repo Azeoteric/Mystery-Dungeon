@@ -29,7 +29,7 @@ for (ypos  = 0;  ypos < height; ypos++) {
     for (xpos = 0; xpos < height; xpos++) {
         if (grid[# xpos, ypos] == FLOOR) {
             // Draw floor
-            tile_add(bg_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);
+            tile_add(bg_level1_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);
         }  
         if (grid[# xpos, ypos] == NODE) {
             // Draw nodes
@@ -42,11 +42,11 @@ for (ypos  = 0;  ypos < height; ypos++) {
 
             if (grid[# xpos, ypos] == VOID) {
             // Draw void
-            tile_add(bg_floor2, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
+            tile_add(bg_level1_empty, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
         }
         if (grid[# xpos, ypos] == WALL) {
             // Draw void
-            tile_add(bg_wall, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
+            tile_add(bg_level1_wall, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
         }
  }   
 }
