@@ -13,7 +13,7 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>4</width>
-  <height>4</height>
+  <width>6</width>
+  <height>6</height>
   <data>images\bg_stairs_sm.png</data>
 </background>

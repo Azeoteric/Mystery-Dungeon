@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make the minimap
+            <string>///Draws the minimap to the screen
 height = 0;
 width = 0;
 global.is_game_running = false;
@@ -38,26 +38,26 @@ for (ypos  = 0;  ypos &lt; height; ypos++) {
         
         if (grid[# xpos, ypos] == WALL) {
             // Draw floor
-            tile_add(bg_wall, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);
+            tile_add(bg_wall, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);
         }  
         
         if (grid[# xpos, ypos] == NODE_MAPPED) {
             // Draw nodes mapped
-            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
+            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
         
         if (grid[# xpos, ypos] == PLAYER) {
             // Draw current location
-            tile_add(bg_player, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
+            tile_add(bg_player, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
         if (grid[# xpos, ypos] == PLAYER_PATH) {
             // Draw Area player has been
-            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
+            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
 
         if (grid[# xpos, ypos] == STAIRS) {
             // Draw stairs
-            tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 90), -9000);    
+            tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
         
      }

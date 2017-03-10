@@ -60,6 +60,9 @@ tempx1 = bbox_left div CELL_WIDTH;
 tempy1 = bbox_top div CELL_HEIGHT;
 tempx2 = bbox_right div CELL_WIDTH;
 tempy2 = bbox_bottom div CELL_HEIGHT;
+playerx = (tempx1 + tempx2) div 2;
+playery = (tempy1 + tempy2) div 2;
+
 var stairsx;
 var stairsy; 
 for (var ypos = 1; ypos &lt; height - 1; ypos++) {
@@ -100,6 +103,21 @@ if (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == FLOOR
    || grid[# bbox_left div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == PLAYER_PATH) {
              grid[# bbox_left div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] = PLAYER;    
  }
+ //Fills up the walls in map
+
+          for (i = playerx-1; i &lt;= playerx+1 i++){
+              for (j = playery-1; j &lt;= playery+1 j++){
+              if (grid[# i, j] == WALL){ 
+             grid[# i, j] = WALL_MAPPED;
+           }
+           }
+           }
+          /*if (grid[# playerx, playery - 1] == WALL){ 
+             grid[# playerx, playery - 1] = WALL_MAPPED;
+      }
+   */
+
+
  //Fills in rooms with filling in the stairs
  if (ds_grid_value_exists(grid, tempx1 - 3, tempy1 - 3, tempx2 + 3, tempy2 + 3, NODE)) {
    for (i = tempx1 - 3; i &lt;= tempx2 + 3; i++){
@@ -317,7 +335,7 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Makes map
+            <string>///Makes the leave floor pop-up
 if(!instance_exists(obj_leave_floor_menu)) {
        instance_create(x, y + 60, obj_leave_floor_menu); 
 }
