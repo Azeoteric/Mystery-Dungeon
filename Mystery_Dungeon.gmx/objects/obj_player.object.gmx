@@ -71,17 +71,17 @@ for (var ypos = 1; ypos &lt; height - 1; ypos++) {
        stairsx = xpos; 
        stairsy = ypos; 
     }
-    }
- }
+  }
+}
 //Checks for any tiles that are still labeled as player and makes them player-path.
 for (var ypos = 1; ypos &lt; height - 1; ypos++) {
     for (var xpos = 1; xpos &lt; height - 1; xpos++) {
-    if (grid[# xpos, ypos] == PLAYER &amp;&amp; 
+        if (grid[# xpos, ypos] == PLAYER &amp;&amp; 
                (xpos != bbox_right div CELL_WIDTH || ypos != bbox_top div CELL_HEIGHT)){
                grid[# xpos, ypos] = PLAYER_PATH;
-               }
+        }
     }
-  } 
+} 
  // */
  //Makes the current tile(s) player tiles.
  if (grid[# bbox_right div CELL_WIDTH, bbox_top div CELL_HEIGHT] == FLOOR
@@ -103,20 +103,37 @@ if (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == FLOOR
    || grid[# bbox_left div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == PLAYER_PATH) {
              grid[# bbox_left div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] = PLAYER;    
  }
- //Fills up the walls in map
+//Fills up the walls in map
 
-          for (i = playerx-1; i &lt;= playerx+1 i++){
-              for (j = playery-1; j &lt;= playery+1 j++){
-              if (grid[# i, j] == WALL){ 
-             grid[# i, j] = WALL_MAPPED;
-           }
-           }
-           }
-          /*if (grid[# playerx, playery - 1] == WALL){ 
-             grid[# playerx, playery - 1] = WALL_MAPPED;
-      }
-   */
+for (var ypos = 1; ypos &lt; height - 1; ypos++) {
+    for (var xpos = 1; xpos &lt; height - 1; xpos++) {
+        if (grid[# xpos, ypos] == PLAYER_PATH || (grid[# xpos, ypos] == PLAYER)) {
+        //Check for Walls
+            if(grid[# xpos + 1, ypos] == WALL) {
+                grid[# xpos + 1, ypos] = WALL_MAPPED;
+            }
+            if(grid[# xpos - 1, ypos] == WALL) {
+                grid[# xpos - 1, ypos] = WALL_MAPPED;
+            }
+            if(grid[# xpos, ypos + 1] == WALL) {
+                grid[# xpos, ypos + 1] = WALL_MAPPED;
+            }  
+            if(grid[# xpos, ypos - 1] == WALL) {
+                grid[# xpos, ypos - 1] = WALL_MAPPED;
+            }
+        }
+        
+    }    
+}
 
+for (i = playerx - 1; i &lt;= playerx + 1 i++) {
+   for (j = playery - 1; j &lt;= playery + 1 j++) {
+       if (grid[# i, j] == WALL) { 
+       grid[# i, j] = WALL_MAPPED;
+       }
+   }
+}
+          
 
  //Fills in rooms with filling in the stairs
  if (ds_grid_value_exists(grid, tempx1 - 3, tempy1 - 3, tempx2 + 3, tempy2 + 3, NODE)) {
@@ -126,7 +143,7 @@ if (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] == FLOOR
             ds_grid_set_region(grid, i - 2, j - 2, i + 2, j + 2, PLAYER_PATH);
             grid[# i, j] = NODE_MAPPED;
             if(room != rm_boss){
-                    grid[# stairsx, stairsy] = STAIRS;  
+              grid[# stairsx, stairsy] = STAIRS;  
             }
          }
       }

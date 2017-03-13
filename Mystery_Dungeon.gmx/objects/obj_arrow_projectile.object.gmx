@@ -102,11 +102,15 @@ if (abs(x) &gt; 10000 || abs(y) &gt; 10000)
 }
 
     var is_x_meeting = (grid[# bbox_right div CELL_WIDTH, bbox_top div CELL_HEIGHT] == WALL)  || 
-                       (grid[# bbox_left div CELL_WIDTH, bbox_top div CELL_HEIGHT] == WALL);
+                       (grid[# bbox_left div CELL_WIDTH, bbox_top div CELL_HEIGHT] == WALL)   ||
+                       (grid[# bbox_right div CELL_WIDTH, bbox_top div CELL_HEIGHT] == WALL_MAPPED)  || 
+                       (grid[# bbox_left div CELL_WIDTH, bbox_top div CELL_HEIGHT] == WALL_MAPPED);
     
                       
     var is_y_meeting = (grid[# bbox_left div CELL_WIDTH, bbox_bottom  div CELL_HEIGHT]  == WALL)  || 
-                       (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT]  == WALL);
+                       (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT]  == WALL)  ||
+                       (grid[# bbox_left div CELL_WIDTH, bbox_bottom  div CELL_HEIGHT]  == WALL_MAPPED)  || 
+                       (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT]  == WALL_MAPPED);
 
 if (is_x_meeting || is_y_meeting) {
    instance_destroy();

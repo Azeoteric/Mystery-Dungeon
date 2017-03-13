@@ -89,15 +89,15 @@
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
+      <objects name="Projectiles">
+        <object>objects\obj_arrow_projectile</object>
+      </objects>
     </objects>
     <objects name="Room Makers">
       <object>objects\obj_level_generator</object>
       <object>objects\obj_level_maker</object>
       <object>objects\obj_boss_room</object>
       <object>objects\obj_level</object>
-    </objects>
-    <objects name="Projectiles">
-      <object>objects\obj_arrow_projectile</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -35,29 +35,28 @@ scr_grid();
 // Draw the Level
 for (ypos  = 0;  ypos &lt; height; ypos++) {
     for (xpos = 0; xpos &lt; height; xpos++) {
-        
-        if (grid[# xpos, ypos] == WALL) {
+        if (grid[# xpos, ypos] == WALL_MAPPED) {
             // Draw floor
-            tile_add(bg_wall, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);
+            tile_add(bg_wall, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);
         }  
         
         if (grid[# xpos, ypos] == NODE_MAPPED) {
             // Draw nodes mapped
-            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
+            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
         
         if (grid[# xpos, ypos] == PLAYER) {
             // Draw current location
-            tile_add(bg_player, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
+            tile_add(bg_player, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
         if (grid[# xpos, ypos] == PLAYER_PATH) {
             // Draw Area player has been
-            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
+            tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
 
         if (grid[# xpos, ypos] == STAIRS) {
             // Draw stairs
-            tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
+            tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
         
      }
@@ -85,7 +84,8 @@ for (ypos  = 0;  ypos &lt; height; ypos++) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(obj_minimap_box) {
+            <string>///Destory this object along with the minimap back screen
+with(obj_minimap_box) {
      instance_destroy();
 }
 </string>
@@ -117,7 +117,7 @@ if(key_back) {
     for (xpos = 0; xpos &lt; height; xpos++) {
      var tile;
      //Clears all the tiles on the minimap
-     tile = tile_layer_find(-9000,(xpos * MAP_WIDTH) + (x - 100), (ypos * MAP_WIDTH) + (y - 90));   
+     tile = tile_layer_find(-9000,(xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_WIDTH) + (y - 120));   
      if (tile_exists(tile)) {
         tile_delete(tile);
      }
