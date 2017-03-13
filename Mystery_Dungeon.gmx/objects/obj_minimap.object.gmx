@@ -45,7 +45,7 @@ for (ypos  = 0;  ypos &lt; height; ypos++) {
             tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
         
-        if (grid[# xpos, ypos] == PLAYER) {
+        if (grid[# xpos, ypos] == PLAYER || grid[# xpos, ypos] == NODE_PLAYER ) {
             // Draw current location
             tile_add(bg_player, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
@@ -54,7 +54,7 @@ for (ypos  = 0;  ypos &lt; height; ypos++) {
             tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
 
-        if (grid[# xpos, ypos] == STAIRS) {
+        if (grid[# xpos, ypos] == STAIRS_MAPPED) {
             // Draw stairs
             tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
