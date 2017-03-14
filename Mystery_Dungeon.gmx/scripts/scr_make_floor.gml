@@ -11,11 +11,9 @@ scr_tile(width, height, grid);
 
 //Randomized the world
 randomize();
-
 //Create the controller in random parts of the grid
-var cx = irandom(width - 8) + 4;//width div 2;
-var cy = irandom(height - 8) + 4;//height div 2;
-
+var cx = irandom(width - 8) + 8;
+var cy = irandom(height - 8) + 8;
 
 
 // Give the controller a random direction
@@ -58,8 +56,8 @@ repeat (irandom(num_tiles) + num_tiles) {
      cy += ydir;        
      
      // Grid Boundries
-     cx = clamp(cx, 4, width - 4);   
-     cy = clamp(cy, 4, height - 4);
+     cx = clamp(cx, 8, width - 8);   
+     cy = clamp(cy, 8, height - 8);
               
           
       }

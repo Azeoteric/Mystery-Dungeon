@@ -19,6 +19,18 @@ for (var ypos = 1; ypos < height - 1; ypos++) {
             if(grid[# xpos, ypos - 1] > FLOOR) {
                 grid[# xpos, ypos - 1] = WALL;
             }
+            if(grid[# xpos + 1, ypos - 1] > FLOOR) {
+                grid[# xpos + 1, ypos- 1] = WALL;
+            }
+            if(grid[# xpos - 1, ypos - 1 ] > FLOOR) {
+                grid[# xpos - 1, ypos - 1] = WALL;
+            }
+            if(grid[# xpos - 1, ypos + 1] > FLOOR) {
+                grid[# xpos - 1, ypos + 1] = WALL;
+            }  
+            if(grid[# xpos + 1, ypos + 1] > FLOOR) {
+                grid[# xpos + 1, ypos + 1] = WALL;
+            }
         }
         
     }    

@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Setting up player
 scr_grid();
+scr_get_input();
 global.is_game_running = true;
 attackTimer = 0;
 gamepad_set_axis_deadzone(0,0.3);
@@ -39,110 +40,6 @@ yStart = y;
       </action>
     </event>
     <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Minimap tracking
-tempx1 = bbox_left div CELL_WIDTH;
-tempy1 = bbox_top div CELL_HEIGHT;
-tempx2 = bbox_right div CELL_WIDTH;
-tempy2 = bbox_bottom div CELL_HEIGHT;
-playerx = (tempx1 + tempx2) div 2;
-playery = (tempy1 + tempy2) div 2;
-//Finds the stairs as well as nodes that they player is not on anymore
-var stairsx;
-var stairsy; 
-for (var ypos = 1; ypos &lt; height - 1; ypos++) {
-    for (var xpos = 1; xpos &lt; height - 1; xpos++) {
-    if (grid[# xpos, ypos] == STAIRS){
-       stairsx = xpos; 
-       stairsy = ypos; 
-    }
-     if(grid[# xpos, ypos] == NODE_PLAYER &amp;&amp; (xpos != playerx || ypos != playery)){
-         grid[# xpos, ypos] = NODE_MAPPED;
-     }
-  }
-}
-//Checks for any tiles that are still labeled as player and makes them player-path.
-for (var ypos = 1; ypos &lt; height - 1; ypos++) {
-    for (var xpos = 1; xpos &lt; height - 1; xpos++) {
-        if (grid[# xpos, ypos] == PLAYER &amp;&amp; 
-               (xpos != bbox_right div CELL_WIDTH || ypos != bbox_top div CELL_HEIGHT)){
-               grid[# xpos, ypos] = PLAYER_PATH;
-        }
-    }
-} 
- 
- //Makes the current tile(s) player tiles.
- if (grid[# playerx, playery] == FLOOR
-   || grid[# playerx, playery] == PLAYER_PATH) {
-             grid[# playerx, playery] = PLAYER;
- }
- 
-//Fills up the walls in minimap
-for (var ypos = 1; ypos &lt; height - 1; ypos++) {
-    for (var xpos = 1; xpos &lt; height - 1; xpos++) {
-        if (grid[# xpos, ypos] == PLAYER_PATH || (grid[# xpos, ypos] == PLAYER)) {
-        //Check for Walls
-            if(grid[# xpos + 1, ypos] == WALL) {
-                grid[# xpos + 1, ypos] = WALL_MAPPED;
-            }
-            if(grid[# xpos - 1, ypos] == WALL) {
-                grid[# xpos - 1, ypos] = WALL_MAPPED;
-            }
-            if(grid[# xpos, ypos + 1] == WALL) {
-                grid[# xpos, ypos + 1] = WALL_MAPPED;
-            }  
-            if(grid[# xpos, ypos - 1] == WALL) {
-                grid[# xpos, ypos - 1] = WALL_MAPPED;
-            }
-        }
-        
-    }    
-}
-//Marking player position on nodes
-if( grid[# playerx, playery] == NODE_MAPPED) {
-    grid[# playerx, playery] = NODE_PLAYER;
-}
-
-          
-
- //Fills in rooms and maps the stairs 
- if (ds_grid_value_exists(grid, tempx1 - 3, tempy1 - 3, tempx2 + 3, tempy2 + 3, NODE)) {
-   for (i = tempx1 - 3; i &lt;= tempx2 + 3; i++){
-        for (j = tempy1 - 3; j &lt;= tempy2 + 3; j++){
-            if (grid[# i, j] == NODE){
-               if(ds_grid_value_exists(grid,  i - 2, j - 2, i + 2, j + 2, STAIRS) 
-               || ds_grid_value_exists(grid,  i - 2, j - 2, i + 2, j + 2, STAIRS_MAPPED)) {
-                  ds_grid_set_region(grid, i - 2, j - 2, i + 2, j + 2, PLAYER_PATH);
-                  grid[# i, j] = NODE_MAPPED;
-                  grid[# stairsx, stairsy] = STAIRS_MAPPED;    
-               }
-               else {
-               ds_grid_set_region(grid, i - 2, j - 2, i + 2, j + 2, PLAYER_PATH);
-               grid[# i, j] = NODE_MAPPED;
-               }
-         }
-      }
-    }
-}            
-</string>
-          </argument>
-        </arguments>
-      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -178,6 +75,186 @@ if(!global.is_game_running) {
 }
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Creates and Centers Mini-Map
+
+   if(global.is_game_running) {
+   if(key_map) {
+      if(y &lt; 180){
+        tempy = 180;   
+      }
+      if(y &gt; room_height - 180){
+        tempy = room_height - 180;
+      }
+      if(x &lt; 320){
+        tempx = 320;   
+      }
+      if(x &gt; room_width - 320){
+        tempx = room_width - 320;
+      }
+      instance_create(tempx, tempy, obj_minimap);
+      
+   }    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Minimap tracking
+tempx1 = bbox_left div CELL_WIDTH;
+tempy1 = bbox_top div CELL_HEIGHT;
+tempx2 = bbox_right div CELL_WIDTH;
+tempy2 = bbox_bottom div CELL_HEIGHT;
+playerx = (tempx1 + tempx2) div 2;
+playery = (tempy1 + tempy2) div 2;
+
+
+var stairsx;
+var stairsy; 
+
+for (var ypos = 1; ypos &lt; height - 1; ypos++) {
+    for (var xpos = 1; xpos &lt; height - 1; xpos++) {
+    //Finds the  and saves the stairs
+    if (grid[# xpos, ypos] == STAIRS){
+       stairsx = xpos; 
+       stairsy = ypos; 
+    }
+    
+    //finds nodes that they player is not on anymore
+     if(grid[# xpos, ypos] == NODE_PLAYER &amp;&amp; (xpos != playerx || ypos != playery)){
+         grid[# xpos, ypos] = NODE_MAPPED;
+     }
+     
+  //Checks for any tiles that are still labeled as player and makes them player-path.
+     if (grid[# xpos, ypos] == PLAYER &amp;&amp; 
+               (xpos != bbox_right div CELL_WIDTH || ypos != bbox_top div CELL_HEIGHT)){
+               grid[# xpos, ypos] = PLAYER_PATH;
+     }
+     
+     //Fills up the walls in minimap
+     if (grid[# xpos, ypos] == PLAYER_PATH || (grid[# xpos, ypos] == PLAYER)) {
+            //Check for Walls
+        
+            if(grid[# xpos + 1, ypos] == WALL) {
+                grid[# xpos + 1, ypos] = WALL_MAPPED;
+            }
+            
+            if(grid[# xpos - 1, ypos] == WALL) {
+                grid[# xpos - 1, ypos] = WALL_MAPPED;
+            }
+            if(grid[# xpos, ypos + 1] == WALL) {
+                grid[# xpos, ypos + 1] = WALL_MAPPED;
+            }  
+            if(grid[# xpos, ypos - 1] == WALL) {
+                grid[# xpos, ypos - 1] = WALL_MAPPED;
+            }
+         }
+         
+        
+  }
+}
+ //Makes the current tile(s) player tiles.
+ if (grid[# playerx, playery] == FLOOR
+   || grid[# playerx, playery] == PLAYER_PATH) {
+             grid[# playerx, playery] = PLAYER;
+ }
+ 
+//Marking player position on nodes
+if( grid[# playerx, playery] == NODE_MAPPED) {
+    grid[# playerx, playery] = NODE_PLAYER;
+}
+
+     
+
+ //Fills in rooms and maps the stairs 
+ if (ds_grid_value_exists(grid, playerx - 5, playery - 3, playerx + 5, playery + 3, NODE)) {
+   for (i = playerx - 5; i &lt;= playerx + 5; i++){
+        for (j = playery - 3; j &lt;= playery + 3; j++){
+            if (grid[# i, j] == NODE){
+                if(ds_grid_value_exists(grid,  i - 2, j - 2, i + 2, j + 2, STAIRS) 
+               || ds_grid_value_exists(grid,  i - 2, j - 2, i + 2, j + 2, STAIRS_MAPPED)) {
+                  ds_grid_set_region(grid, i - 2, j - 2, i + 2, j + 2, PLAYER_PATH);
+                  grid[# i, j] = NODE_MAPPED;
+                  grid[# stairsx, stairsy] = STAIRS_MAPPED;    
+               }
+               else {
+                  ds_grid_set_region(grid, i - 2, j - 2, i + 2, j + 2, PLAYER_PATH);
+                  grid[# i, j] = NODE_MAPPED;
+               } 
+            }
+      }
+    }
+}            
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Filling in stray tiles
+//Files in the walls in sight
+for (i = playerx - 4; i &lt;= playerx + 4; i++) {
+   for (j = playery - 3; j &lt;= playery + 3; j++) {
+      if (j &gt; width - 1 || i &gt; height - 1 ){
+          continue;
+      }
+      if (grid[# i,j] == WALL) {
+          grid[# i,j] = WALL_MAPPED;
+      } 
+      if (grid[# i,j] == FLOOR) {
+          grid[# i,j] = PLAYER_PATH;
+      }      
+   }        
+}
 </string>
           </argument>
         </arguments>
@@ -281,126 +358,6 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
       else if(hmove &lt; 0) {
             sprite_index = spr_cp_wlk_lft;
       }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Makes sure that the minimap is always in the center of the room.
-   if(global.is_game_running) {
-   if(key_map) {
-      if(y &lt; 180){
-        tempy = 180;   
-      }
-      if(y &gt; room_height - 180){
-        tempy = room_height - 180;
-      }
-      if(x &lt; 320){
-        tempx = 320;   
-      }
-      if(x &gt; room_width - 320){
-        tempx = room_width - 320;
-      }
-      instance_create(tempx, tempy, obj_minimap);
-      
-   }    
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Filling in stray tiles
-for (xpos = 0; xpos &lt; width - 1; xpos++) {
-   for (ypos = 0; ypos &lt; height - 1; ypos++) {
-       if (grid[# xpos, ypos] == FLOOR) {
-         if ((grid[# xpos + 1, ypos] == FLOOR) 
-         &amp;&amp;  (grid[# xpos - 1, ypos] == FLOOR)
-         &amp;&amp;  (grid[# xpos, ypos + 1] == FLOOR) 
-         &amp;&amp;  (grid[# xpos, ypos - 1] == FLOOR)) {
-              continue;
-              }
-         }
-         if (grid[# xpos, ypos] == WALL) {
-            if (((grid[# xpos + 1, ypos] == WALL_MAPPED) 
-         &amp;&amp;  (grid[# xpos - 1, ypos] == WALL_MAPPED))
-         ||  ((grid[# xpos, ypos + 1] == WALL_MAPPED) 
-         &amp;&amp;  (grid[# xpos, ypos - 1] == WALL_MAPPED))) {
-             grid[# xpos, ypos] = WALL_MAPPED;
-               
-            }
-          }
-         
-         //Filling floor tiles
-      if (grid[# xpos, ypos] == FLOOR) {
-         if ((grid[# xpos + 1, ypos] == WALL_MAPPED
-         ||  grid[# xpos + 1, ypos] == FLOOR
-         ||  grid[# xpos + 1, ypos] == NODE_MAPPED
-         ||  grid[# xpos + 1, ypos] == PLAYER_PATH
-         ||  grid[# xpos + 1, ypos] == PLAYER
-         ||  grid[# xpos + 1, ypos] == STAIRS_MAPPED)
-         &amp;&amp;
-            (grid[# xpos - 1, ypos] == WALL_MAPPED
-         ||  grid[# xpos - 1, ypos] == FLOOR
-         ||  grid[# xpos - 1, ypos] == NODE_MAPPED
-         ||  grid[# xpos - 1, ypos] == PLAYER_PATH
-         ||  grid[# xpos - 1, ypos] == PLAYER
-         ||  grid[# xpos - 1, ypos] == STAIRS_MAPPED)
-         &amp;&amp; 
-         
-         (grid[# xpos, ypos + 1] == WALL_MAPPED
-         ||  grid[# xpos, ypos + 1] == FLOOR
-         ||  grid[# xpos, ypos + 1] == NODE_MAPPED
-         ||  grid[# xpos, ypos + 1] == PLAYER_PATH
-         ||  grid[# xpos, ypos + 1] == PLAYER
-         ||  grid[# xpos, ypos + 1] == STAIRS_MAPPED)
-         &amp;&amp;
-            (grid[# xpos, ypos - 1] == WALL_MAPPED
-         ||  grid[# xpos, ypos - 1] == FLOOR
-         ||  grid[# xpos, ypos - 1] == NODE_MAPPED
-         ||  grid[# xpos, ypos - 1] == PLAYER_PATH
-         ||  grid[# xpos, ypos - 1] == PLAYER
-         ||  grid[# xpos, ypos - 1] == STAIRS_MAPPED)
-         ) {
-         grid[# xpos, ypos] = PLAYER_PATH;
-            
-         }
-      
-      }
-        
-      }
-   
-}
 </string>
           </argument>
         </arguments>
