@@ -32,7 +32,9 @@
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_minimap_box</sprite>
-    <sprite>sprites\spr_test_enemy</sprite>
+    <sprites name="Enemies">
+      <sprite>sprites\spr_squeep_standard</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
