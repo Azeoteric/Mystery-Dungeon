@@ -34,6 +34,8 @@ gamepad_set_axis_deadzone(0,0.3);
 image_speed = .3;
 xStart = x; 
 yStart = y; 
+hspd = 0;
+vspd = 0;
 </string>
           </argument>
         </arguments>
@@ -65,8 +67,8 @@ if(global.is_game_running) {
    var tempx = x;
    var tempy = y; 
    
-   var hspd = (key_right + key_left) * spd;
-   var vspd = (key_down + key_up) * spd;
+   hspd = (key_right + key_left) * spd;
+   vspd = (key_down + key_up) * spd;
    scr_move(hspd, vspd);
 }
 if(!global.is_game_running) {
@@ -321,7 +323,8 @@ if (shouldAttack &amp;&amp; attackTimer &gt;= 10 &amp;&amp; global.is_game_runni
     var projectile = (instance_create(x, y, obj_arrow_projectile));
     projectile.xDirection = xDirection;
     projectile.yDirection = yDirection;
-    
+    projectile.xMove = hspd;
+    projectile.yMove = vspd;
 }
 
 
