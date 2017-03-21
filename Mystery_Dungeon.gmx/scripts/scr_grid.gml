@@ -10,3 +10,9 @@ if(room = rm_test2){
      width = obj_level_maker.width; 
      grid = obj_level_maker.grid;
 }
+
+if(room = rm_overworld){
+     height = obj_overworld.height;   
+     width = obj_overworld.width; 
+     grid = obj_overworld.grid;
+}

@@ -99,14 +99,18 @@
       <object>objects\obj_level_generator</object>
       <object>objects\obj_level_maker</object>
       <object>objects\obj_boss_room</object>
+      <object>objects\obj_overworld</object>
       <object>objects\obj_level</object>
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_test2</room>
-    <room>rooms\rm_boss</room>
-    <room>rooms\rm_test</room>
-    <room>rooms\rm_ruins</room>
+    <rooms name="Levels">
+      <room>rooms\rm_test2</room>
+      <room>rooms\rm_overworld</room>
+      <room>rooms\rm_boss</room>
+      <room>rooms\rm_test</room>
+      <room>rooms\rm_ruins</room>
+    </rooms>
   </rooms>
   <constants number="15">
     <constant name="CELL_WIDTH">72</constant>

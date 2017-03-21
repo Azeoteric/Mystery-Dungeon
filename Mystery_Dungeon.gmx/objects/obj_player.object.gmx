@@ -146,15 +146,18 @@ playery = (tempy1 + tempy2) div 2;
 
 var stairsx;
 var stairsy; 
-
 for (var ypos = 1; ypos &lt; height - 1; ypos++) {
     for (var xpos = 1; xpos &lt; height - 1; xpos++) {
+       
     //Finds the  and saves the stairs
-    if (grid[# xpos, ypos] == STAIRS){
-       stairsx = xpos; 
-       stairsy = ypos; 
+       if (grid[# xpos, ypos] == STAIRS){
+          stairsx = xpos; 
+          stairsy = ypos; 
+       }          
     }
-    
+}
+for (var ypos = 1; ypos &lt; height - 1; ypos++) {
+    for (var xpos = 1; xpos &lt; height - 1; xpos++) {
     //finds nodes that they player is not on anymore
      if(grid[# xpos, ypos] == NODE_PLAYER &amp;&amp; (xpos != playerx || ypos != playery)){
          grid[# xpos, ypos] = NODE_MAPPED;
