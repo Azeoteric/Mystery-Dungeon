@@ -48,6 +48,7 @@
       <background>background\bg_level1_wall</background>
       <background>background\bg_level1_empty</background>
       <background>background\bg_level_cave</background>
+      <background>background\bg_level1_tileset</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
