@@ -1,0 +1,32 @@
+///MOVEMENT 
+
+/*if(sees_player) {
+    get player location;
+    if(enemyX > playerX) move left;
+    repeat for other directions...
+    
+    attack    
+}
+else {
+    move around level() {
+        random number between 0 and 4;
+        case 0: move left
+        case 1: move up
+        case 2: move right
+        case 4: move down
+         delay this by a few turns switch by a few turns;
+         when collides with wall, run switch statement again;
+        
+    }
+    
+    get player coordinates;
+    get enemy coordinates;
+    
+    make a vector between these coordinates;
+    
+    check vector collision with walls;
+    if collides, sees_player stays false;
+    if it doesn't collide, sees_player is true;
+    
+}
+*/
