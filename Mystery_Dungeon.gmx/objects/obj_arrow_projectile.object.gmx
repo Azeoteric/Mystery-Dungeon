@@ -73,8 +73,14 @@ switch(irandom(3)){
           <argument>
             <kind>1</kind>
             <string>///Steady Movement of the Projectile
-hspeed = xDirection * speedFactor + xMove;
-vspeed = yDirection * speedFactor + yMove;
+if (xMove == 0 || yMove == 0) {
+    hspeed = xDirection * speedFactor + xMove;
+    vspeed = yDirection * speedFactor + yMove;
+}
+else {
+    hspeed = (xDirection * speedFactor + xMove) / sqrt(2);
+    vspeed = (yDirection * speedFactor + yMove) / sqrt(2);
+}
 </string>
           </argument>
         </arguments>
