@@ -33,7 +33,15 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_minimap_box</sprite>
     <sprites name="Enemies">
-      <sprite>sprites\spr_squeep_standard</sprite>
+      <sprites name="squeep">
+        <sprite>sprites\spr_squeep_standard</sprite>
+      </sprites>
+      <sprites name="jack-o-lan-turret">
+        <sprite>sprites\spr_pumpkin_idle</sprite>
+        <sprite>sprites\spr_pumpkin_activate</sprite>
+        <sprite>sprites\spr_pumpkin_shoot</sprite>
+        <sprite>sprites\spr_pumpkin_candle</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
