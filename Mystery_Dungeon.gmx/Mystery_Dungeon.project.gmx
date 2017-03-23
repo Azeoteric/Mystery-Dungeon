@@ -80,6 +80,7 @@
         <script>scripts\scr_delete_walls.gml</script>
         <script>scripts\scr_tile.gml</script>
         <script>scripts\scr_make_floor.gml</script>
+        <script>scripts\scr_wall.gml</script>
         <script>scripts\scr_stairs.gml</script>
         <script>scripts\scr_make_room.gml</script>
       </scripts>
@@ -93,6 +94,7 @@
     <objects name="Room assets">
       <object>objects\obj_minimap_box</object>
       <object>objects\obj_minimap</object>
+      <object>objects\obj_wall</object>
       <object>objects\obj_game_variables</object>
       <object>objects\obj_stairs</object>
       <object>objects\obj_leave_floor_menu</object>

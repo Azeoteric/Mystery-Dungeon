@@ -39,7 +39,7 @@ height = room_height div CELL_HEIGHT;
 // Create the grid
 grid = ds_grid_create(width, height);
 scr_make_floor(grid, width, height, 4, 12, 100);
-
+wall_set = true;
 </string>
           </argument>
         </arguments>
@@ -63,12 +63,14 @@ scr_make_floor(grid, width, height, 4, 12, 100);
           <argument>
             <kind>1</kind>
             <string>/// Makes the Next Level
-if (global.floor_count &gt; 5) {
+if (global.floor_count &gt; 4) {
      room_goto(rm_boss);
-} 
+     wall_set = true;
+     } 
 else{
      global.floor_count++;
      room_restart();
+     wall_set = true;
 }
 
 

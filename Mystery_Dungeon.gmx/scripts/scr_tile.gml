@@ -114,7 +114,7 @@ for (var ypos = 0; ypos < height; ypos++) {
                     tile_add(bg_walltiles, tw * 2, th * 1, tw, th, tx - tw, ty, -ty);
                 }
             }
-*/            
+         
             if (is_top) {
                 if (!is_top_right) {
                     tile_add(bg_level1_tileset, tw * 0, 0, tw, th, tx, ty - th, 0);
@@ -138,3 +138,5 @@ for (var ypos = 0; ypos < height; ypos++) {
     }
 }
 //*/
+scr_wall();
+
