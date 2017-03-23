@@ -64,79 +64,78 @@ for (ypos  = 0;  ypos < height; ypos++) {
 }
 
 // Get tile sizes 
-var tw = CELL_WIDTH;
-var th = CELL_HEIGHT;
+var tw = CELL_WIDTH / 2;
+var th = CELL_HEIGHT / 2;
 
 // Add the tiles
-for (var ypos = 0; ypos < height; ypos++) {
-    for (var xpos = 0; xpos < width; xpos++) {
-        if (grid[# xpos, ypos] == FLOOR) {
+for (var ypos = 0; ypos < height * 2; ypos++) {
+    for (var xpos = 0; xpos < width * 2; xpos++) {
+        if (grid[# xpos div 2, ypos div 2] == FLOOR) {
             // Get the tile's x and y
             var tx = xpos * tw;
             var ty = ypos * th;
             
-            var is_right = grid[# (xpos + 1), ypos] > FLOOR;
-            var is_left = grid[# (xpos - 1), ypos] > FLOOR;
-            var is_top = grid[# xpos, (ypos - 1)] > FLOOR;
-            var is_bottom = grid[# xpos, (ypos + 1) ] > FLOOR;
+            var is_right = grid[# (xpos + 1) div 2, ypos div 2] > FLOOR;
+            var is_left = grid[# (xpos - 1) div 2, ypos div 2] > FLOOR;
+            var is_top = grid[# xpos div 2, (ypos - 1) div 2] > FLOOR;
+            var is_bottom = grid[# xpos div 2, (ypos + 1) div 2] > FLOOR;
             
-            var is_top_right = grid[# (xpos + 1), (ypos - 1)] > FLOOR;
-            var is_top_left = grid[# (xpos - 1), (ypos - 1)] > FLOOR;
-            var is_bottom_right = grid[# (xpos + 1), (ypos + 1)] > FLOOR;
-            var is_bottom_left = grid[# (xpos - 1), (ypos + 1)] > FLOOR;
-/*            
+            var is_top_right = grid[# (xpos + 1) div 2, (ypos - 1) div 2] > FLOOR;
+            var is_top_left = grid[# (xpos - 1) div 2, (ypos - 1) div 2] > FLOOR;
+            var is_bottom_right = grid[# (xpos + 1) div 2, (ypos + 1) div 2] > FLOOR;
+            var is_bottom_left = grid[# (xpos - 1) div 2, (ypos + 1) div 2] > FLOOR;
+            
             if (is_right) {
                 if (is_bottom) {
-                    tile_add(bg_walltiles, tw * 4, th * 1, tw, th, tx + tw, ty, -ty);
+                    tile_add(bg_level1, tw * 4, th * 1, tw, th, tx + tw, ty, -ty);
                 } else if (is_top) {
                     if (is_top_right) {
-                        tile_add(bg_walltiles, tw * 4, th * 0, tw, th, tx + tw, ty - th, -ty);
+                        tile_add(bg_level1, tw * 4, th * 0, tw, th, tx + tw, ty - th, -ty);
                     } else {
-                        tile_add(bg_walltiles, tw * 3, th * 0, tw, th, tx, ty - th, -ty);
+                        tile_add(bg_level1, tw * 3, th * 0, tw, th, tx, ty - th, -ty);
                     }
-                    tile_add(bg_walltiles, tw * 0, th * 1, tw, th, tx + tw, ty, -ty);
+                    tile_add(bg_level1, tw * 0, th * 1, tw, th, tx + tw, ty, -ty);
                 } else {
-                    tile_add(bg_walltiles, tw * 0, th * 1, tw, th, tx + tw, ty, -ty);
+                    tile_add(bg_level1, tw * 0, th * 1, tw, th, tx + tw, ty, -ty);
                 }
             }
             
             if (is_left) {
                 if (is_bottom) {
-                    tile_add(bg_walltiles, tw * 3, th * 1, tw, th, tx - tw, ty, -ty);
+                    tile_add(bg_level1, tw * 3, th * 1, tw, th, tx - tw, ty, -ty);
                 } else if (is_top) {
                     if (is_top_left) {
-                        tile_add(bg_walltiles, tw * 3, th * 0, tw, th, tx - tw, ty - th, -ty);
+                        tile_add(bg_level1, tw * 3, th * 0, tw, th, tx - tw, ty - th, -ty);
                     } else {
-                        tile_add(bg_walltiles, tw * 4, th * 0, tw, th, tx, ty - th, -ty);
+                        tile_add(bg_level1, tw * 4, th * 0, tw, th, tx, ty - th, -ty);
                     }
-                    tile_add(bg_walltiles, tw * 2, th * 1, tw, th, tx - tw, ty, -ty);
+                    tile_add(bg_level1, tw * 2, th * 1, tw, th, tx - tw, ty, -ty);
                 } else {
-                    tile_add(bg_walltiles, tw * 2, th * 1, tw, th, tx - tw, ty, -ty);
+                    tile_add(bg_level1, tw * 2, th * 1, tw, th, tx - tw, ty, -ty);
                 }
             }
-         
+            
             if (is_top) {
                 if (!is_top_right) {
-                    tile_add(bg_level1_tileset, tw * 0, 0, tw, th, tx, ty - th, 0);
+                    tile_add(bg_level1, tw * 2, th * 2, tw, th, tx, ty - th, -ty);
                 } else if (!is_top_left) {
-                    tile_add(bg_level1_tileset, tw * 2, 0, tw, th, tx, ty - th, 0);
+                    tile_add(bg_level1, tw * 0, th * 2, tw, th, tx, ty - th, -ty);
                 } else {
-                    tile_add(bg_level1_tileset, tw * 1, 0, tw, th, tx, ty - th, 0);
+                    tile_add(bg_level1, tw * 1, th * 2, tw, th, tx, ty - th, -ty);
                 }
             }
-         /*   
+            
             if (is_bottom) {
                 if (!is_bottom_right) {
-                    tile_add(bg_level1_tileset, tw * 2, th * 0, tw, th, tx, ty, -ty - tw);
+                    tile_add(bg_level1, tw * 2, th * 0, tw, th, tx, ty, -ty - tw);
                 } else if (!is_bottom_left) {
-                    tile_add(bg_level1_tileset, tw * 0, th * 0, tw, th, tx, ty, -ty - tw);
+                    tile_add(bg_level1, tw * 0, th * 0, tw, th, tx, ty, -ty - tw);
                 } else {
-                    tile_add(bg_level1_tileset, tw * 1, th * 0, tw, th, tx, ty, -ty - tw);
+                    tile_add(bg_level1, tw * 1, th * 0, tw, th, tx, ty, -ty - tw);
                 }
-            }*/
+            }
         }
     }
 }
-//*/
 scr_wall();
 

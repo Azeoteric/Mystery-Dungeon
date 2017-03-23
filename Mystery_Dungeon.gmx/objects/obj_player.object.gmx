@@ -37,6 +37,8 @@ yStart = y;
 hspd = 0;
 vspd = 0;
 spd = 3;
+var tempy;
+var tempx
 </string>
           </argument>
         </arguments>
@@ -63,6 +65,8 @@ spd = 3;
 //Move
 if(global.is_game_running) {
    scr_get_input();
+   var tempx = x;
+   var tempy = y; 
    image_speed = .3;
    var xDirection = key_right + key_left;
    var yDirection = key_down + key_up;
@@ -105,17 +109,19 @@ if(!global.is_game_running) {
             <string>/// Creates and Centers Mini-Map
 
    if(global.is_game_running) {
+  
       if(key_map) {
+
          if(y &lt; 180){
            tempy = 180;   
          }
-         if(y &gt; room_height - 180){
+         if(y &gt;= room_height - 180){
            tempy = room_height - 180;
          }
          if(x &lt; 320){
            tempx = 320;   
          }
-         if(x &gt; room_width - 320){
+         if(x &gt;= room_width - 320){
            tempx = room_width - 320;
          }
          instance_create(tempx, tempy, obj_minimap);     
