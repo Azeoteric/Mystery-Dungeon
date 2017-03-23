@@ -34,6 +34,7 @@ speedFactor = 4;
 xDirection = 0;
 yDirection = 0;
 image_speed = .5;
+destroyTimer = 0;
 switch(irandom(3)){
        case 0:
        sprite_index = spr_sprinkle_grn;
@@ -122,6 +123,14 @@ if (abs(x) &gt; 10000 || abs(y) &gt; 10000)
 
 if (is_x_meeting || is_y_meeting) {
    instance_destroy();
+}
+
+if(destroyTimer &lt; 75) {
+    destroyTimer++;
+}
+
+else {
+    instance_destroy();
 }
 </string>
           </argument>
