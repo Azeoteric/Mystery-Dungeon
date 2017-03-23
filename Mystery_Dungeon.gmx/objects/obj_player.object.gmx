@@ -105,21 +105,20 @@ if(!global.is_game_running) {
             <string>/// Creates and Centers Mini-Map
 
    if(global.is_game_running) {
-   if(key_map) {
-      if(y &lt; 180){
-        tempy = 180;   
-      }
-      if(y &gt; room_height - 180){
-        tempy = room_height - 180;
-      }
-      if(x &lt; 320){
-        tempx = 320;   
-      }
-      if(x &gt; room_width - 320){
-        tempx = room_width - 320;
-      }
-      instance_create(tempx, tempy, obj_minimap);
-      
+      if(key_map) {
+         if(y &lt; 180){
+           tempy = 180;   
+         }
+         if(y &gt; room_height - 180){
+           tempy = room_height - 180;
+         }
+         if(x &lt; 320){
+           tempx = 320;   
+         }
+         if(x &gt; room_width - 320){
+           tempx = room_width - 320;
+         }
+         instance_create(tempx, tempy, obj_minimap);     
    }    
 }
 </string>
