@@ -25,11 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>MOVE_SPEED = 1;
+            <string>///Variable inits.
+MOVE_SPEED = 1;
 VISION_RADIUS = 256;
 vSpeed = 0;
 hSpeed = 0;
 sees_player = false;
+moveCounter = 0;
+moveFrames = 180;
 
 </string>
           </argument>
@@ -96,12 +99,50 @@ if(sees_player) {
     //Knockback?
 }
 else {
-    //dumb movement
     //Pick a random direction to move in and follow 
     //that direction for a certain number of frames.
-    //When the frame timer is up OR collides with wall, return to
-    //Picking direction.
-    //Implement using RNG and a switch statement.   
+    moveDir = irandom(3);
+    if(moveCounter &lt; moveFrames) {
+        moveCounter++;    
+    }
+    else {
+        switch(moveDir) {
+            case 0:
+                //MOVE LEFT
+                //CHECK COLLISION
+                if (!place_meeting(x - MOVE_SPEED, y, obj_wall)) {
+                    x -= MOVE_SPEED;
+                    moveCounter = 0;
+                }
+                break;
+            case 1:
+                //MOVE UP
+                //CHECK COLLISION
+                if (!place_meeting(x, y + MOVE_SPEED, obj_wall)) {
+                     y += MOVE_SPEED;
+                     moveCounter = 0;
+                }
+                break;
+            case 2:
+                //MOVE RIGHT
+                //CHECK COLLISION
+                if (!place_meeting(x + MOVE_SPEED, y, obj_wall)) {
+                    x += MOVE_SPEED;
+                    moveCounter = 0;
+                }
+                break;
+            case 3:
+                //MOVE DOWN
+                //CHECK COLLISION
+                if (!place_meeting(x, y - MOVE_SPEED, obj_wall)) {
+                    y -= MOVE_SPEED;
+                    moveCounter = 0;
+                }
+                break;
+        }
+        
+    }
+
 }
 </string>
           </argument>
