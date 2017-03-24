@@ -86,6 +86,23 @@ if((lengthVector &lt; VISION_RADIUS) &amp;&amp; collision_line(x, y, obj_player.
           <argument>
             <kind>1</kind>
             <string>///Movement and attack
+if(sees_player) {
+    //follow player and attack
+    //grab player coordinates and compare values to 
+    //squeeb values. Use the difference to know which direction to move.
+    //On a certain interval, initiate attack movemement.
+    //For a certain number of frames, set move speed much higher.
+    //Check collision with player. If collides, dock health from player.
+    //Knockback?
+}
+else {
+    //dumb movement
+    //Pick a random direction to move in and follow 
+    //that direction for a certain number of frames.
+    //When the frame timer is up OR collides with wall, return to
+    //Picking direction.
+    //Implement using RNG and a switch statement.   
+}
 </string>
           </argument>
         </arguments>
