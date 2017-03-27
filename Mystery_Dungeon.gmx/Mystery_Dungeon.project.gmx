@@ -119,8 +119,8 @@
   </objects>
   <rooms name="rooms">
     <rooms name="Levels">
-      <room>rooms\rm_overworld</room>
       <room>rooms\rm_test2</room>
+      <room>rooms\rm_overworld</room>
       <room>rooms\rm_boss</room>
       <room>rooms\rm_test</room>
       <room>rooms\rm_ruins</room>
