@@ -59,7 +59,7 @@ vspd = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Movement and attack
+            <string>///Movement and attack - NOT USED**********
 /*
 tempx1 = bbox_left div CELL_WIDTH;
 tempy1 = bbox_top div CELL_HEIGHT;
@@ -183,42 +183,43 @@ else {
             <kind>1</kind>
             <string>///Randomize movement
 moveFrames = irandom(80) + 40;
-if(global.is_game_running) {
-   if(moveCounter &gt;= moveFrames) {
-      moveDir = irandom(3);
-      moveCounter = 0;
-   }
-
-        switch(moveDir) {
-            case 0:
-                //MOVE LEFT
-                    hspd = -1 * MOVE_SPEED;
-                    vspd = 0;
-                    moveCounter++;
-                break;
-            case 1:
-                //MOVE UP
-                    hspd = 0;
-                    vspd = -1 * MOVE_SPEED;
-                    moveCounter++;
-                break;
-            case 2:
-                //MOVE RIGHT
-                    hspd = 1 * MOVE_SPEED;
-                    vspd = 0;
-                    moveCounter++;
-                break;
-            case 3:
-                //MOVE DOWN
-                    hspd = 0;
-                    vspd = 1 * MOVE_SPEED;
-                    moveCounter++;
-                break;
-            }
-   scr_move_enemy(hspd + sign(hspd) , vspd + sign(vspd));         
-   
-}
+//sees_player = scr_sees_player();
+if(!sees_player){
+    if(global.is_game_running) {
+       if(moveCounter &gt;= moveFrames) {
+          moveDir = irandom(3);
+          moveCounter = 0;
+       }
     
+            switch(moveDir) {
+                case 0:
+                    //MOVE LEFT
+                        hspd = -1 * MOVE_SPEED;
+                        vspd = 0;
+                        moveCounter++;
+                    break;
+                case 1:
+                    //MOVE UP
+                        hspd = 0;
+                        vspd = -1 * MOVE_SPEED;
+                        moveCounter++;
+                    break;
+                case 2:
+                    //MOVE RIGHT
+                        hspd = 1 * MOVE_SPEED;
+                        vspd = 0;
+                        moveCounter++;
+                    break;
+                case 3:
+                    //MOVE DOWN
+                        hspd = 0;
+                        vspd = 1 * MOVE_SPEED;
+                        moveCounter++;
+                    break;
+                }
+       scr_move_enemy(hspd + sign(hspd) , vspd + sign(vspd));         
+    }
+}
 </string>
           </argument>
         </arguments>
