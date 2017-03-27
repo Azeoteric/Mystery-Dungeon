@@ -102,8 +102,10 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> ///Handles Deletion
-
+            <string>///Handles Deletion
+if(place_meeting(x, y, obj_squeeb)){
+                    instance_destroy();
+}
 //Destroys the projectile after it moves far enough.
 if (abs(x) &gt; 10000 || abs(y) &gt; 10000)
 {
@@ -133,6 +135,26 @@ else {
     instance_destroy();
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
