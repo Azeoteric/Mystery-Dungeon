@@ -54,17 +54,15 @@ sees_player = false;
           <argument>
             <kind>1</kind>
             <string>///Player tracking
+//Sets sees_player to true when player is within range and vision is unobstructed.
+/* var lengthVector = point_distance(x, y, obj_player.x, obj_player.y);
 
-//Sets sees_player to true when player is within range and vision is unobstructed.    
-/*var lengthVector = point_distance(x, y, obj_player.x, obj_player.y);
-
-if((lengthVector &lt; VISION_RADIUS) &amp;&amp; collision_line(x, y, obj_player.x, obj_player.y,
-        obj_wall, false, true) == noone) {
-        
-    //sees_player = true;
+if((lenghtVector &lt; VISION_RADIUS) &amp;&amp; collision_line(x, y, obj_player.x, obj_player.y,
+           obj_wall, false, true) == noone){
+           
+           //sees_player = true;
 }
-
-        */
+*/
 </string>
           </argument>
         </arguments>

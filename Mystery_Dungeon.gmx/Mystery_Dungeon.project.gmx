@@ -96,8 +96,8 @@
   </fonts>
   <objects name="objects">
     <objects name="Enemies">
-      <object>objects\obj_enemy</object>
       <object>objects\obj_squeeb</object>
+      <object>objects\obj_enemy</object>
     </objects>
     <objects name="Room assets">
       <object>objects\obj_minimap_box</object>
