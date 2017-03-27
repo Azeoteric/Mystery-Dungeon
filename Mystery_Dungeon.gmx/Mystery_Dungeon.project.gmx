@@ -91,8 +91,10 @@
     <font>fonts\fnt_large</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_enemy</object>
-    <object>objects\obj_squeeb</object>
+    <objects name="Enemies">
+      <object>objects\obj_enemy</object>
+      <object>objects\obj_squeeb</object>
+    </objects>
     <objects name="Room assets">
       <object>objects\obj_minimap_box</object>
       <object>objects\obj_minimap</object>

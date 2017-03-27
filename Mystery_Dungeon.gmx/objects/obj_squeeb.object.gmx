@@ -26,13 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>///Variable inits.
-MOVE_SPEED = 1;
+scr_grid();
+MOVE_SPEED = 3;
 VISION_RADIUS = 256;
 vSpeed = 0;
 hSpeed = 0;
 sees_player = false;
-moveCounter = 0;
-moveFrames = 180;
+moveCounter = 100;
+moveFrames = 100;
 
 </string>
           </argument>
@@ -57,6 +58,13 @@ moveFrames = 180;
           <argument>
             <kind>1</kind>
             <string>///Movement and attack
+tempx1 = bbox_left div CELL_WIDTH;
+tempy1 = bbox_top div CELL_HEIGHT;
+tempx2 = bbox_right div CELL_WIDTH;
+tempy2 = bbox_bottom div CELL_HEIGHT;
+enemyX = (tempx1 + tempx2) div 2;
+enemyY = (tempy1 + tempy2) div 2;
+
 if(sees_player) {
     //follow player and attack
     //grab player coordinates and compare values to 
@@ -77,38 +85,62 @@ else {
         switch(moveDir) {
             case 0:
                 //MOVE LEFT
-                //CHECK COLLISION
-                if (!place_meeting(x - MOVE_SPEED, y, obj_wall)) {
-                    x -= MOVE_SPEED;
+                    hspeed = -1 * MOVE_SPEED;
+                    vspeed = 0;
                     moveCounter = 0;
-                }
                 break;
             case 1:
                 //MOVE UP
-                //CHECK COLLISION
-                if (!place_meeting(x, y + MOVE_SPEED, obj_wall)) {
-                     y += MOVE_SPEED;
-                     moveCounter = 0;
-                }
+                    hspeed = 0;
+                    vspeed = 1 * MOVE_SPEED;
+                    moveCounter = 0;
                 break;
             case 2:
                 //MOVE RIGHT
-                //CHECK COLLISION
-                if (!place_meeting(x + MOVE_SPEED, y, obj_wall)) {
-                    x += MOVE_SPEED;
+                    hspeed = 1 * MOVE_SPEED;
+                    vspeed = 0;
                     moveCounter = 0;
-                }
                 break;
             case 3:
                 //MOVE DOWN
-                //CHECK COLLISION
-                if (!place_meeting(x, y - MOVE_SPEED, obj_wall)) {
-                    y -= MOVE_SPEED;
+                    hspeed = 0;
+                    vspeed = -1 * MOVE_SPEED;
                     moveCounter = 0;
-                }
                 break;
         }
         
+        var is_left_meeting = (grid[# enemyX - 1, enemyY] == WALL) ||
+                              (grid[# enemyX - 1, enemyY] == WALL_MAPPED);
+        var is_right_meeting = (grid[# enemyX + 1, enemyY] == WALL) ||
+                            (grid[# enemyX + 1, enemyY] == WALL_MAPPED);
+        var is_top_meeting = (grid[# enemyX, enemyY - 1] == WALL) ||
+                           (grid[# enemyX, enemyY - 1] == WALL_MAPPED);
+        var is_bottom_meeting = (grid[# enemyX, enemyY + 1] == WALL) ||
+                           (grid[# enemyX, enemyY + 1] == WALL_MAPPED);            
+        if(is_right_meeting) {
+            //MOVE LEFT
+                    hspeed = -1 * MOVE_SPEED;
+                    vspeed = 0;
+                    moveCounter = 0;
+        }
+        if(is_left_meeting) {
+            //MOVE RIGHT
+                    hspeed = 1 * MOVE_SPEED;
+                    vspeed = 0;
+                    moveCounter = 0;
+        }
+        if(is_top_meeting){
+            //MOVE DOWN
+                    hspeed = 0;
+                    vspeed = -1 * MOVE_SPEED;
+                    moveCounter = 0;
+        }
+        if(is_bottom_meeting){
+            //MOVE UP
+                    hspeed = 0;
+                    vspeed = 1 * MOVE_SPEED;
+                    moveCounter = 0;
+        }
     }
 
 }
