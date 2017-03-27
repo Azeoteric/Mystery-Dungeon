@@ -62,26 +62,34 @@ test_squeeb_spawn = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Creates and Centers Mini-Map
+            <string>/// Input and move also test squeeb spawn
+//Move
+if(global.is_game_running) {
+   scr_get_input();
+   var tempx = x;
+   var tempy = y; 
+   image_speed = .3;
+   var xDirection = key_right + key_left;
+   var yDirection = key_down + key_up;
+   if (xDirection == 0 || yDirection = 0) {
+        hspd = xDirection * spd;
+        vspd = yDirection * spd;
+   }
+   else {
+        hspd = xDirection * spd / sqrt(2);
+        vspd = yDirection * spd / sqrt(2);
+   }
+   scr_move(hspd, vspd);
+}
+if(!global.is_game_running) {
+    shouldAttack = false;
+     image_speed = 0;
+}
 
-   if(global.is_game_running) {
-  
-      if(key_map) {
-
-         if(y &lt; 180){
-           tempy = 180;   
-         }
-         if(y &gt;= room_height - 180){
-           tempy = room_height - 180;
-         }
-         if(x &lt; 320){
-           tempx = 320;   
-         }
-         if(x &gt;= room_width - 320){
-           tempx = room_width - 320;
-         }
-         instance_create(tempx, tempy, obj_minimap);     
-   }    
+if(test_squeeb_spawn) {
+    instance_create(x + 72, y, obj_squeeb);
+    test_squeeb_spawn = false;
+    //show_message("SPAWNED SQUEEB");
 }
 </string>
           </argument>
@@ -190,6 +198,47 @@ if( grid[# playerx, playery] == NODE_MAPPED) {
       }
     }
 }            
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Creates and Centers Mini-Map
+
+   if(global.is_game_running) {
+  
+      if(key_map) {
+
+         if(y &lt; 180){
+           tempy = 180;   
+         }
+         if(y &gt;= room_height - 180){
+           tempy = room_height - 180;
+         }
+         if(x &lt; 320){
+           tempx = 320;   
+         }
+         if(x &gt;= room_width - 320){
+           tempx = room_width - 320;
+         }
+         instance_create(tempx, tempy, obj_minimap);     
+   }    
+}
 </string>
           </argument>
         </arguments>
@@ -328,55 +377,6 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
       else if(hmove &lt; 0) {
             sprite_index = spr_cp_wlk_lft;
       }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Input and move also test squeeb spawn
-//Move
-if(global.is_game_running) {
-   scr_get_input();
-   var tempx = x;
-   var tempy = y; 
-   image_speed = .3;
-   var xDirection = key_right + key_left;
-   var yDirection = key_down + key_up;
-   if (xDirection == 0 || yDirection = 0) {
-        hspd = xDirection * spd;
-        vspd = yDirection * spd;
-   }
-   else {
-        hspd = xDirection * spd / sqrt(2);
-        vspd = yDirection * spd / sqrt(2);
-   }
-   scr_move(hspd, vspd);
-}
-if(!global.is_game_running) {
-    shouldAttack = false;
-     image_speed = 0;
-}
-
-if(test_squeeb_spawn) {
-    instance_create(x + 5, y, obj_squeeb);
-    test_squeeb_spawn = false;
-    //show_message("SPAWNED SQUEEB");
-}
 </string>
           </argument>
         </arguments>
