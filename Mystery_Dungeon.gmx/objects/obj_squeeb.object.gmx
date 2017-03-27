@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-16</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_enemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Variable inits.
 scr_grid();
-MOVE_SPEED = 2;
+MOVE_SPEED = 3;
 VISION_RADIUS = 256;
 vSpeed = 0;
 hSpeed = 0;
@@ -37,8 +37,6 @@ moveDir = irandom(3);
 moveFrames = 80;
 hspd = 0;
 vspd = 0;
-hit_points = 3;
-image_speed = .2;
 </string>
           </argument>
         </arguments>
@@ -221,33 +219,6 @@ if(global.is_game_running) {
    
 }
     
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Handles damage
-if(place_meeting(x, y, obj_arrow_projectile)) {
-                   hit_points--;
-}
-if(hit_points &lt; 0) {
- instance_destroy();
-}
 </string>
           </argument>
         </arguments>
