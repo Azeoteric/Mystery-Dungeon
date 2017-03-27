@@ -34,7 +34,7 @@ hSpeed = 0;
 sees_player = false;
 moveCounter = 0;
 moveDir = irandom(3);
-//moveFrames = 10;
+moveFrames = 80;
 hspd = 0;
 vspd = 0;
 </string>
@@ -181,8 +181,10 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.is_game_running) {
-   if(moveCounter == 50) {
+            <string>///Randomize movement
+moveFrames = irandom(80) + 40;
+if(global.is_game_running) {
+   if(moveCounter &gt;= moveFrames) {
       moveDir = irandom(3);
       moveCounter = 0;
    }

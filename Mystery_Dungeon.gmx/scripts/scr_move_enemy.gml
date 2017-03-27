@@ -7,6 +7,7 @@ if (scr_grid_place_meeting(x + hspd, y, grid)) {
    while (!scr_grid_place_meeting(x + sign(hspd), y, grid)) {
       x += sign(hspd);                     
    }
+   moveCounter = moveFrames;
    return 0;   
 hspd = 0;
 }
@@ -18,6 +19,7 @@ if (scr_grid_place_meeting(x, y + vspd, grid)) {
    while (!scr_grid_place_meeting(x, y + sign(vspd), grid)) {
       y += sign(vspd);                     
    }
+   moveCounter = 500;
 return 0;
 vspd = 0;
 }
