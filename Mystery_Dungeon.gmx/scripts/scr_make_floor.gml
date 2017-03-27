@@ -14,6 +14,8 @@ randomize();
 //Create the controller in random parts of the grid
 var cx = irandom(width - 8) + 8;
 var cy = irandom(height - 8) + 8;
+cx = clamp(cx, 8, width - 8);   
+cy = clamp(cy, 8, height - 8);
 
 
 // Give the controller a random direction

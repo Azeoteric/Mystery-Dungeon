@@ -28,7 +28,7 @@
             <string>///Makes Boss Room
 room_width = (CELL_WIDTH / 16)  * 720;
 room_height = (CELL_HEIGHT / 16) * 720;
-
+wall_set = true;
 //Set Grid Width
 width = room_width div CELL_WIDTH;
 height = room_height div CELL_HEIGHT;

@@ -16,3 +16,4 @@ if(room = rm_overworld){
      width = obj_overworld.width; 
      grid = obj_overworld.grid;
 }
+

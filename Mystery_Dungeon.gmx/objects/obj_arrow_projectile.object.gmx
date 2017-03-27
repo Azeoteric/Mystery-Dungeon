@@ -29,7 +29,7 @@
 scr_grid();
 xMove = 0;
 yMove = 0;
-depth = -17;
+depth = -16;
 speedFactor = 4;
 xDirection = 0;
 yDirection = 0;
@@ -102,7 +102,7 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Handles Deletion
+            <string> ///Handles Deletion
 
 //Destroys the projectile after it moves far enough.
 if (abs(x) &gt; 10000 || abs(y) &gt; 10000)

@@ -26,9 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>///Makes the overworld for the player.
+//Just gonna say makes a shape. Probably really ineffecient and stuff but hey it works...
+//yea it does probaly best to leave this alone since it doesn't take to much time to render... 
 room_width = (CELL_WIDTH / 16)  * 720;
 room_height = (CELL_HEIGHT / 16) * 720;
-
+global.level = 1;
+wall_set = true;
 //Set Grid Width
 width = room_width div CELL_WIDTH;
 height = room_height div CELL_HEIGHT;
@@ -44,7 +47,7 @@ scr_tile(width, height, grid);
 //Randomized the world
 randomize();
 
-//Create the controller in random parts of the grid
+//Create the controller in middle parts of the grid
 var cx = width div 2;
 var cy = height div 2;
 cy -= 5;
@@ -114,9 +117,60 @@ scr_make_room(cx, cy, true);
 cx -= 5;
 scr_make_room(cx, cy, true);
 
+cy -= 5;
+scr_make_room(cx, cy, true);
+
+cy -= 5;
+scr_make_room(cx, cy, true);
+
+cx += 5;
+scr_make_room(cx, cy, true);
+
+cy -= 5;
+scr_make_room(cx, cy, true);
+
 cx -= 5;
 scr_make_room(cx, cy, true);
 
+cx -= 5;
+scr_make_room(cx, cy, true);
+
+cy += 5;
+scr_make_room(cx, cy, true);
+
+cy += 5;
+cx += 5;
+
+scr_make_room(cx, cy, true); 
+
+cy += 5;
+scr_make_room(cx, cy, true); 
+cy += 5;
+scr_make_room(cx, cy, true);
+
+cy += 5;
+scr_make_room(cx, cy, true);
+
+cx += 5;
+scr_make_room(cx, cy, true);
+
+cx -= 10;
+scr_make_room(cx, cy, true);
+cx += 5;
+cy += 5;
+scr_make_room(cx, cy, true);
+
+cx += 5;
+scr_make_room(cx, cy, true);
+
+cx -= 10;
+scr_make_room(cx, cy, true);
+
+cy -= 15;
+scr_make_room(cx, cy, true);
+
+cx += 30;
+scr_make_room(cx, cy, true);
 
 instance_create(tempX, tempY, obj_player);
 scr_tile(width, height, grid);

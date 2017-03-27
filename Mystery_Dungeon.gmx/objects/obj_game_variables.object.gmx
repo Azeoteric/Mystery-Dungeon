@@ -28,6 +28,7 @@
             <string>///Sets up unchangable varibales
 global.floor_count = 1;
 global.is_game_running = true;
+global.level = 1;
 </string>
           </argument>
         </arguments>
