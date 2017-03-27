@@ -32,9 +32,11 @@ VISION_RADIUS = 256;
 vSpeed = 0;
 hSpeed = 0;
 sees_player = false;
-moveCounter = 100;
-moveFrames = 100;
-
+moveCounter = 0;
+moveDir = irandom(3);
+//moveFrames = 10;
+hspd = 0;
+vspd = 0;
 </string>
           </argument>
         </arguments>
@@ -58,6 +60,7 @@ moveFrames = 100;
           <argument>
             <kind>1</kind>
             <string>///Movement and attack
+/*
 tempx1 = bbox_left div CELL_WIDTH;
 tempy1 = bbox_top div CELL_HEIGHT;
 tempx2 = bbox_right div CELL_WIDTH;
@@ -92,7 +95,7 @@ else {
             case 1:
                 //MOVE UP
                     hspeed = 0;
-                    vspeed = 1 * MOVE_SPEED;
+                    vspeed = -1 * MOVE_SPEED;
                     moveCounter = 0;
                 break;
             case 2:
@@ -104,19 +107,19 @@ else {
             case 3:
                 //MOVE DOWN
                     hspeed = 0;
-                    vspeed = -1 * MOVE_SPEED;
+                    vspeed = 1 * MOVE_SPEED;
                     moveCounter = 0;
                 break;
         }
-        
+        /*
         var is_left_meeting = (grid[# enemyX - 1, enemyY] == WALL) ||
-                              (grid[# enemyX - 1, enemyY] == WALL_MAPPED);
-        var is_right_meeting = (grid[# enemyX + 1, enemyY] == WALL) ||
+                            (grid[# enemyX - 1, enemyY] == WALL_MAPPED);
+         var is_right_meeting = (grid[# enemyX + 1, enemyY] == WALL) ||
                             (grid[# enemyX + 1, enemyY] == WALL_MAPPED);
-        var is_top_meeting = (grid[# enemyX, enemyY - 1] == WALL) ||
-                           (grid[# enemyX, enemyY - 1] == WALL_MAPPED);
-        var is_bottom_meeting = (grid[# enemyX, enemyY + 1] == WALL) ||
-                           (grid[# enemyX, enemyY + 1] == WALL_MAPPED);            
+        var is_top_meeting = (grid[# enemyX, enemyY + 1] == WALL) ||
+                           (grid[# enemyX, enemyY + 1] == WALL_MAPPED);
+        var is_bottom_meeting = (grid[# enemyX, enemyY -1] == WALL) ||
+                           (grid[# enemyX, enemyY - 1] == WALL_MAPPED);            
         if(is_right_meeting) {
             //MOVE LEFT
                     hspeed = -1 * MOVE_SPEED;
@@ -125,6 +128,7 @@ else {
         }
         if(is_left_meeting) {
             //MOVE RIGHT
+            
                     hspeed = 1 * MOVE_SPEED;
                     vspeed = 0;
                     moveCounter = 0;
@@ -132,18 +136,87 @@ else {
         if(is_top_meeting){
             //MOVE DOWN
                     hspeed = 0;
-                    vspeed = -1 * MOVE_SPEED;
+                    vspeed = 1 * MOVE_SPEED;
                     moveCounter = 0;
         }
         if(is_bottom_meeting){
             //MOVE UP
                     hspeed = 0;
-                    vspeed = 1 * MOVE_SPEED;
+                    vspeed = -1 * MOVE_SPEED;
                     moveCounter = 0;
         }
-    }
+ 
+    
+      var is_x_meeting = (grid[# bbox_right div CELL_WIDTH, bbox_top div CELL_HEIGHT] &gt; FLOOR)  || 
+                       (grid[# bbox_left div CELL_WIDTH, bbox_top div CELL_HEIGHT] &gt; FLOOR);
+    
+                      
+    var is_y_meeting = (grid[# bbox_left div CELL_WIDTH, bbox_bottom  div CELL_HEIGHT] &gt; FLOOR)  || 
+                       (grid[# bbox_right div CELL_WIDTH, bbox_bottom div CELL_HEIGHT] &gt; FLOOR);  
+                        
+    
+                     
+     }
 
+     
 }
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.is_game_running) {
+   if(moveCounter == 50) {
+      moveDir = irandom(3);
+      moveCounter = 0;
+   }
+
+        switch(moveDir) {
+            case 0:
+                //MOVE LEFT
+                    hspd = -1 * MOVE_SPEED;
+                    vspd = 0;
+                    moveCounter++;
+                break;
+            case 1:
+                //MOVE UP
+                    hspd = 0;
+                    vspd = -1 * MOVE_SPEED;
+                    moveCounter++;
+                break;
+            case 2:
+                //MOVE RIGHT
+                    hspd = 1 * MOVE_SPEED;
+                    vspd = 0;
+                    moveCounter++;
+                break;
+            case 3:
+                //MOVE DOWN
+                    hspd = 0;
+                    vspd = 1 * MOVE_SPEED;
+                    moveCounter++;
+                break;
+            }
+   scr_move_enemy(hspd + sign(hspd) , vspd + sign(vspd));         
+   
+}
+    
 </string>
           </argument>
         </arguments>

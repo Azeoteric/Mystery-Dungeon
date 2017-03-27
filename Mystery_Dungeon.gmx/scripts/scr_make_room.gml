@@ -11,7 +11,9 @@ var is_double_room = argument[2];
     if((irandom(100) > 70) && (!is_double_room))  {
          var width = argument[3];
          var height = argument[4];
-
+         cx = clamp(cx, 10, width - 10);   
+         cy = clamp(cy, 10, height - 10);
+    
          var odds = 1;
          var cdir = irandom(3);
          if (irandom(odds) == odds) {

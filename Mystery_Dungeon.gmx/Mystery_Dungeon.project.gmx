@@ -68,6 +68,9 @@
     <script>scripts\scr_text.gml</script>
     <script>scripts\scr_generate_nodes_for_room.gml</script>
     <script>scripts\scr_does_room_fit.gml</script>
+    <scripts name="Enemy Mechanics">
+      <script>scripts\scr_move_enemy.gml</script>
+    </scripts>
     <script>scripts\scr_get_direction.gml</script>
     <scripts name="Player Mechanics">
       <script>scripts\scr_meeting_stairs.gml</script>
