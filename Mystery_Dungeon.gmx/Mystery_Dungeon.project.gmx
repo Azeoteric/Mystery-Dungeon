@@ -4,7 +4,15 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="music">
+      <sound>sound\music_wheat</sound>
+      <sound>sound\music_hub</sound>
+    </sounds>
+    <sounds name="sfx">
+      <sound>sound\sfx_sprinkle</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_action_menu</sprite>
     <sprites name="Cupcake Princess">
