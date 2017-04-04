@@ -68,6 +68,8 @@
       <background>background\bg_level1_empty</background>
       <background>background\bg_level_cave</background>
       <background>background\bg_level1_tileset</background>
+      <background>background\bg_cave</background>
+      <background>background\bg_ruins</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
