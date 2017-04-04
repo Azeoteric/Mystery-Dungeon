@@ -1,0 +1,41 @@
+/************** PLAYER STATS **************/
+
+// Speed bullets travel at
+int player_bullet_speed
+
+// Rate of firing bullets
+int player_fire_rate
+
+// Attack damage
+int player_attack_damage
+
+// Player Movement speed
+int player_move_speed
+
+// Health
+int player_health
+
+
+
+/*************** BOOLEAN VALUES ****************/
+
+/***** ALCHEMY ******/
+boolean player_has_compass
+boolean player_has_increased_droprate
+boolean player_has_sprinklestorm
+boolean player_has_splash_damage
+boolean player_has_paralyzing
+boolean player_has_slowing
+boolean player_has_poisoning
+
+/***** TANK *******/
+boolean player_has_map
+boolean player_has_sprinkle_shield
+boolean player_has_upclose
+boolean player_has_piercing
+
+/***** GLASS CANNON ******/
+boolean player_has_piercing
+boolean player_has_sprinkle_stream
+boolean player_has_sprinkle_blitz
+
