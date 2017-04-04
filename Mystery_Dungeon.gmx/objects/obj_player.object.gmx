@@ -37,6 +37,8 @@ yStart = y;
 hspd = 0;
 vspd = 0;
 spd = 3;
+bullet_speed = 3;
+firerate = 20;
 var tempy;
 var tempx
 test_squeeb_spawn = true;
@@ -301,7 +303,7 @@ xDirection = 0 // 1 if to the right, -1 if to the left and 0 if no movement.
 yDirection = 0 // 1 if down, -1 if up, and 0 if no movement.
 
 //Checks the projectile should have a horizontal velocity component.
-if (attackTimer &lt; 10) {
+if (attackTimer &lt; firerate) {
     attackTimer++;
 }
 else{
@@ -332,7 +334,7 @@ else if (shooty &gt; 0)
     yDirection = 1;
     shouldAttack = true;
 }
-if (shouldAttack &amp;&amp; attackTimer &gt;= 10 &amp;&amp; global.is_game_running)
+if (shouldAttack &amp;&amp; attackTimer &gt;= firerate &amp;&amp; global.is_game_running)
 {
     var projectile = (instance_create(x, y, obj_arrow_projectile));
     projectile.xDirection = xDirection;

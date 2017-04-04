@@ -30,7 +30,7 @@ scr_grid();
 xMove = 0;
 yMove = 0;
 depth = -16;
-speedFactor = 4;
+speedFactor = obj_player.bullet_speed;
 xDirection = 0;
 yDirection = 0;
 image_speed = .5;
