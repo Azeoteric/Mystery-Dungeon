@@ -174,7 +174,8 @@ scr_make_room(cx, cy, true);
 
 instance_create(tempX, tempY, obj_player);
 scr_tile(width, height, grid);
- 
+tile_add(bg_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, cx * CELL_WIDTH, cy * CELL_HEIGHT, 0); 
+grid[# cx, cy] = PORTAL;
 </string>
           </argument>
         </arguments>

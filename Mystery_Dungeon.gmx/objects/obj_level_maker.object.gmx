@@ -29,7 +29,7 @@
 //Resize the room
 level = 1;
 wall_set = true;
-global.level = 1;
+//global.level = 3;
 room_width = (CELL_WIDTH / 16)  * 720;
 room_height = (CELL_HEIGHT / 16) * 720;
 

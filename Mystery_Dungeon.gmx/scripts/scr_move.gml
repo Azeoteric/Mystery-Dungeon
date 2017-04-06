@@ -10,6 +10,9 @@ if (scr_grid_place_meeting(x + hspd, y, grid)) {
    if(scr_meeting_stairs(x + sign(hspd), y, grid)){
              event_user(0);
     }
+     if(scr_meeting_portal(x + sign(hspd), y, grid)){
+             event_user(1);
+    }
 hspd = 0;
 }
 // Move Horizontally
@@ -22,6 +25,9 @@ if (scr_grid_place_meeting(x, y + vspd, grid)) {
    } 
    if(scr_meeting_stairs(x, y + sign(vspd), grid)){
          event_user(0);
+   }
+   if(scr_meeting_portal(x, y + sign(vspd), grid)){
+         event_user(1);
    }
 vspd = 0;
 }

@@ -7,7 +7,15 @@ switch(level){
 case 1:
      level = bg_level1;
      break;
+
+case 2:
+     level = bg_cave;
+     break;
+case 3:
+     level = bg_ruins;
+     break;
 }
+
 // Making Walls
 for (var ypos = 1; ypos < height - 1; ypos++) {
     for (var xpos = 1; xpos < width - 1; xpos++) {

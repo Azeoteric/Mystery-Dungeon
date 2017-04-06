@@ -29,6 +29,8 @@
 depth = -20002;
 is_left = true;
 is_right = false;
+is_top = true;
+is_bottom = false;
 </string>
           </argument>
         </arguments>
@@ -52,8 +54,16 @@ is_right = false;
           <argument>
             <kind>1</kind>
             <string>///Delete text
-with(obj_floor_text) {
-   instance_destroy();
+if(instance_exists(obj_floor_text)){
+   with(obj_floor_text) {
+      instance_destroy();
+   }
+}
+
+if(instance_exists(obj_level_select_text)){
+   with(obj_level_select_text) {
+      instance_destroy();
+   }
 }
 </string>
           </argument>
@@ -77,32 +87,115 @@ with(obj_floor_text) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Moves arrow
-scr_get_input();
-move = key_right + key_left;
-if (move &lt; 0 &amp;&amp; is_left){
-   x -= 105;
-   is_left = false;
-   is_right = true;
-
-}
-if (move &gt; 0 &amp;&amp; is_right){
-   x += 105;
-   is_left = true;
-   is_right = false;
-}
-
-if (key_act &amp;&amp; is_left) {
-   global.is_game_running = true;
-   instance_destroy();
-}
-
-if (key_act &amp;&amp; is_right) {
-   global.is_game_running = false;
-   with(obj_level_maker){
-      event_user(0);
+            <string>///Moves arrow (floor)
+if(instance_exists(obj_floor_text)) { 
+   scr_get_input();
+   move = key_right + key_left;
+   if (move &lt; 0 &amp;&amp; is_left) {
+      x -= 105;
+      is_left = false;
+      is_right = true;
+   
+   }
+   if (move &gt; 0 &amp;&amp; is_right) {
+      x += 105;
+      is_left = true;
+      is_right = false;
+   }
+   
+   if (key_act &amp;&amp; is_left) {
+      global.is_game_running = true;
+      instance_destroy();
+   }
+   
+   if (key_act &amp;&amp; is_right) {
+      global.is_game_running = false;
+      with(obj_level_maker){
+         event_user(0);
+      }
    }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Moves arrow (level select)
+if(instance_exists(obj_level_select_text)) { 
+   scr_get_input();
+//hmove = key_right + key_left;
+//vmove = key_up + key_down;
+//Moves the arrow right
+if (hmove &gt; 0 &amp;&amp; is_left ) {
+   x += 225;
+   is_left = false;
+   is_right = true;    
+}
+//Moves the arrow left
+if (hmove &lt; 0 &amp;&amp; is_right) {
+  x -= 225;
+  is_left = true;
+  is_right = false;
+}
+
+//Moves the arrow down
+if (vmove &gt; 0 &amp;&amp; is_top ) {
+   y += 25;
+   is_top = false;
+   is_bottom = true;    
+}
+
+//Moves the arrow up
+if (vmove &lt; 0 &amp;&amp; is_bottom) {
+   y -= 25;
+   is_bottom = false;
+   is_top = true;    
+} 
+//Makes sure the the arrow doesn't enter blank space
+if(is_bottom &amp;&amp; is_right) {
+   is_bottom = false;
+   is_top = true;
+   y -= 25;
+}
+//Goto to level
+if(key_act) {
+   if(is_top &amp;&amp; is_left) {
+             global.level = 1;
+   }
+   if(is_bottom &amp;&amp; is_left) {
+             global.level = 2;
+   }
+   if(is_top &amp;&amp; is_right) {
+             global.level = 3;
+   }
+   //if(is_bottom &amp;&amp; is_right) {
+   //          global.level = 4;
+   //}
+   room_goto(rm_test2)
+}
+
+//Returns to the overworld
+if(key_back) {
+   global.is_game_running = true;
+   instance_destroy();
+   }
+   
+}   
 </string>
           </argument>
         </arguments>

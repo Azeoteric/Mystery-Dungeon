@@ -85,6 +85,7 @@
     <script>scripts\scr_get_direction.gml</script>
     <scripts name="Player Mechanics">
       <script>scripts\scr_meeting_stairs.gml</script>
+      <script>scripts\scr_meeting_portal.gml</script>
       <script>scripts\scr_move.gml</script>
       <script>scripts\scr_grid_place_meeting.gml</script>
       <script>scripts\scr_get_input.gml</script>
@@ -116,7 +117,9 @@
       <object>objects\obj_game_variables</object>
       <object>objects\obj_stairs</object>
       <object>objects\obj_leave_floor_menu</object>
+      <object>objects\obj_level_select</object>
       <object>objects\obj_floor_text</object>
+      <object>objects\obj_level_select_text</object>
       <object>objects\obj_arrow</object>
     </objects>
     <objects name="Player">
@@ -135,18 +138,19 @@
   </objects>
   <rooms name="rooms">
     <rooms name="Levels">
-      <room>rooms\rm_test2</room>
       <room>rooms\rm_overworld</room>
+      <room>rooms\rm_test2</room>
       <room>rooms\rm_boss</room>
       <room>rooms\rm_test</room>
       <room>rooms\rm_ruins</room>
     </rooms>
   </rooms>
-  <constants number="15">
+  <constants number="16">
     <constant name="CELL_WIDTH">72</constant>
     <constant name="CELL_HEIGHT">72</constant>
     <constant name="MAP_WIDTH">6</constant>
     <constant name="MAP_HEIGHT">6</constant>
+    <constant name="PORTAL">10</constant>
     <constant name="WALL">-5</constant>
     <constant name="WALL_MAPPED">-6</constant>
     <constant name="VOID">-7</constant>
