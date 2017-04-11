@@ -101,6 +101,9 @@
         <script>scripts\scr_make_room.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Player Progression">
+      <script>scripts\scr_initialize.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_large</font>
