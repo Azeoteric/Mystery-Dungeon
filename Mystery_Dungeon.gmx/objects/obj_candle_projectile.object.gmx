@@ -27,41 +27,14 @@
             <kind>1</kind>
             <string>///Variable Init
 scr_grid();
-xMove = 0;
-yMove = 0;
+//xMove = 0;
+//yMove = 0;
 depth = -17;
 speedFactor = 4;
-xDirection = 0;
-yDirection = 0;
+//xDirection = 0;
+//yDirection = 0;
 image_speed = .5;
 destroyTimer = 0;
-//sprite_index = spr_pumpkin_candle;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Steady Movement of the Projectile
-var dir = point_direction(x, y, obj_player.x, obj_player.y)
-hspeed = lengthdir_x(1, dir);
-vspeed = lengthdir_y(1, dir);
 </string>
           </argument>
         </arguments>

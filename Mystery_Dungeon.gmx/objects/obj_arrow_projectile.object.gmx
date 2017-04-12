@@ -106,6 +106,9 @@ else {
 if(place_meeting(x, y, obj_squeeb)){
                     instance_destroy();
 }
+if(place_meeting(x, y, obj_jack)){
+                    instance_destroy();
+}
 //Destroys the projectile after it moves far enough.
 if (abs(x) &gt; 10000 || abs(y) &gt; 10000)
 {
