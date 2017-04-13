@@ -51,6 +51,10 @@
         <sprite>sprites\spr_pumpkin_candle</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\sprite23</sprite>
+    <sprite>sprites\sprite25</sprite>
+    <sprite>sprites\sprite24</sprite>
+    <sprite>sprites\sprite26</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
@@ -101,6 +105,9 @@
         <script>scripts\scr_make_room.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Player Progression">
+      <script>scripts\scr_initialize.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_large</font>
@@ -108,6 +115,7 @@
   <objects name="objects">
     <objects name="Enemies">
       <object>objects\obj_squeeb</object>
+      <object>objects\obj_jack</object>
       <object>objects\obj_enemy</object>
     </objects>
     <objects name="Room assets">
@@ -125,6 +133,7 @@
     <objects name="Player">
       <object>objects\obj_player</object>
       <objects name="Projectiles">
+        <object>objects\obj_candle_projectile</object>
         <object>objects\obj_arrow_projectile</object>
       </objects>
     </objects>
