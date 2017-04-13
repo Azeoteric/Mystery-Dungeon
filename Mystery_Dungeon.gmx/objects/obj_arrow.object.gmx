@@ -31,6 +31,7 @@ is_left = true;
 is_right = false;
 is_top = true;
 is_bottom = false;
+pos = 0;
 </string>
           </argument>
         </arguments>
@@ -138,57 +139,48 @@ if(instance_exists(obj_floor_text)) {
             <string>///Moves arrow (level select)
 if(instance_exists(obj_level_select_text)) { 
    scr_get_input();
-//hmove = key_right + key_left;
-//vmove = key_up + key_down;
-//Moves the arrow right
-if (hmove &gt; 0 &amp;&amp; is_left ) {
-   x += 225;
-   is_left = false;
-   is_right = true;    
-}
-//Moves the arrow left
-if (hmove &lt; 0 &amp;&amp; is_right) {
-  x -= 225;
-  is_left = true;
-  is_right = false;
-}
 
 //Moves the arrow down
-if (vmove &gt; 0 &amp;&amp; is_top ) {
-   y += 25;
-   is_top = false;
-   is_bottom = true;    
+if (vmoveR &gt; 0 &amp;&amp; pos &lt;= 3) {
+   y += 28;
+   pos++;    
 }
 
 //Moves the arrow up
-if (vmove &lt; 0 &amp;&amp; is_bottom) {
-   y -= 25;
-   is_bottom = false;
-   is_top = true;    
+if (vmoveR &lt; 0 &amp;&amp; pos &gt; 0) {
+   y -= 28;
+   pos--;    
 } 
 //Makes sure the the arrow doesn't enter blank space
-if(is_bottom &amp;&amp; is_right) {
-   is_bottom = false;
-   is_top = true;
-   y -= 25;
-}
 //Goto to level
-if(key_act) {
-   if(is_top &amp;&amp; is_left) {
+if(key_act){
+switch(pos) {
+    
+    case 0:
              global.level = 1;
-   }
-   if(is_bottom &amp;&amp; is_left) {
+             break;
+   
+    case 1:
              global.level = 2;
-   }
-   if(is_top &amp;&amp; is_right) {
+             break;
+   
+    case 2:
              global.level = 3;
-   }
+             break;
+    
+    default:
+       global.is_game_running = true;
+       instance_destroy();
+  
+   
+   
    //if(is_bottom &amp;&amp; is_right) {
    //          global.level = 4;
    //}
-   room_goto(rm_test2)
+  
+      }  
+   room_goto(rm_test2);
 }
-
 //Returns to the overworld
 if(key_back) {
    global.is_game_running = true;

@@ -15,6 +15,7 @@
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_action_menu</sprite>
+    <sprite>sprites\spr_level_select</sprite>
     <sprites name="Cupcake Princess">
       <sprite>sprites\spr_cp_idle</sprite>
       <sprite>sprites\spr_cp_wlk_up</sprite>
