@@ -31,16 +31,27 @@ scr_get_input();
 global.is_game_running = true;
 attackTimer = 0;
 gamepad_set_axis_deadzone(0,0.3);
+scr_initialize(1);
+
+
 image_speed = .3;
 xStart = x; 
 yStart = y; 
 hspd = 0;
 vspd = 0;
-spd = 3;
-bullet_speed = 3;
-firerate = 20;
+
+// initialize variables
+ini_open('player_class.ini');
+spd = ini_read_real('alchemy', 'player_move_speed', 0);
+bullet_speed = ini_read_real('alchemy', 'player_bullet_speed', 0);
+firerate = ini_read_real('alchemy', 'player_fire_rate', 0);
+attack = ini_read_real('alchemy', 'player_attack_damage', 0);
+player_health = ini_read_real('alchemy', 'player_health', 0);
+ini_close();
+
+
 var tempy;
-var tempx
+var tempx;
 test_squeeb_spawn = true;
 </string>
           </argument>

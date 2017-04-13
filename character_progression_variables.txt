@@ -1,18 +1,23 @@
 /************** PLAYER STATS **************/
 
 // Speed bullets travel at
+//increases by 1 each level up
 int player_bullet_speed
 
 // Rate of firing bullets
+//decreases by 5 each time
 int player_fire_rate
 
 // Attack damage
+//attack increases by 0.5 each time
 int player_attack_damage
 
 // Player Movement speed
+// increases by 0.5 each time
 int player_move_speed
 
 // Health
+// increases by 2 halves each time
 int player_health
 
 
