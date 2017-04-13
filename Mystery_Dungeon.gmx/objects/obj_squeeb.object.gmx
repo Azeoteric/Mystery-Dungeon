@@ -39,6 +39,11 @@ hspd = 0;
 vspd = 0;
 hit_points = 3;
 image_speed = .2;
+direction_choice = 2;
+LEFT = 0;
+DOWN = 1;
+UP = 2;
+RIGHT = 3;
 </string>
           </argument>
         </arguments>
@@ -183,11 +188,12 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Randomize movement
+            <string>///movement
 moveFrames = irandom(80) + 40;
-//sees_player = scr_sees_player();
+sees_player = scr_sees_player();
 if(!sees_player){
-    if(global.is_game_running) {
+    
+   /* if(global.is_game_running) {
        if(moveCounter &gt;= moveFrames) {
           moveDir = irandom(3);
           moveCounter = 0;
@@ -196,30 +202,175 @@ if(!sees_player){
             switch(moveDir) {
                 case 0:
                     //MOVE LEFT
-                        hspd = -1 * MOVE_SPEED;
+                        hspd = -1;
                         vspd = 0;
                         moveCounter++;
                     break;
                 case 1:
                     //MOVE UP
                         hspd = 0;
-                        vspd = -1 * MOVE_SPEED;
+                        vspd = -1;
                         moveCounter++;
                     break;
                 case 2:
                     //MOVE RIGHT
-                        hspd = 1 * MOVE_SPEED;
+                        hspd = 1;
                         vspd = 0;
                         moveCounter++;
                     break;
                 case 3:
                     //MOVE DOWN
                         hspd = 0;
-                        vspd = 1 * MOVE_SPEED;
+                        vspd = 1;
                         moveCounter++;
                     break;
                 }
        scr_move_enemy(hspd + sign(hspd) , vspd + sign(vspd));         
+    }*/
+    if(global.is_game_running){
+        var currentX = x;
+        var currentY = y;
+        switch(direction_choice){
+            case 0: //LEFT
+                //TRY TO MOVE DOWN. IF WALL, MOVE LEFT
+                scr_move_enemy(0, 1);
+                if(currentY == y){
+                    currentX = x;
+                    currentY = y;
+                    scr_move_enemy(-1, 0);//MOVE LEFT
+                    if(currentX == x){ //IF LEFT IS WALL, MOVE UP
+                        currentX = x;
+                        currentY = y;
+                        scr_move_enemy(0, -1);
+                        movement_direction = UP;
+                        if(currentY == y){//IF UP IS WALL, MOVE RIGHT
+                            currentX = x;
+                            currentY = y;
+                            scr_move_enemy(1, 0);
+                            movement_direction = RIGHT;
+                        }
+                    }
+                }
+                else{
+                    movement_direction = DOWN;
+                }
+                break;
+            
+            case 1: //DOWN
+                //TRY TO MOVE RIGHT. IF WALL, MOVE DOWN.
+                scr_move_enemy(1, 0);
+                if(currentX == x){
+                    currentX = x;
+                    currentY = y;
+                    scr_move_enemy(0, 1);//MOVE DOWN
+                    if(currentY == y){ //IF DOWN IS WALL, MOVE LEFT
+                        currentX = x;
+                        currentY = y;
+                        scr_move_enemy(-1, 0);
+                        movement_direction = LEFT;
+                        if(currentX == x){//IF left IS WALL, MOVE UP
+                            currentX = x;
+                            currentY = y;
+                            scr_move_enemy(0, -1);
+                            movement_direction = UP;
+                        }
+                    }
+                }
+                else{
+                    movement_direction = RIGHT;
+                }
+                break;  
+            case 2: //UP 
+            //TRY TO MOVE LEFT. IF WALL, MOVE UP.
+                scr_move_enemy(-1, 0);
+                if(currentX == x){
+                    currentX = x;
+                    currentY = y;
+                    scr_move_enemy(0, -1);//MOVE UP
+                    if(currentY == y){ //IF UP IS WALL, MOVE RIGHT
+                        currentX = x;
+                        currentY = y;
+                        scr_move_enemy(1, 0);
+                        movement_direction = RIGHT;
+                        if(currentX == x){//IF RIGHT IS WALL, MOVE DOWN
+                            currentX = x;
+                            currentY = y;
+                            scr_move_enemy(0, 1);
+                            movement_direction = DOWN;
+                        }
+                    }
+                }
+                else{
+                    movement_direction = LEFT;
+                }
+                break;
+            case 3:  //RIGHT
+                //TRY TO MOVE UP. IF WALL, MOVE RIGHT
+                scr_move_enemy(0, -1);
+                if(currentY == y){
+                    currentX = x;
+                    currentY = y;
+                    scr_move_enemy(1, 0);//MOVE RIGHT
+                    if(currentX == x){ //IF RIGHT IS WALL, MOVE DOWN
+                        currentX = x;
+                        currentY = y;
+                        scr_move_enemy(0, 1);
+                        movement_direction = DOWN;
+                        if(currentY == y){//IF DOWN IS WALL, MOVE LEFT
+                            currentX = x;
+                            currentY = y;
+                            scr_move_enemy(-1, 0);
+                            movement_direction = LEFT;
+                        }
+                    }
+                }
+                else{
+                    movement_direction = UP;
+                }
+                break;
+        }
+    }
+}
+else {
+    hspd = 0;
+    vspd = 0;
+    if(obj_player.x &lt; x){
+        hspd = -1;
+    }
+    else if(obj_player.x &gt; x){
+        hspd = 1;
+    }
+    if(obj_player.y &lt; y){
+        vspd = -1;
+    }
+    else if(obj_player.y &gt; y){
+        vspd = 1;
+    }
+    var currentX = x;
+    var currentY = y;
+    if(vspd != 0 &amp;&amp; hspd != 0){
+        scr_move_enemy((hspd) / sqrt(2), (vspd) / sqrt(2));
+    }
+    else {
+        scr_move_enemy(hspd, vspd);
+    }
+    if(currentX == x &amp;&amp; x != obj_player.x){
+        if(obj_player.y &lt; y){
+            vspd = 1;
+        }
+        else if(obj_player.y &gt; y){
+            vspd = -1;
+        }
+        y+= vspd * MOVE_SPEED;
+    }
+    if(currentY == y &amp;&amp; y != obj_player.y){
+        if(obj_player.x &lt; x){
+            hspd = 1;
+        }
+        else if(obj_player.x &gt; x){
+            hspd = -1;
+        }
+        x+= hspd * MOVE_SPEED;
     }
 }
 </string>
