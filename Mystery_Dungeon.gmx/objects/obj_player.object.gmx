@@ -53,6 +53,8 @@ ini_close();
 var tempy;
 var tempx;
 test_squeeb_spawn = true;
+test_jack_spawn = true;
+test_trap_spawn = true;
 </string>
           </argument>
         </arguments>
@@ -103,6 +105,18 @@ if(test_squeeb_spawn) {
     instance_create(x + 72, y, obj_squeeb);
     test_squeeb_spawn = false;
     //show_message("SPAWNED SQUEEB");
+}
+
+if(test_jack_spawn) {
+    instance_create(x, y + 72, obj_jack);
+    test_jack_spawn = false;
+    //show_message("SPAWNED JACK");
+}
+
+if(test_trap_spawn) {
+    instance_create(x + 72, y - 72, obj_trap);
+    test_trap_spawn = false;
+    //show_message("SPAWNED TRAP");
 }
 </string>
           </argument>

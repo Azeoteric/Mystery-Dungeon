@@ -12,7 +12,7 @@ if (scr_grid_place_meeting(x + hspd, y, grid)) {
 hspd = 0;
 }
 // Move Horizontally
-x += hspd;
+x += hspd * MOVE_SPEED;
 
 // Vertical Collisions
 if (scr_grid_place_meeting(x, y + vspd, grid)) {
@@ -25,4 +25,4 @@ vspd = 0;
 }
 
 // Move Vertically
-y += vspd;
+y += vspd * MOVE_SPEED;

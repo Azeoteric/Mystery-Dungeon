@@ -15,6 +15,7 @@
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_action_menu</sprite>
+    <sprite>sprites\spr_level_select</sprite>
     <sprites name="Cupcake Princess">
       <sprite>sprites\spr_cp_idle</sprite>
       <sprite>sprites\spr_cp_wlk_up</sprite>
@@ -51,6 +52,11 @@
         <sprite>sprites\spr_pumpkin_candle</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\sprite23</sprite>
+    <sprite>sprites\spr_trap</sprite>
+    <sprite>sprites\sprite25</sprite>
+    <sprite>sprites\sprite24</sprite>
+    <sprite>sprites\sprite26</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
@@ -111,7 +117,9 @@
   </fonts>
   <objects name="objects">
     <objects name="Enemies">
+      <object>objects\obj_trap</object>
       <object>objects\obj_squeeb</object>
+      <object>objects\obj_jack</object>
       <object>objects\obj_enemy</object>
     </objects>
     <objects name="Room assets">
@@ -129,6 +137,7 @@
     <objects name="Player">
       <object>objects\obj_player</object>
       <objects name="Projectiles">
+        <object>objects\obj_candle_projectile</object>
         <object>objects\obj_arrow_projectile</object>
       </objects>
     </objects>
