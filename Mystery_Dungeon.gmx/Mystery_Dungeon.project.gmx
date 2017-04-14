@@ -8,9 +8,13 @@
     <sounds name="music">
       <sound>sound\music_wheat</sound>
       <sound>sound\music_hub</sound>
+      <sound>sound\music_cave</sound>
     </sounds>
     <sounds name="sfx">
-      <sound>sound\sfx_sprinkle</sound>
+      <sound>sound\sfx_sprinkle_shoot</sound>
+      <sound>sound\sfx_enemy_death</sound>
+      <sound>sound\sfx_enemy_damaged</sound>
+      <sound>sound\sfx_enemy_shoot</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -76,6 +80,8 @@
       <background>background\bg_level1_tileset</background>
       <background>background\bg_cave</background>
       <background>background\bg_ruins</background>
+      <background>background\bg_hub</background>
+      <background>background\bg_tower</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
