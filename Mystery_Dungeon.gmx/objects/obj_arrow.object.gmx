@@ -141,7 +141,7 @@ if(instance_exists(obj_level_select_text)) {
    scr_get_input();
 
 //Moves the arrow down
-if (vmoveR &gt; 0 &amp;&amp; pos &lt;= 3) {
+if (vmoveR &gt; 0 &amp;&amp; pos &lt; 2) {
    y += 28;
    pos++;    
 }
@@ -171,7 +171,7 @@ switch(pos) {
     default:
        global.is_game_running = true;
        instance_destroy();
-  
+       break;
    
    
    //if(is_bottom &amp;&amp; is_right) {
