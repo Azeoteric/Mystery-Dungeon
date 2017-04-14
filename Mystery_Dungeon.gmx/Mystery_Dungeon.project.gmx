@@ -109,6 +109,8 @@
     </scripts>
     <scripts name="Player Progression">
       <script>scripts\scr_initialize.gml</script>
+      <script>scripts\scr_set_variable.gml</script>
+      <script>scripts\scr_get_variable.gml</script>
       <script>scripts\scr_create_initialize.gml</script>
     </scripts>
   </scripts>
