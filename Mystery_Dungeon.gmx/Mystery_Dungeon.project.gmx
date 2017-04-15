@@ -113,8 +113,10 @@
       <script>scripts\scr_get_variable.gml</script>
       <script>scripts\scr_create_initialize.gml</script>
       <scripts name="Level Up">
+        <script>scripts\scr_level_up_tank.gml</script>
         <script>scripts\scr_level_up_alchemist.gml</script>
         <script>scripts\scr_level_up_glass_cannon.gml</script>
+        <script>scripts\scr_level_up.gml</script>
       </scripts>
     </scripts>
   </scripts>
