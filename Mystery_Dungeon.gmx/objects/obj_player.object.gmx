@@ -461,6 +461,43 @@ if(!instance_exists(obj_leave_floor_menu)) {
         </arguments>
       </action>
     </event>
+    <event eventtype="10" enumb="85">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// test
+ini_open('player_class.ini');
+ini_write_real('player', 'class', 1);
+ini_close();
+
+scr_level_up_alchemist();
+ini_open('player_class.ini');
+// update variables
+spd = ini_read_real('alchemy', 'player_move_speed', 0);
+bullet_speed = ini_read_real('alchemy', 'player_bullet_speed', 0);
+firerate = ini_read_real('alchemy', 'player_fire_rate', 0);
+attack = ini_read_real('alchemy', 'player_attack_damage', 0);
+player_health = ini_read_real('alchemy', 'player_health', 0);
+
+ini_close()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
