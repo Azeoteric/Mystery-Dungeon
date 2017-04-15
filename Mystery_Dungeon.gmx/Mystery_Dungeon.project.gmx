@@ -98,6 +98,8 @@
     <scripts name="Player Mechanics">
       <script>scripts\scr_meeting_stairs.gml</script>
       <script>scripts\scr_meeting_portal.gml</script>
+      <script>scripts\scr_reveal_stairs.gml</script>
+      <script>scripts\scr_reveal_floor.gml</script>
       <script>scripts\scr_move.gml</script>
       <script>scripts\scr_grid_place_meeting.gml</script>
       <script>scripts\scr_get_input.gml</script>
