@@ -1,8 +1,7 @@
 switch(mpos) {
 
     case 0: //start
-        scr_initialize(3);
-        room_goto(rm_overworld);
+        room_goto(rm_class_select);
         break;
         
     case 1: //continue

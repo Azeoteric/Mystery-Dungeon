@@ -144,6 +144,7 @@
   <objects name="objects">
     <objects name="Title">
       <object>objects\obj_title</object>
+      <object>objects\obj_class_selection</object>
       <object>objects\obj_title_manager</object>
     </objects>
     <objects name="Enemies">
@@ -180,7 +181,10 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_title</room>
+    <rooms name="Title">
+      <room>rooms\rm_title</room>
+      <room>rooms\rm_class_select</room>
+    </rooms>
     <rooms name="Levels">
       <room>rooms\rm_overworld</room>
       <room>rooms\rm_test2</room>
