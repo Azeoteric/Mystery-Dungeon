@@ -63,6 +63,9 @@
     <sprite>sprites\sprite26</sprite>
   </sprites>
   <backgrounds name="background">
+    <backgrounds name="Menu">
+      <background>background\bg_title</background>
+    </backgrounds>
     <background>background\bg_floor</background>
     <background>background\bg_wall</background>
     <background>background\bg_walltiles</background>
@@ -87,6 +90,10 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_grid.gml</script>
+    <scripts name="Title">
+      <script>scripts\scr_title_manager.gml</script>
+      <script>scripts\scr_get_input_title.gml</script>
+    </scripts>
     <script>scripts\scr_text.gml</script>
     <script>scripts\scr_generate_nodes_for_room.gml</script>
     <script>scripts\scr_does_room_fit.gml</script>
@@ -130,9 +137,15 @@
     </scripts>
   </scripts>
   <fonts name="fonts">
+    <font>fonts\Munro</font>
+    <font>fonts\Munro_title</font>
     <font>fonts\fnt_large</font>
   </fonts>
   <objects name="objects">
+    <objects name="Title">
+      <object>objects\obj_title</object>
+      <object>objects\obj_title_manager</object>
+    </objects>
     <objects name="Enemies">
       <object>objects\obj_trap</object>
       <object>objects\obj_squeeb</object>
@@ -167,6 +180,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_title</room>
     <rooms name="Levels">
       <room>rooms\rm_overworld</room>
       <room>rooms\rm_test2</room>

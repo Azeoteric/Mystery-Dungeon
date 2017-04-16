@@ -25,17 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///Sets up the title
 //Menu Items
 menu[0] = "Start";
 menu[1] = "Continue";
-menu[2] = "Options";
-menu[3] = "Quit";
+//menu[2] = "Options";
+menu[2] = "Quit";
 
 //Menu Positioning Configuration
 space = 64;
 mpos = 0;
-global.test = false;
+
 </string>
           </argument>
         </arguments>
@@ -58,11 +58,9 @@ global.test = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///Selection management
 //Move select
-var move = 0;
-move -= max(keyboard_check_pressed(vk_up),keyboard_check_pressed(ord("W")), gamepad_button_check_pressed(0,gp_padu));
-move += max(keyboard_check_pressed(vk_down),keyboard_check_pressed(ord("S")), gamepad_button_check_pressed(0,gp_padd));
+scr_get_input_title();
 
 if(move != 0) {
     mpos += move;
@@ -74,11 +72,9 @@ if(move != 0) {
     }
 }
 
-var push;
-push = max(keyboard_check_released(vk_enter),keyboard_check_released(vk_shift), keyboard_check_released(vk_space), (gamepad_button_check_released(0,gp_face1)), 0);
 
-if(push == 1) {
-    //scr_menu_manager();
+if(key_act) {
+    scr_title_manager();
 }
 </string>
           </argument>
@@ -102,7 +98,8 @@ if(push == 1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_left);
+            <string>///Draws the title screen options
+draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
 draw_set_font(Munro);
 draw_set_color(c_white);

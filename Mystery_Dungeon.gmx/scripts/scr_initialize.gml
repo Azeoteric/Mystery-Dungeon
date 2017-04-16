@@ -1,3 +1,4 @@
+///scr_initialize(class_num)
 // argument0 = player class (1 = alchemy, 2 = glass cannon, 3 = tank)
 // current file name is "initialize_player_class.ini"
 scr_create_initialize();
@@ -22,6 +23,10 @@ switch (argument0) {
         ini_write_real('player', 'class', 3);
         temp_bool = true;
         break;
+   
+   default :
+   room_goto(rm_title)
+   break;    
 }
 
 ini_close();
