@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Create the level
 //Resize the room
-level = 1//global.level;
+level = global.level;
 wall_set = true;
 //global.level = 3;
 room_width = (CELL_WIDTH / 16)  * 720;
@@ -40,8 +40,8 @@ height = room_height div CELL_HEIGHT;
 // Create the grid
 grid = ds_grid_create(width, height);
 max_rooms = level * 8;
-min_rooms = level * 4;
-num_tiles  = level * 75;
+min_rooms = ((level-1) * 2) + 4;
+num_tiles = ((level-1) * 50) + level * 100;
 scr_make_floor(grid, width, height, min_rooms, max_rooms, num_tiles);
 
 </string>
@@ -67,11 +67,11 @@ scr_make_floor(grid, width, height, min_rooms, max_rooms, num_tiles);
           <argument>
             <kind>1</kind>
             <string>/// Makes the Next Level
-if (global.floor_count &gt;= 4 + ((level-1) * 2)) {
+if (global.floor_count &gt;= (4 + (level-1*2))) {
      room_goto(rm_boss);
      wall_set = true;
      } 
-else{
+else {
      global.floor_count++;
      room_restart();
      wall_set = true;
