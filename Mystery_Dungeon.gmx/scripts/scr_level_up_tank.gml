@@ -1,3 +1,4 @@
+///scr_level_up_tank()
 // Levels up the tank 
 // Returns false if the file isn't found orr player isn't a tank
 if (!file_exists("player_class.ini")) return false;

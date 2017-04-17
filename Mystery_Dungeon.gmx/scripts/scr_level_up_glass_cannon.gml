@@ -1,3 +1,4 @@
+///scr_level_up_glass_cannon()
 // Levels up the glass cannon 
 // Returns false if the file isn't found orr player isn't a glass cannon
 if (!file_exists("player_class.ini")) return false;

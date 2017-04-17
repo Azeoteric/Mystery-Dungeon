@@ -189,6 +189,7 @@ else {
           <argument>
             <kind>1</kind>
             <string>///movement
+if(global.is_game_running) {
 moveFrames = irandom(80) + 40;
 sees_player = scr_sees_player();
 if(!sees_player){
@@ -227,7 +228,7 @@ if(!sees_player){
                 }
        scr_move_enemy(hspd + sign(hspd) , vspd + sign(vspd));         
     }*/
-    if(global.is_game_running){
+    
         var currentX = x;
         var currentY = y;
         switch(direction_choice){
@@ -329,7 +330,7 @@ if(!sees_player){
                 }
                 break;
         }
-    }
+    
 }
 else {
     hspd = 0;
@@ -372,6 +373,7 @@ else {
         }
         x+= hspd * MOVE_SPEED;
     }
+}
 }
 </string>
           </argument>

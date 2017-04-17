@@ -1,3 +1,4 @@
+///scr_level_up()
 // Levels up the player regardless of class
 if (!file_exists("player_class.ini")) return false;
 

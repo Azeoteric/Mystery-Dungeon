@@ -31,7 +31,7 @@ width = 0;
 global.is_game_running = false;
 instance_create(x, y, obj_minimap_box);
 scr_grid();
-
+if(room != rm_overworld){
 // Draw the Level
 for (ypos  = 0;  ypos &lt; height; ypos++) {
     for (xpos = 0; xpos &lt; height; xpos++) {
@@ -60,7 +60,9 @@ for (ypos  = 0;  ypos &lt; height; ypos++) {
         }
         
      }
-     
+}     
+} else {
+ scr_reveal_floor();
 } 
 </string>
           </argument>
