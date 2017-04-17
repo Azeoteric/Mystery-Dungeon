@@ -146,6 +146,11 @@
       <object>objects\obj_title</object>
       <object>objects\obj_class_selection</object>
       <object>objects\obj_title_manager</object>
+      <objects name="Class Descriptions">
+        <object>objects\obj_class_alchemist_description</object>
+        <object>objects\obj_class_glass_description</object>
+        <object>objects\obj_class_tank_description</object>
+      </objects>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_trap</object>
