@@ -30,6 +30,7 @@ room_width = (CELL_WIDTH / 16)  * 720;
 room_height = (CELL_HEIGHT / 16) * 720;
 wall_set = true;
 //Set Grid Width
+global.level = 1;
 width = room_width div CELL_WIDTH;
 height = room_height div CELL_HEIGHT;
 
@@ -125,6 +126,12 @@ scr_make_room(cx, cy, true);
 
 instance_create(tempX, tempY, obj_player);
 scr_tile(width, height, grid);
+cx = tempX;
+cy = tempY;
+cy -= 10;
+grid[# cx, cy] = FLOOR;
+tile_add(bg_portal, 0, 0, CELL_WIDTH, CELL_HEIGHT, cx * CELL_WIDTH, cy * CELL_HEIGHT, 0); 
+grid[# cx, cy] = PORTAL;
 </string>
           </argument>
         </arguments>

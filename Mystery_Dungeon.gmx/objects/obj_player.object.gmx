@@ -31,7 +31,6 @@ scr_get_input();
 global.is_game_running = true;
 attackTimer = 0;
 gamepad_set_axis_deadzone(0,0.3);
-scr_initialize(1);
 
 
 image_speed = .3;
@@ -427,8 +426,12 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
           <argument>
             <kind>1</kind>
             <string>///Makes the leave floor pop-up
-if(!instance_exists(obj_level_select)) {
-       instance_create(x, y + 60, obj_level_select); 
+if(room == rm_overworld) {
+   if(!instance_exists(obj_level_select)) {
+          instance_create(x, y + 60, obj_level_select); 
+   }
+} else {
+     room_goto(rm_overworld);
 }
 </string>
           </argument>

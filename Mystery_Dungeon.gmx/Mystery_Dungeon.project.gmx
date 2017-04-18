@@ -68,6 +68,7 @@
     </backgrounds>
     <background>background\bg_floor</background>
     <background>background\bg_wall</background>
+    <background>background\bg_portal</background>
     <background>background\bg_walltiles</background>
     <background>background\bg_stairs</background>
     <background>background\bg_stairs_sm</background>
@@ -193,8 +194,8 @@
     <rooms name="Levels">
       <room>rooms\rm_overworld</room>
       <room>rooms\rm_test2</room>
-      <room>rooms\rm_boss</room>
       <room>rooms\rm_test</room>
+      <room>rooms\rm_boss</room>
       <room>rooms\rm_ruins</room>
     </rooms>
   </rooms>
