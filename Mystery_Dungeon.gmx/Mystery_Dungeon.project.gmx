@@ -46,21 +46,41 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_minimap_box</sprite>
     <sprites name="Enemies">
-      <sprites name="Squeep">
-        <sprite>sprites\spr_squeep_standard</sprite>
+      <sprites name="Movers">
+        <sprites name="Squeep">
+          <sprite>sprites\spr_squeep_standard</sprite>
+        </sprites>
+        <sprites name="Nacho Duck">
+          <sprite>sprites\spr_nacho_duck</sprite>
+        </sprites>
       </sprites>
-      <sprites name="Jack-o-lan-turret">
-        <sprite>sprites\spr_pumpkin_idle</sprite>
-        <sprite>sprites\spr_pumpkin_activate</sprite>
-        <sprite>sprites\spr_pumpkin_shoot</sprite>
-        <sprite>sprites\spr_pumpkin_candle</sprite>
+      <sprites name="Cannons">
+        <sprites name="Bush">
+          <sprite>sprites\spr_bush_idle</sprite>
+          <sprite>sprites\spr_bush_activate</sprite>
+          <sprite>sprites\spr_bush_bullet</sprite>
+          <sprite>sprites\spr_bush_shoot</sprite>
+        </sprites>
+        <sprites name="Jack-o-lan-turret">
+          <sprite>sprites\spr_pumpkin_idle</sprite>
+          <sprite>sprites\spr_pumpkin_activate</sprite>
+          <sprite>sprites\spr_pumpkin_shoot</sprite>
+          <sprite>sprites\spr_pumpkin_candle</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Trap">
+        <sprite>sprites\spr_birthdaysurprise</sprite>
+        <sprite>sprites\spr_trap</sprite>
+      </sprites>
+      <sprites name="Bosses">
+        <sprite>sprites\spr_boss_squeep</sprite>
+        <sprites name="Nacho Duck">
+          <sprite>sprites\spr_nacho_duck_boss</sprite>
+          <sprite>sprites\spr_nacho_duck_bullet</sprite>
+        </sprites>
       </sprites>
     </sprites>
-    <sprite>sprites\sprite23</sprite>
-    <sprite>sprites\spr_trap</sprite>
     <sprite>sprites\sprite25</sprite>
-    <sprite>sprites\sprite24</sprite>
-    <sprite>sprites\sprite26</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -187,6 +207,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_boss</room>
     <rooms name="Title">
       <room>rooms\rm_title</room>
       <room>rooms\rm_class_select</room>
@@ -195,7 +216,6 @@
       <room>rooms\rm_overworld</room>
       <room>rooms\rm_test2</room>
       <room>rooms\rm_test</room>
-      <room>rooms\rm_boss</room>
       <room>rooms\rm_ruins</room>
     </rooms>
   </rooms>
