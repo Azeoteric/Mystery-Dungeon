@@ -29,7 +29,9 @@
 room_width = (CELL_WIDTH / 16)  * 720;
 room_height = (CELL_HEIGHT / 16) * 720;
 wall_set = true;
+boss_defeated = false;
 //Set Grid Width
+//global.level = 1;
 width = room_width div CELL_WIDTH;
 height = room_height div CELL_HEIGHT;
 
@@ -124,7 +126,90 @@ cy -= 20;
 scr_make_room(cx, cy, true); 
 
 instance_create(tempX, tempY, obj_player);
+cx += 10;
+grid[# cx, cy] = FLOOR;
 scr_tile(width, height, grid);
+px = cx;
+py = cy;
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Spawns the portal
+if(boss_defeated) {
+                  event_user(0);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Makes the portal appear 
+tile_add(bg_portal, 0, 0, CELL_WIDTH, CELL_HEIGHT, px * CELL_WIDTH, py * CELL_HEIGHT, 0); 
+grid[# px, py] = PORTAL;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="81">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///calls User Event 0
+//event_user(0);
+boss_defeated = true;
 </string>
           </argument>
         </arguments>

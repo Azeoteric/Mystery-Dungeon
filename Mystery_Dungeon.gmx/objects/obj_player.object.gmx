@@ -31,8 +31,14 @@ scr_get_input();
 global.is_game_running = true;
 attackTimer = 0;
 gamepad_set_axis_deadzone(0,0.3);
-scr_initialize(1);
 
+ACTION_COOLDOWN_MAX = 3600;
+action_cooldown_current = 0;
+
+// for the tank's active
+TIME_INVINCIBLE = 180;
+invulnerable = false;
+invulnerable_timer = 0;
 
 image_speed = .3;
 xStart = x; 
@@ -41,13 +47,9 @@ hspd = 0;
 vspd = 0;
 
 // initialize variables
-ini_open('player_class.ini');
-spd = ini_read_real('alchemy', 'player_move_speed', 0);
-bullet_speed = ini_read_real('alchemy', 'player_bullet_speed', 0);
-firerate = ini_read_real('alchemy', 'player_fire_rate', 0);
-attack = ini_read_real('alchemy', 'player_attack_damage', 0);
-player_health = ini_read_real('alchemy', 'player_health', 0);
-ini_close();
+player_splash_damage = 0;
+scr_load_player();
+
 
 
 var tempy;
@@ -408,6 +410,38 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Action skill cooldown
+if (action_cooldown_current &gt; 0) {
+    action_cooldown_current--;
+}
+
+if (invulnerable_timer &gt; 0) {
+    invulnerable_timer--;
+}
+
+if (invulnerable_timer = 0) {
+    invulnerable = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="7" enumb="11">
       <action>
@@ -427,8 +461,12 @@ if(vmove &lt; 0 || (vmove &lt; 0 &amp;&amp; hmove != 0)) {
           <argument>
             <kind>1</kind>
             <string>///Makes the leave floor pop-up
-if(!instance_exists(obj_level_select)) {
-       instance_create(x, y + 60, obj_level_select); 
+if(room == rm_overworld) {
+   if(!instance_exists(obj_level_select)) {
+          instance_create(x, y + 60, obj_level_select); 
+   }
+} else {
+     event_user(0);
 }
 </string>
           </argument>
@@ -461,6 +499,92 @@ if(!instance_exists(obj_leave_floor_menu)) {
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(x, y, player_health);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="49">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Enables tank's shield active
+scr_set_variable('player_has_sprinkle_shield', 1);
+scr_load_player();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="16">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Action button
+switch(class) {
+    case 1:
+        
+        break;
+    case 2:
+    
+        break;
+    case 3:
+        if (action_cooldown_current == 0 &amp;&amp; player_has_sprinkle_shield) {
+            invulnerable = true;
+            invulnerable_timer = TIME_INVINCIBLE;
+            action_cooldown_current = ACTION_COOLDOWN_MAX;
+        }
+        break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="10" enumb="85">
       <action>
         <libid>1</libid>
@@ -479,20 +603,9 @@ if(!instance_exists(obj_leave_floor_menu)) {
           <argument>
             <kind>1</kind>
             <string>/// test
-ini_open('player_class.ini');
-ini_write_real('player', 'class', 1);
-ini_close();
 
-scr_level_up_alchemist();
-ini_open('player_class.ini');
-// update variables
-spd = ini_read_real('alchemy', 'player_move_speed', 0);
-bullet_speed = ini_read_real('alchemy', 'player_bullet_speed', 0);
-firerate = ini_read_real('alchemy', 'player_fire_rate', 0);
-attack = ini_read_real('alchemy', 'player_attack_damage', 0);
-player_health = ini_read_real('alchemy', 'player_health', 0);
-
-ini_close()
+scr_level_up();
+scr_load_player();
 </string>
           </argument>
         </arguments>

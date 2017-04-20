@@ -33,7 +33,7 @@ menu[2] = "Tank";
 //Text set-up
 print = "";
 verse = "null";  
-spd = 0.4;
+spd = 0.6;
 time = 0;
 text_length = 10;
 //Menu Positioning Configuration
@@ -80,16 +80,21 @@ if(move != 0) {
  switch(mpos) {
  
  case 0:
- instance_create(x + 350, y + 100, obj_class_alchemist_description);
+ if (!instance_exists(obj_class_alchemist_description)) {
+     instance_create(x + 350, y + 100, obj_class_alchemist_description);
+ }
  break;
   
  case 1:
- instance_create(x + 350, y + 100, obj_class_glass_description);
+ if (!instance_exists(obj_class_glass_description)) {
+    instance_create(x + 350, y + 100, obj_class_glass_description);
+ }
  break;
  
  case 2:
- instance_create(x + 350, y + 100, obj_class_tank_description);
- 
+ if (!instance_exists(obj_class_tank_description)) {
+    instance_create(x + 350, y + 100, obj_class_tank_description);
+ }
  break;
  
  }

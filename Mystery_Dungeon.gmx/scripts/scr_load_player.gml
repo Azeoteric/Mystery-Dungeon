@@ -9,6 +9,7 @@ if (script_class == 0) {
 
 switch (script_class) {
     case 1: 
+        class = 1;
         spd = ini_read_real('alchemy', 'player_move_speed', 0);
         bullet_speed = ini_read_real('alchemy', 'player_bullet_speed', 0);
         firerate = ini_read_real('alchemy', 'player_fire_rate', 0);
@@ -19,6 +20,7 @@ switch (script_class) {
         player_has_sprinklestorm = ini_read_real('alchemy', 'player_has_sprinklestorm', 0);
         break;
     case 2:
+        class = 2;
         spd = ini_read_real('glass_cannon', 'player_move_speed', 0);
         bullet_speed = ini_read_real('glass_cannon', 'player_bullet_speed', 0);
         firerate = ini_read_real('glass_cannon', 'player_fire_rate', 0);
@@ -28,6 +30,7 @@ switch (script_class) {
         player_has_sprinkle_stream = ini_read_real('glass_cannon', 'player_has_sprinkle_stream', 0);
         break;
     case 3:
+        class = 3;
         spd = ini_read_real('tank', 'player_move_speed', 0);
         bullet_speed = ini_read_real('tank', 'player_bullet_speed', 0);
         firerate = ini_read_real('tank', 'player_fire_rate', 0);

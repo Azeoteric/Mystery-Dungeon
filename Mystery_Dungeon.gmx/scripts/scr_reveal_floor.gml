@@ -28,6 +28,11 @@ for (ypos  = 0;  ypos < height; ypos++) {
             tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
         
+        if (grid[# xpos, ypos] == PORTAL) {
+            // Draw portal
+            tile_add(bg_portal_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
+        }
+        
      }
      
 } 

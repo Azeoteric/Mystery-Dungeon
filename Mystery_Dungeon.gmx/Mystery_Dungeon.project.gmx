@@ -18,8 +18,11 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_action_menu</sprite>
-    <sprite>sprites\spr_level_select</sprite>
+    <sprites name="Text Boxes">
+      <sprite>sprites\spr_level_select</sprite>
+      <sprite>sprites\spr_action_menu</sprite>
+      <sprite>sprites\spr_arrow</sprite>
+    </sprites>
     <sprites name="Cupcake Princess">
       <sprite>sprites\spr_cp_idle</sprite>
       <sprite>sprites\spr_cp_wlk_up</sprite>
@@ -38,29 +41,53 @@
       <sprite>sprites\spr_bh_wlk_up</sprite>
       <sprite>sprites\spr_bh_wlk_rght</sprite>
     </sprites>
-    <sprite>sprites\spr_arrow</sprite>
     <sprites name="Sword Guy">
       <sprite>sprites\spr_sg_idle</sprite>
     </sprites>
-    <sprite>sprites\spr_stairs</sprite>
-    <sprite>sprites\spr_player</sprite>
-    <sprite>sprites\spr_minimap_box</sprite>
     <sprites name="Enemies">
-      <sprites name="Squeep">
-        <sprite>sprites\spr_squeep_standard</sprite>
+      <sprites name="Movers">
+        <sprites name="Squeep">
+          <sprite>sprites\spr_squeep_standard</sprite>
+        </sprites>
+        <sprites name="Nacho Duck">
+          <sprite>sprites\spr_nacho_duck</sprite>
+        </sprites>
       </sprites>
-      <sprites name="Jack-o-lan-turret">
-        <sprite>sprites\spr_pumpkin_idle</sprite>
-        <sprite>sprites\spr_pumpkin_activate</sprite>
-        <sprite>sprites\spr_pumpkin_shoot</sprite>
-        <sprite>sprites\spr_pumpkin_candle</sprite>
+      <sprites name="Cannons">
+        <sprites name="Bush">
+          <sprite>sprites\spr_bush_idle</sprite>
+          <sprite>sprites\spr_bush_activate</sprite>
+          <sprite>sprites\spr_bush_bullet</sprite>
+          <sprite>sprites\spr_bush_shoot</sprite>
+        </sprites>
+        <sprites name="Jack-o-lan-turret">
+          <sprite>sprites\spr_pumpkin_idle</sprite>
+          <sprite>sprites\spr_pumpkin_activate</sprite>
+          <sprite>sprites\spr_pumpkin_shoot</sprite>
+          <sprite>sprites\spr_pumpkin_candle</sprite>
+        </sprites>
       </sprites>
+      <sprites name="Trap">
+        <sprite>sprites\spr_birthdaysurprise</sprite>
+        <sprite>sprites\spr_ghostpepper</sprite>
+        <sprite>sprites\spr_trap</sprite>
+      </sprites>
+      <sprites name="Bosses">
+        <sprite>sprites\spr_boss_squeep</sprite>
+        <sprites name="Nacho Duck">
+          <sprite>sprites\spr_nacho_duck_boss</sprite>
+          <sprite>sprites\spr_nacho_duck_bullet</sprite>
+        </sprites>
+      </sprites>
+      <sprite>sprites\sprite25</sprite>
     </sprites>
-    <sprite>sprites\sprite23</sprite>
-    <sprite>sprites\spr_trap</sprite>
-    <sprite>sprites\sprite25</sprite>
-    <sprite>sprites\sprite24</sprite>
-    <sprite>sprites\sprite26</sprite>
+    <sprites name="Player ">
+      <sprite>sprites\spr_hearts</sprite>
+      <sprite>sprites\spr_exp</sprite>
+      <sprite>sprites\spr_player</sprite>
+    </sprites>
+    <sprite>sprites\spr_stairs</sprite>
+    <sprite>sprites\spr_minimap_box</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -68,6 +95,8 @@
     </backgrounds>
     <background>background\bg_floor</background>
     <background>background\bg_wall</background>
+    <background>background\bg_portal_sm</background>
+    <background>background\bg_portal</background>
     <background>background\bg_walltiles</background>
     <background>background\bg_stairs</background>
     <background>background\bg_stairs_sm</background>
@@ -82,6 +111,7 @@
       <background>background\bg_level_cave</background>
       <background>background\bg_level1_tileset</background>
       <background>background\bg_cave</background>
+      <background>background\bg_memes</background>
       <background>background\bg_ruins</background>
       <background>background\bg_hub</background>
       <background>background\bg_tower</background>
