@@ -31,7 +31,7 @@ room_height = (CELL_HEIGHT / 16) * 720;
 wall_set = true;
 boss_defeated = false;
 //Set Grid Width
-global.level = 1;
+//global.level = 1;
 width = room_width div CELL_WIDTH;
 height = room_height div CELL_HEIGHT;
 
