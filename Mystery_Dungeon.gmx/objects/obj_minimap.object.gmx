@@ -31,7 +31,7 @@ width = 0;
 global.is_game_running = false;
 instance_create(x, y, obj_minimap_box);
 scr_grid();
-if(room != rm_overworld){
+if(room != rm_overworld &amp;&amp; room != rm_boss){
 // Draw the Level
 for (ypos  = 0;  ypos &lt; height; ypos++) {
     for (xpos = 0; xpos &lt; height; xpos++) {
@@ -58,6 +58,11 @@ for (ypos  = 0;  ypos &lt; height; ypos++) {
             // Draw stairs
             tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
+        
+        if (grid[# xpos, ypos] == PORTAL) {
+            // Draw stairs
+            tile_add(bg_stairs_sm, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
+        
         
      }
 }     
