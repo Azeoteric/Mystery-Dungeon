@@ -4,6 +4,10 @@ var height = argument[1];
 grid = argument[2];
 var level = global.level;
 switch(level){
+case 0:
+     level = bg_hub;
+     break;
+
 case 1:
      level = bg_level1;
      break;
@@ -11,9 +15,14 @@ case 1:
 case 2:
      level = bg_cave;
      break;
+     
 case 3:
      level = bg_ruins;
      break;
+     
+case 5:
+     level = bg_tower;
+     break;     
 }
 
 // Making Walls

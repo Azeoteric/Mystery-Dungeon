@@ -30,7 +30,7 @@
 //yea it does probaly best to leave this alone since it doesn't take to much time to render... 
 room_width = (CELL_WIDTH / 16)  * 720;
 room_height = (CELL_HEIGHT / 16) * 720;
-global.level = 1;
+global.level = 0;
 wall_set = true;
 //Set Grid Width
 width = room_width div CELL_WIDTH;
