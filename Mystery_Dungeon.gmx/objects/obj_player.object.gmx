@@ -434,6 +434,10 @@ if (action_cooldown_current &gt; 0) {
 if (invulnerable_timer &gt; 0) {
     invulnerable_timer--;
 }
+
+if (invulnerable_timer = 0) {
+    invulnerable = false;
+}
 </string>
           </argument>
         </arguments>
@@ -495,6 +499,54 @@ if(!instance_exists(obj_leave_floor_menu)) {
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(x, y, player_health);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="49">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Enables tank's shield active
+scr_set_variable('player_has_sprinkle_shield', 1);
+scr_load_player();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="16">
       <action>
         <libid>1</libid>
@@ -521,7 +573,7 @@ switch(class) {
     
         break;
     case 3:
-        if (action_cooldown_current == 0) {
+        if (action_cooldown_current == 0 &amp;&amp; player_has_sprinkle_shield) {
             invulnerable = true;
             invulnerable_timer = TIME_INVINCIBLE;
             action_cooldown_current = ACTION_COOLDOWN_MAX;

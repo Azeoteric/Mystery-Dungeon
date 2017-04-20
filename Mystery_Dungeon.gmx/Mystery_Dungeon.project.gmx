@@ -215,7 +215,6 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_boss</room>
     <rooms name="Title">
       <room>rooms\rm_title</room>
       <room>rooms\rm_class_select</room>
@@ -223,6 +222,7 @@
     <rooms name="Levels">
       <room>rooms\rm_overworld</room>
       <room>rooms\rm_test2</room>
+      <room>rooms\rm_boss</room>
       <room>rooms\rm_test</room>
       <room>rooms\rm_ruins</room>
     </rooms>
