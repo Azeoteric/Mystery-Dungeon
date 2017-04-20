@@ -44,6 +44,7 @@ LEFT = 0;
 DOWN = 1;
 UP = 2;
 RIGHT = 3;
+has_hit_wall = false;
 </string>
           </argument>
         </arguments>
@@ -231,105 +232,135 @@ if(!sees_player){
     
         var currentX = x;
         var currentY = y;
-        switch(direction_choice){
-            case 0: //LEFT
-                //TRY TO MOVE DOWN. IF WALL, MOVE LEFT
-                scr_move_enemy(0, 1);
-                if(currentY == y){
-                    currentX = x;
-                    currentY = y;
-                    scr_move_enemy(-1, 0);//MOVE LEFT
-                    if(currentX == x){ //IF LEFT IS WALL, MOVE UP
+        if(has_hit_wall){
+            switch(direction_choice){
+                case 0: //LEFT
+                    //TRY TO MOVE DOWN. IF WALL, MOVE LEFT
+                    scr_move_enemy(0, 1);
+                    if(currentY == y){
                         currentX = x;
                         currentY = y;
-                        scr_move_enemy(0, -1);
-                        movement_direction = UP;
-                        if(currentY == y){//IF UP IS WALL, MOVE RIGHT
-                            currentX = x;
-                            currentY = y;
-                            scr_move_enemy(1, 0);
-                            movement_direction = RIGHT;
-                        }
-                    }
-                }
-                else{
-                    movement_direction = DOWN;
-                }
-                break;
-            
-            case 1: //DOWN
-                //TRY TO MOVE RIGHT. IF WALL, MOVE DOWN.
-                scr_move_enemy(1, 0);
-                if(currentX == x){
-                    currentX = x;
-                    currentY = y;
-                    scr_move_enemy(0, 1);//MOVE DOWN
-                    if(currentY == y){ //IF DOWN IS WALL, MOVE LEFT
-                        currentX = x;
-                        currentY = y;
-                        scr_move_enemy(-1, 0);
-                        movement_direction = LEFT;
-                        if(currentX == x){//IF left IS WALL, MOVE UP
+                        scr_move_enemy(-1, 0);//MOVE LEFT
+                        if(currentX == x){ //IF LEFT IS WALL, MOVE UP
                             currentX = x;
                             currentY = y;
                             scr_move_enemy(0, -1);
-                            movement_direction = UP;
+                            direction_choice = UP;
+                            if(currentY == y){//IF UP IS WALL, MOVE RIGHT
+                                currentX = x;
+                                currentY = y;
+                                scr_move_enemy(1, 0);
+                                direction_choice = RIGHT;
+                            }
                         }
                     }
-                }
-                else{
-                    movement_direction = RIGHT;
-                }
-                break;  
-            case 2: //UP 
-            //TRY TO MOVE LEFT. IF WALL, MOVE UP.
-                scr_move_enemy(-1, 0);
-                if(currentX == x){
-                    currentX = x;
-                    currentY = y;
-                    scr_move_enemy(0, -1);//MOVE UP
-                    if(currentY == y){ //IF UP IS WALL, MOVE RIGHT
-                        currentX = x;
-                        currentY = y;
-                        scr_move_enemy(1, 0);
-                        movement_direction = RIGHT;
-                        if(currentX == x){//IF RIGHT IS WALL, MOVE DOWN
-                            currentX = x;
-                            currentY = y;
-                            scr_move_enemy(0, 1);
-                            movement_direction = DOWN;
-                        }
+                    else{
+                        direction_choice = DOWN;
                     }
-                }
-                else{
-                    movement_direction = LEFT;
-                }
-                break;
-            case 3:  //RIGHT
-                //TRY TO MOVE UP. IF WALL, MOVE RIGHT
-                scr_move_enemy(0, -1);
-                if(currentY == y){
-                    currentX = x;
-                    currentY = y;
-                    scr_move_enemy(1, 0);//MOVE RIGHT
-                    if(currentX == x){ //IF RIGHT IS WALL, MOVE DOWN
+                    break;
+                
+                case 1: //DOWN
+                    //TRY TO MOVE RIGHT. IF WALL, MOVE DOWN.
+                    scr_move_enemy(1, 0);
+                    if(currentX == x){
                         currentX = x;
                         currentY = y;
-                        scr_move_enemy(0, 1);
-                        movement_direction = DOWN;
-                        if(currentY == y){//IF DOWN IS WALL, MOVE LEFT
+                        scr_move_enemy(0, 1);//MOVE DOWN
+                        if(currentY == y){ //IF DOWN IS WALL, MOVE LEFT
                             currentX = x;
                             currentY = y;
                             scr_move_enemy(-1, 0);
-                            movement_direction = LEFT;
+                            direction_choice = LEFT;
+                            if(currentX == x){//IF left IS WALL, MOVE UP
+                                currentX = x;
+                                currentY = y;
+                                scr_move_enemy(0, -1);
+                                direction_choice = UP;
+                            }
                         }
                     }
-                }
-                else{
-                    movement_direction = UP;
-                }
-                break;
+                    else{
+                        direction_choice = RIGHT;
+                    }
+                    break;  
+                case 2: //UP 
+                //TRY TO MOVE LEFT. IF WALL, MOVE UP.
+                    scr_move_enemy(-1, 0);
+                    if(currentX == x){
+                        currentX = x;
+                        currentY = y;
+                        scr_move_enemy(0, -1);//MOVE UP
+                        if(currentY == y){ //IF UP IS WALL, MOVE RIGHT
+                            currentX = x;
+                            currentY = y;
+                            scr_move_enemy(1, 0);
+                            direction_choice = RIGHT;
+                            if(currentX == x){//IF RIGHT IS WALL, MOVE DOWN
+                                currentX = x;
+                                currentY = y;
+                                scr_move_enemy(0, 1);
+                                direction_choice = DOWN;
+                            }
+                        }
+                    }
+                    else{
+                        direction_choice = LEFT;
+                    }
+                    break;
+                case 3:  //RIGHT
+                    //TRY TO MOVE UP. IF WALL, MOVE RIGHT
+                    scr_move_enemy(0, -1);
+                    if(currentY == y){
+                        currentX = x;
+                        currentY = y;
+                        scr_move_enemy(1, 0);//MOVE RIGHT
+                        if(currentX == x){ //IF RIGHT IS WALL, MOVE DOWN
+                            currentX = x;
+                            currentY = y;
+                            scr_move_enemy(0, 1);
+                            direction_choice = DOWN;
+                            if(currentY == y){//IF DOWN IS WALL, MOVE LEFT
+                                currentX = x;
+                                currentY = y;
+                                scr_move_enemy(-1, 0);
+                                direction_choice = LEFT;
+                            }
+                        }
+                    }
+                    else{
+                        direction_choice = UP;
+                    }
+                    break;
+            }
         }
+        /*else {
+            switch(direction_choice){
+                case 0:
+                    scr_move_enemy(-1, 0);
+                    if(currentX == x){
+                        has_hit_wall = true;
+                    }
+                    break;
+                case 1:
+                    scr_move_enemy(0 , 1);
+                    if(currentY == y){
+                        has_hit_wall = true;
+                    }
+                    break;
+                case 2:
+                    scr_move_enemy(0, -1);
+                    if(currentY == y){
+                        has_hit_wall = true;
+                    }
+                    break
+                case 3:
+                    scr_move_enemy(1, 0);
+                    if(currentX == x) {
+                        has_hit_wall = true;
+                    }
+                    break;
+            }
+        }*/
     
 }
 else {
