@@ -15,8 +15,9 @@
       <sound>sound\sfx_enemy_death</sound>
       <sound>sound\sfx_enemy_damaged</sound>
       <sound>sound\sfx_enemy_shoot</sound>
+      <sound>sound\sfx_sprinkle_attack</sound>
+      <sound>sound\sfx_sprinkle_shield</sound>
     </sounds>
-    <sound>sound\sound7</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Text Boxes">
@@ -169,6 +170,7 @@
       <script>scripts\scr_load_player.gml</script>
       <script>scripts\scr_create_bullet.gml</script>
       <script>scripts\scr_sprinklestorm.gml</script>
+      <script>scripts\scr_action_skill.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

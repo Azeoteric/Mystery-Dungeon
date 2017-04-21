@@ -181,11 +181,19 @@ invincibilityFrames--;
           <argument>
             <kind>1</kind>
             <string>///Handles Deletion
+/*
 if(place_meeting(x, y, obj_squeeb) &amp;&amp; invincibilityFrames &lt; 0){
                     instance_destroy();
+                    audio_play_sound(sfx_enemy_damaged, 10, false);
 }
 if(place_meeting(x, y, obj_jack) &amp;&amp; invincibilityFrames &lt; 0){
                     instance_destroy();
+                    audio_play_sound(sfx_enemy_damaged, 10, false);
+}
+*/
+if (place_meeting(x, y, obj_enemy) &amp;&amp; invincibilityFrames &lt; 0) {
+    instance_destroy();
+    audio_play_sound(sfx_enemy_damaged, 10, false);
 }
 //Destroys the projectile after it moves far enough.
 if (abs(x) &gt; 10000 || abs(y) &gt; 10000 &amp;&amp; invincibilityFrames &lt; 0)
