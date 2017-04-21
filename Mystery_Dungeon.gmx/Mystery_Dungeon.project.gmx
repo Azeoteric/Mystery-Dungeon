@@ -16,6 +16,7 @@
       <sound>sound\sfx_enemy_damaged</sound>
       <sound>sound\sfx_enemy_shoot</sound>
     </sounds>
+    <sound>sound\sound7</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Text Boxes">
@@ -210,6 +211,7 @@
         <object>objects\obj_candle_projectile</object>
         <object>objects\obj_arrow_projectile</object>
       </objects>
+      <object>objects\obj_sprinkle_shield</object>
     </objects>
     <objects name="Room Makers">
       <object>objects\obj_level_generator</object>

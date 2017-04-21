@@ -48,6 +48,7 @@ sprinkle_damage = 10;
 TIME_INVINCIBLE = 180;
 invulnerable = false;
 invulnerable_timer = 0;
+shield_object = 0;
 
 image_speed = .3;
 xStart = x; 
@@ -450,6 +451,9 @@ if (invulnerable_timer &gt; 0) {
 
 if (invulnerable_timer = 0) {
     invulnerable = false;
+    with (shield_object) {
+        instance_destroy();
+    }
 }
 
 if (storm_timer &gt; 0) {
@@ -530,29 +534,6 @@ if(!instance_exists(obj_leave_floor_menu)) {
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_text(x, y, player_health);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="49">
       <action>
         <libid>1</libid>
@@ -571,6 +552,8 @@ if(!instance_exists(obj_leave_floor_menu)) {
           <argument>
             <kind>1</kind>
             <string>///Enables tank's shield active
+
+action_cooldown_current = 0;
 scr_set_variable('player_has_sprinkle_shield', 1);
 scr_set_variable('player_has_sprinklestorm', 1);
 scr_load_player();
@@ -614,6 +597,8 @@ switch(class) {
         if (action_cooldown_current == 0 &amp;&amp; player_has_sprinkle_shield) {
             invulnerable = true;
             invulnerable_timer = TIME_INVINCIBLE;
+            shield_object = instance_create(x, y, obj_sprinkle_shield);
+            shield_object.image_alpha = 0.75;
             action_cooldown_current = ACTION_COOLDOWN_MAX;
         }
         break;
