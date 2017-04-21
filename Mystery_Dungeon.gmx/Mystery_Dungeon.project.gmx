@@ -35,6 +35,7 @@
         <sprite>sprites\spr_sprinkle_red</sprite>
         <sprite>sprites\spr_sprinkle_yllw</sprite>
       </sprites>
+      <sprite>sprites\spr_sprinkle_shield</sprite>
     </sprites>
     <sprites name="Bread Hamster">
       <sprite>sprites\spr_bh_idle</sprite>
@@ -88,6 +89,7 @@
     </sprites>
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_minimap_box</sprite>
+    <sprite>sprites\spr_gummy_barbearian</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
