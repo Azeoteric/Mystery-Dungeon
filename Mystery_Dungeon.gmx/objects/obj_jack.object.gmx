@@ -60,37 +60,6 @@ shootWait = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Handles activation
-sees_player = scr_sees_player();
-if (sees_player &amp;&amp; shootWait != 70) {
-    sprite_index = spr_pumpkin_activate;
-    image_speed = .2;
-    shootWait++;
-}
-if (shootWait == 70) {
-    sprite_index = spr_pumpkin_shoot;
-    image_speed = .2;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Handles damage
 if(place_meeting(x, y, obj_arrow_projectile)) {
                    hit_points -= obj_player.attack;
@@ -132,6 +101,37 @@ if (sees_player) {
     }
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Handles activation
+sees_player = scr_sees_player();
+if (sees_player &amp;&amp; shootWait != 70) {
+    sprite_index = spr_pumpkin_activate;
+    image_speed = .2;
+    shootWait++;
+}
+if (shootWait == 70) {
+    sprite_index = spr_pumpkin_shoot;
+    image_speed = .2;
+}
 </string>
           </argument>
         </arguments>

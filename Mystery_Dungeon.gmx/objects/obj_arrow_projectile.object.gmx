@@ -79,6 +79,16 @@ switch(irandom(3)){
           <argument>
             <kind>1</kind>
             <string>if (splash_timer &gt; 0) {
+    
+    for (i = 0; i &lt; 4; i++) {
+        tempX = x + irandom(16) - 8;
+        tempY = y + irandom(16) - 8;
+        tempDir = point_direction(tempX, tempY, tempX + irandom(2) - 1, tempY + irandom(2) - 1);
+        scr_create_bullet(tempX, tempY, tempDir, speedFactor / 3,
+            bulletHeight / 3, 5, splash_timer - 1);
+            
+    }
+    /*
     var projectile1 = (instance_create(x + 8, y, obj_arrow_projectile));
     var projectile2 = (instance_create(x, y + 8, obj_arrow_projectile));
     var projectile3 = (instance_create(x - 8, y, obj_arrow_projectile));
@@ -114,6 +124,7 @@ switch(irandom(3)){
     projectile2.splash_timer = splash_timer;
     projectile3.splash_timer = splash_timer;
     projectile4.splash_timer = splash_timer;
+    */
 }
 </string>
           </argument>
@@ -138,6 +149,7 @@ switch(irandom(3)){
           <argument>
             <kind>1</kind>
             <string>///Steady Movement of the Projectile
+/*
 if (xMove == 0 || yMove == 0) {
     hspeed = xDirection * speedFactor + xMove;
     vspeed = yDirection * speedFactor + yMove;
@@ -145,7 +157,7 @@ if (xMove == 0 || yMove == 0) {
 else {
     hspeed = (xDirection * speedFactor + xMove) / sqrt(2);
     vspeed = (yDirection * speedFactor + yMove) / sqrt(2);
-}
+} */
 
 invincibilityFrames--;
 </string>
