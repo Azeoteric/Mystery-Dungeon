@@ -26,10 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>///Variable inits.
-scr_grid();
 MOVE_SPEED = 2;
 VISION_RADIUS = 256;
 vSpeed = 0;
+scr_grid();
 hSpeed = 0;
 sees_player = false;
 moveCounter = 0;
@@ -39,12 +39,16 @@ hspd = 0;
 vspd = 0;
 hit_points = 3;
 image_speed = .2;
-direction_choice = 2;
+direction_choice = irandom(3);
 LEFT = 0;
 DOWN = 1;
 UP = 2;
 RIGHT = 3;
 has_hit_wall = false;
+randomDirCounter = 0;
+requirement = 60;
+currentX = x;
+currentY = y;
 </string>
           </argument>
         </arguments>
@@ -193,6 +197,8 @@ else {
 if(global.is_game_running) {
 moveFrames = irandom(80) + 40;
 sees_player = scr_sees_player();
+currentX = x;
+currentY = y;
 if(!sees_player){
     
    /* if(global.is_game_running) {
@@ -230,11 +236,11 @@ if(!sees_player){
        scr_move_enemy(hspd + sign(hspd) , vspd + sign(vspd));         
     }*/
     
-        var currentX = x;
+        /*var currentX = x;
         var currentY = y;
         if(has_hit_wall){
             switch(direction_choice){
-                case 0: //LEFT
+                case 1: //LEFT
                     //TRY TO MOVE DOWN. IF WALL, MOVE LEFT
                     scr_move_enemy(0, 1);
                     if(currentY == y){
@@ -259,7 +265,7 @@ if(!sees_player){
                     }
                     break;
                 
-                case 1: //DOWN
+                case 3: //DOWN
                     //TRY TO MOVE RIGHT. IF WALL, MOVE DOWN.
                     scr_move_enemy(1, 0);
                     if(currentX == x){
@@ -283,7 +289,7 @@ if(!sees_player){
                         direction_choice = RIGHT;
                     }
                     break;  
-                case 2: //UP 
+                case 0: //UP 
                 //TRY TO MOVE LEFT. IF WALL, MOVE UP.
                     scr_move_enemy(-1, 0);
                     if(currentX == x){
@@ -307,7 +313,7 @@ if(!sees_player){
                         direction_choice = LEFT;
                     }
                     break;
-                case 3:  //RIGHT
+                case 2:  //RIGHT
                     //TRY TO MOVE UP. IF WALL, MOVE RIGHT
                     scr_move_enemy(0, -1);
                     if(currentY == y){
@@ -332,8 +338,9 @@ if(!sees_player){
                     }
                     break;
             }
+            has_hit_wall = false;
         }
-        /*else {
+        else {
             switch(direction_choice){
                 case 0:
                     scr_move_enemy(-1, 0);
@@ -352,7 +359,7 @@ if(!sees_player){
                     if(currentY == y){
                         has_hit_wall = true;
                     }
-                    break
+                    break;
                 case 3:
                     scr_move_enemy(1, 0);
                     if(currentX == x) {
@@ -361,6 +368,38 @@ if(!sees_player){
                     break;
             }
         }*/
+        
+        
+        
+        //SECOND ATTEMPT
+        
+        if (randomDirCounter &gt; requirement) {
+            var willChangeDir = irandom(100);
+            if (willChangeDir &gt; 65) {
+                direction_choice = irandom(3);   
+            }
+            requirement = irandom(50) + 50;
+            randomDirCounter = 0;          
+        }
+        switch(direction_choice){
+            case LEFT:
+                scr_move_enemy(-1, 0);
+                break;
+            case DOWN:
+                scr_move_enemy(0 , 1);
+                break;
+            case UP:
+                scr_move_enemy(0, -1);
+                break;
+            case RIGHT:
+                scr_move_enemy(1, 0);
+                break;
+        }
+        
+        
+
+        
+        
     
 }
 else {
@@ -404,7 +443,9 @@ else {
         }
         x+= hspd * MOVE_SPEED;
     }
+    direction_choice = irandom(3);
 }
+        randomDirCounter++;
 }
 </string>
           </argument>
