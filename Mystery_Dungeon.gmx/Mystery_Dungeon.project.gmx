@@ -12,6 +12,11 @@
       <sound>sound\music_tower</sound>
       <sound>sound\music_cave</sound>
       <sound>sound\music_forest</sound>
+      <sounds name="boss music">
+        <sound>sound\music_boss</sound>
+        <sound>sound\music_breadhamster</sound>
+        <sound>sound\music_golden_squeep</sound>
+      </sounds>
     </sounds>
     <sounds name="sfx">
       <sound>sound\sfx_sprinkle_shoot</sound>
@@ -45,11 +50,6 @@
         <sprite>sprites\spr_sprinkle_yllw</sprite>
       </sprites>
       <sprite>sprites\spr_sprinkle_shield</sprite>
-    </sprites>
-    <sprites name="Bread Hamster">
-      <sprite>sprites\spr_bh_idle</sprite>
-      <sprite>sprites\spr_bh_wlk_up</sprite>
-      <sprite>sprites\spr_bh_wlk_rght</sprite>
     </sprites>
     <sprites name="Sword Guy">
       <sprite>sprites\spr_sg_idle</sprite>
@@ -92,6 +92,11 @@
           <sprite>sprites\spr_gundrop</sprite>
           <sprite>sprites\spr_gundrop_bullet</sprite>
         </sprites>
+        <sprites name="Turrito">
+          <sprite>sprites\spr_turrito_idle</sprite>
+          <sprite>sprites\spr_turrito_active</sprite>
+          <sprite>sprites\spr_turrito_bullet</sprite>
+        </sprites>
       </sprites>
       <sprites name="Trap">
         <sprite>sprites\spr_birthdaysurprise</sprite>
@@ -104,6 +109,18 @@
           <sprite>sprites\spr_nacho_duck_boss</sprite>
         </sprites>
         <sprite>sprites\spr_boss_taco</sprite>
+        <sprites name="Bread Hamster">
+          <sprite>sprites\spr_bh_idle</sprite>
+          <sprite>sprites\spr_bh_wlk_up</sprite>
+          <sprite>sprites\spr_bh_wlk_rght</sprite>
+          <sprite>sprites\spr_blitz_down</sprite>
+          <sprite>sprites\spr_blitz_right</sprite>
+          <sprite>sprites\sprite55</sprite>
+          <sprite>sprites\spr_blitz_up</sprite>
+          <sprite>sprites\spr_blitz_windup_front</sprite>
+          <sprite>sprites\spr_blitz_windup_back</sprite>
+        </sprites>
+        <sprite>sprites\spr_golden_squeep</sprite>
       </sprites>
       <sprite>sprites\sprite25</sprite>
     </sprites>
