@@ -67,6 +67,7 @@ var tempx;
 test_squeeb_spawn = true;
 test_jack_spawn = true;
 test_trap_spawn = true;
+test_nacho_spawn = true;
 
 // Creates a music object (might change this later)
 if (!instance_exists(obj_music)) {
@@ -134,6 +135,12 @@ if(test_trap_spawn) {
     instance_create(x + 72, y - 72, obj_trap);
     test_trap_spawn = false;
     //show_message("SPAWNED TRAP");
+}
+
+if(test_nacho_spawn) {
+    instance_create(x - 400, y + 72, obj_nacho_duck);
+    test_nacho_spawn = false;
+    //show_message("SPAWNED NACHO");
 }
 </string>
           </argument>

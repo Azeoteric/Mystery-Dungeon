@@ -26,3 +26,5 @@ vspd = 0;
 
 // Move Vertically
 y += vspd * MOVE_SPEED;
+
+return true;

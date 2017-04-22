@@ -220,6 +220,7 @@
     </objects>
     <objects name="Enemies">
       <object>objects\obj_badguy</object>
+      <object>objects\obj_nacho_duck</object>
       <object>objects\obj_trap</object>
       <object>objects\obj_squeeb</object>
       <object>objects\obj_jack</object>
@@ -242,6 +243,7 @@
       <objects name="Projectiles">
         <object>objects\obj_candle_projectile</object>
         <object>objects\obj_arrow_projectile</object>
+        <object>objects\obj_nacho_duck_projectile</object>
       </objects>
       <object>objects\obj_sprinkle_shield</object>
     </objects>

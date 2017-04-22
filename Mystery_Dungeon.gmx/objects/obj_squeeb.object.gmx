@@ -406,17 +406,25 @@ if(!sees_player){
             randomDirCounter = 0;          
         }
         switch(direction_choice){
-            case LEFT:
-                scr_move_enemy(-1, 0);
+        case LEFT:
+                if (!scr_move_enemy(-1, 0)) {
+                    direction_choice = irandom(3);
+                }
                 break;
-            case DOWN:
-                scr_move_enemy(0 , 1);
+        case DOWN:
+                if (!scr_move_enemy(0 , 1)) {
+                    direction_choice = irandom(3);
+                }
                 break;
-            case UP:
-                scr_move_enemy(0, -1);
+        case UP:
+                if (!scr_move_enemy(0, -1)) {
+                    direction_choice = irandom(3);
+                }
                 break;
-            case RIGHT:
-                scr_move_enemy(1, 0);
+        case RIGHT:
+                if (!scr_move_enemy(1, 0)) {
+                    direction_choice = irandom(3);
+                }
                 break;
         }
         
