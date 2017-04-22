@@ -25,23 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Handles state mechanics
-switch (state) {
-    case 0:
-        //scr_move_boss(hspd, vspd, VISION_RADIUS, move_speed);
-        break;
-    case 1:
-        charge_timer--;
-        break;
-    case 2:
-        attack_timer--;
-        if (attack_timer == 0) {
-            //stop attacking 
-            state = STATE_NORMAL;
-            move_speed = DEFAULT_SPEED;
-        }
-        break;
-}
+            <string>///Draws the title
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+draw_set_font(Munro_title);
+draw_set_color(c_white);
+
+
+draw_text(100, 150,string("Flare Blitz 2:#                  Mystery Dungeon"));
+
 </string>
           </argument>
         </arguments>
