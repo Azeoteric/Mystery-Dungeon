@@ -237,6 +237,7 @@
     </objects>
     <objects name="Enemies">
       <object>objects\obj_badguy</object>
+      <object>objects\obj_enemy_spawner</object>
       <object>objects\obj_nacho_duck</object>
       <object>objects\obj_trap</object>
       <object>objects\obj_squeeb</object>

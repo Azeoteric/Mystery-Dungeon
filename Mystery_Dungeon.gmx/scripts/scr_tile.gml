@@ -73,12 +73,13 @@ for (ypos  = 0;  ypos < height - 1; ypos++) {
             tile_add(level, 180, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
              
         }  
-        /*
+        
         if (grid[# xpos, ypos] == NODE) {
             // Draw nodes
-            tile_add(bg_node, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);
+            //tile_add(bg_node, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);
+            instance_create(xpos * CELL_WIDTH, ypos * CELL_HEIGHT, obj_enemy_spawner);
         }
-        */
+        
             if (grid[# xpos, ypos] == PLAYER) {
             // Draw nodes
             tile_add(bg_player, 0, 0, CELL_WIDTH, CELL_HEIGHT, (xpos * CELL_WIDTH), (ypos * CELL_HEIGHT), 0);    

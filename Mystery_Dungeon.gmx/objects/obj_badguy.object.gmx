@@ -160,9 +160,9 @@ scr_move_enemy(hspd, vspd);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (path_exists(path)) {
-   path_delete(path);
-} 
+            <string>//if (path_exists(path)) {
+// path_delete(path);
+//} 
 </string>
           </argument>
         </arguments>
