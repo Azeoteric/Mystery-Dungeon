@@ -172,6 +172,9 @@
       <script>scripts\scr_sprinklestorm.gml</script>
       <script>scripts\scr_action_skill.gml</script>
     </scripts>
+    <scripts name="Music">
+      <script>scripts\scr_play_music.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\Munro</font>
@@ -222,6 +225,7 @@
       <object>objects\obj_overworld</object>
       <object>objects\obj_level</object>
     </objects>
+    <object>objects\obj_music</object>
   </objects>
   <rooms name="rooms">
     <rooms name="Title">

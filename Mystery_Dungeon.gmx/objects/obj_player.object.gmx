@@ -67,6 +67,11 @@ var tempx;
 test_squeeb_spawn = true;
 test_jack_spawn = true;
 test_trap_spawn = true;
+
+// Creates a music object (might change this later)
+if (!instance_exists(obj_music)) {
+    instance_create(x, y, obj_music);
+}
 </string>
           </argument>
         </arguments>
