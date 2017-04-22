@@ -11,6 +11,7 @@
       <sound>sound\music_ruins</sound>
       <sound>sound\music_tower</sound>
       <sound>sound\music_cave</sound>
+      <sound>sound\music_forest</sound>
     </sounds>
     <sounds name="sfx">
       <sound>sound\sfx_sprinkle_shoot</sound>
@@ -57,6 +58,10 @@
       <sprites name="Movers">
         <sprites name="Squeep">
           <sprite>sprites\spr_squeep_standard</sprite>
+          <sprite>sprites\spr_squeep_forest</sprite>
+          <sprite>sprites\spr_squeep_cave</sprite>
+          <sprite>sprites\spr_squeep_ruins</sprite>
+          <sprite>sprites\spr_squeep_tower</sprite>
         </sprites>
         <sprites name="Nacho Duck">
           <sprite>sprites\spr_nacho_duck</sprite>
@@ -64,6 +69,10 @@
         </sprites>
         <sprites name="Gummy Barbearian">
           <sprite>sprites\spr_gummy_barbearian</sprite>
+        </sprites>
+        <sprites name="Taco Demon">
+          <sprite>sprites\spr_taco_demon</sprite>
+          <sprite>sprites\spr_taco_demon_bullet</sprite>
         </sprites>
       </sprites>
       <sprites name="Cannons">
@@ -94,6 +103,7 @@
         <sprites name="Nacho Duck">
           <sprite>sprites\spr_nacho_duck_boss</sprite>
         </sprites>
+        <sprite>sprites\spr_boss_taco</sprite>
       </sprites>
       <sprite>sprites\sprite25</sprite>
     </sprites>
