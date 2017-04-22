@@ -8,6 +8,8 @@
     <sounds name="music">
       <sound>sound\music_wheat</sound>
       <sound>sound\music_hub</sound>
+      <sound>sound\music_ruins</sound>
+      <sound>sound\music_tower</sound>
       <sound>sound\music_cave</sound>
     </sounds>
     <sounds name="sfx">
@@ -17,6 +19,10 @@
       <sound>sound\sfx_enemy_shoot</sound>
       <sound>sound\sfx_sprinkle_attack</sound>
       <sound>sound\sfx_sprinkle_shield</sound>
+      <sound>sound\sfx_player_hurt</sound>
+      <sound>sound\sfx_pickup</sound>
+      <sound>sound\sfx_trap_jump</sound>
+      <sound>sound\sfx_trap_explode</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -54,6 +60,10 @@
         </sprites>
         <sprites name="Nacho Duck">
           <sprite>sprites\spr_nacho_duck</sprite>
+          <sprite>sprites\spr_nacho_duck_bullet</sprite>
+        </sprites>
+        <sprites name="Gummy Barbearian">
+          <sprite>sprites\spr_gummy_barbearian</sprite>
         </sprites>
       </sprites>
       <sprites name="Cannons">
@@ -69,6 +79,10 @@
           <sprite>sprites\spr_pumpkin_shoot</sprite>
           <sprite>sprites\spr_pumpkin_candle</sprite>
         </sprites>
+        <sprites name="Gundrop">
+          <sprite>sprites\spr_gundrop</sprite>
+          <sprite>sprites\spr_gundrop_bullet</sprite>
+        </sprites>
       </sprites>
       <sprites name="Trap">
         <sprite>sprites\spr_birthdaysurprise</sprite>
@@ -79,7 +93,6 @@
         <sprite>sprites\spr_boss_squeep</sprite>
         <sprites name="Nacho Duck">
           <sprite>sprites\spr_nacho_duck_boss</sprite>
-          <sprite>sprites\spr_nacho_duck_bullet</sprite>
         </sprites>
       </sprites>
       <sprite>sprites\sprite25</sprite>
@@ -91,7 +104,6 @@
     </sprites>
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_minimap_box</sprite>
-    <sprite>sprites\spr_gummy_barbearian</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
