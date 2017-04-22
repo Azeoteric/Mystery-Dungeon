@@ -68,15 +68,17 @@ for (var ypos = 1; ypos < height - 1; ypos++) {
 // Draw the Level
 for (ypos  = 0;  ypos < height - 1; ypos++) {
     for (xpos = 0; xpos < width - 1; xpos++) {
-        if (grid[# xpos, ypos] == FLOOR) {
+        if (grid[# xpos, ypos] == FLOOR || grid[# xpos, ypos] == NODE ) {
             // Draw floor
             tile_add(level, 180, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
              
         }  
+        /*
         if (grid[# xpos, ypos] == NODE) {
             // Draw nodes
             tile_add(bg_node, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);
         }
+        */
             if (grid[# xpos, ypos] == PLAYER) {
             // Draw nodes
             tile_add(bg_player, 0, 0, CELL_WIDTH, CELL_HEIGHT, (xpos * CELL_WIDTH), (ypos * CELL_HEIGHT), 0);    
@@ -87,7 +89,7 @@ for (ypos  = 0;  ypos < height - 1; ypos++) {
             tile_add(level, 108, 72, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
             }
             
-            if (grid[# xpos, ypos] == WALL && room == rm_test2) {
+            if (grid[# xpos, ypos] == WALL) {
                mp_grid_add_cell(grid_path, xpos, ypos);
             }
   }   
