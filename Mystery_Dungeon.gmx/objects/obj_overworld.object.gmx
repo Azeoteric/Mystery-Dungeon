@@ -40,9 +40,12 @@ height = room_height div CELL_HEIGHT;
 // Create the grid
 grid = ds_grid_create(width, height);
 
+// Make Path finding grid
+grid_path = mp_grid_create(0, 0, width, height, CELL_WIDTH, CELL_HEIGHT);
+
 //Fill the grid with the void
 ds_grid_set_region(grid, 0, 0, width - 1, height - 1, VOID);
-scr_tile(width, height, grid);
+scr_tile(width, height, grid, grid_path);
 
 //Randomized the world
 randomize();
@@ -173,7 +176,7 @@ cx += 30;
 scr_make_room(cx, cy, true);
 grid[# cx, cy] = FLOOR;
 instance_create(tempX, tempY, obj_player);
-scr_tile(width, height, grid);
+scr_tile(width, height, grid, grid_path);
 tile_add(bg_portal, 0, 0, CELL_WIDTH, CELL_HEIGHT, cx * CELL_WIDTH, cy * CELL_HEIGHT, 0); 
 grid[# cx, cy] = PORTAL;
 </string>

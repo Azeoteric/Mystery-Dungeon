@@ -2,9 +2,8 @@
 var width = argument[0];
 var height = argument[1];
 grid = argument[2];
-if (room == rm_test2) {
-   grid_path = argument[3];
-}
+grid_path = argument[3];
+
 var level = global.level;
 switch(level){
 case 0:

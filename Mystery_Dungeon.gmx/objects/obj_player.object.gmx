@@ -643,9 +643,8 @@ scr_load_player();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(room == rm_test2){
-        instance_create(x+5,y+5,obj_badguy);
-}
+            <string>instance_create(x+5,y+5,obj_badguy);
+
 </string>
           </argument>
         </arguments>
