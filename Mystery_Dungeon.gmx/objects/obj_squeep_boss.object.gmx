@@ -3,7 +3,7 @@
   <spriteName>spr_boss_squeep</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-15</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,18 +26,26 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize variables
+scr_grid();
+image_speed = 0.2;
 hspd = 0;
 vspd = 0;
 DEFAULT_SPEED = 2;
+CHARGE_SPEED = 5;
+move_speed = DEFAULT_SPEED;
 MAX_HEALTH = 50;
+VISION_RADIUS = 2500;
+CHARGE_RADIUS = 200;
+CHANGE_DIRECTION = 180;
+change_timer = 0;
 
 /************************
  *    STATE VARABLES    *
 *************************/
-state = 0;
 STATE_NORMAL = 0;
 STATE_CHARGE = 1;
 STATE_ATTACK = 2;
+state = STATE_NORMAL;
 CHARGE_DELAY = 60;
 ATTACK_DURATION = 30;
 charge_timer = 0;
@@ -67,7 +75,34 @@ cooldown_timer = 0;
           <argument>
             <kind>1</kind>
             <string>/// Gets state variables
+//picks a direction every second
+same_x_y = x == obj_player.x || y == obj_player.y;
 
+if (change_timer == 0 || same_x_y) {
+    change_timer = CHANGE_DIRECTION;
+    if (abs(obj_player.x - x) &gt;= abs(obj_player.y - y)) {
+        hspd = sign(obj_player.x - x);
+        vspd = 0;
+    }
+    else {
+        hspd = 0;
+        vspd = sign(obj_player.y - y);
+    }
+}
+
+if ((same_x_y) &amp;&amp; state != STATE_CHARGE
+        &amp;&amp; scr_boss_sees_player(CHARGE_RADIUS)) {
+    state = STATE_CHARGE;
+    charge_timer = CHARGE_DELAY;
+}
+
+if (charge_timer == 0 &amp;&amp; state == STATE_CHARGE) {
+    state = STATE_ATTACK;
+    attack_timer = ATTACK_DURATION;
+    move_speed = CHARGE_SPEED;
+}
+
+change_timer--;
 </string>
           </argument>
         </arguments>
@@ -91,7 +126,22 @@ cooldown_timer = 0;
           <argument>
             <kind>1</kind>
             <string>/// Handles state mechanics
-
+switch (state) {
+    case 0:
+        scr_move_boss(hspd, vspd, VISION_RADIUS, move_speed);
+        break;
+    case 1:
+        charge_timer--;
+        break;
+    case 2:
+        attack_timer--;
+        if (attack_timer == 0) {
+            //stop attacking 
+            state = STATE_NORMAL;
+            move_speed = DEFAULT_SPEED;
+        }
+        break;
+}
 </string>
           </argument>
         </arguments>
