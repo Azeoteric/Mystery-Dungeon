@@ -128,7 +128,7 @@ change_timer--;
             <string>/// Handles state mechanics
 switch (state) {
     case 0:
-        scr_move_boss(hspd, vspd, VISION_RADIUS, move_speed);
+        //scr_move_boss(hspd, vspd, VISION_RADIUS, move_speed);
         break;
     case 1:
         charge_timer--;
