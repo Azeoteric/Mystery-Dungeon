@@ -125,6 +125,7 @@
   <scripts name="scripts">
     <scripts name="Boss Mechanics">
       <script>scripts\scr_boss_sees_player.gml</script>
+      <script>scripts\scr_move_boss.gml</script>
     </scripts>
     <script>scripts\scr_grid.gml</script>
     <scripts name="Title">
@@ -229,7 +230,9 @@
       <object>objects\obj_level</object>
     </objects>
     <object>objects\obj_music</object>
-    <object>objects\obj_squeep_boss</object>
+    <objects name="Bosses">
+      <object>objects\obj_squeep_boss</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <rooms name="Title">
@@ -239,9 +242,9 @@
     <rooms name="Levels">
       <room>rooms\rm_overworld</room>
       <room>rooms\rm_test2</room>
-      <room>rooms\rm_boss</room>
       <room>rooms\rm_test</room>
       <room>rooms\rm_ruins</room>
+      <room>rooms\rm_boss</room>
     </rooms>
   </rooms>
   <constants number="16">

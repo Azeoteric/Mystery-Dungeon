@@ -133,7 +133,7 @@ px = cx;
 py = cy;
 
 
-
+instance_create(room_width div 2, room_height div 2, obj_squeep_boss);
 </string>
           </argument>
         </arguments>
