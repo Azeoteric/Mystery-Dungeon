@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Setup
 depth = -20000;
-instance_create(x, y, obj_level_select_text);
+instance_create(x, y - 10, obj_level_select_text);
 global.is_game_running = false;
 </string>
           </argument>
