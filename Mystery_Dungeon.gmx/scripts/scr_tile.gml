@@ -1,7 +1,10 @@
-///scr_tile(width, height, grid, level)
+///scr_tile(width, height, grid, grid_path)
 var width = argument[0];
 var height = argument[1];
 grid = argument[2];
+if (room == rm_test2) {
+   grid_path = argument[3];
+}
 var level = global.level;
 switch(level){
 case 0:
@@ -68,7 +71,8 @@ for (ypos  = 0;  ypos < height - 1; ypos++) {
     for (xpos = 0; xpos < width - 1; xpos++) {
         if (grid[# xpos, ypos] == FLOOR) {
             // Draw floor
-            tile_add(level, 180, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);       
+            tile_add(level, 180, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
+             
         }  
         if (grid[# xpos, ypos] == NODE) {
             // Draw nodes
@@ -83,7 +87,11 @@ for (ypos  = 0;  ypos < height - 1; ypos++) {
             // Draw void
             tile_add(level, 108, 72, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);    
             }
- }   
+            
+            if (grid[# xpos, ypos] == WALL && room == rm_test2) {
+               mp_grid_add_cell(grid_path, xpos, ypos);
+            }
+  }   
 }
 
 // Get tile sizes 

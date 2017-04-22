@@ -39,10 +39,15 @@ height = room_height div CELL_HEIGHT;
 
 // Create the grid
 grid = ds_grid_create(width, height);
+
+// Make Path finding grid
+grid_path = mp_grid_create(0, 0, width, height, CELL_WIDTH, CELL_HEIGHT);
+
+
 min_rooms = level + 2
 max_rooms = level + 3;
 num_tiles = ((level-1) * 50) + level * 100;
-scr_make_floor(grid, width, height, min_rooms, max_rooms, num_tiles);
+scr_make_floor(grid, width, height, min_rooms, max_rooms, num_tiles, grid_path);
 
 </string>
           </argument>

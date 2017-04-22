@@ -153,10 +153,10 @@
       <scripts name="Room assets">
         <script>scripts\scr_delete_walls.gml</script>
         <script>scripts\scr_tile.gml</script>
+        <script>scripts\scr_make_room.gml</script>
         <script>scripts\scr_make_floor.gml</script>
         <script>scripts\scr_wall.gml</script>
         <script>scripts\scr_stairs.gml</script>
-        <script>scripts\scr_make_room.gml</script>
       </scripts>
     </scripts>
     <scripts name="Player Progression">
@@ -178,6 +178,7 @@
     <scripts name="Music">
       <script>scripts\scr_play_music.gml</script>
     </scripts>
+    <script>scripts\scr_path_to_player.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\Munro</font>
@@ -196,6 +197,7 @@
       </objects>
     </objects>
     <objects name="Enemies">
+      <object>objects\obj_badguy</object>
       <object>objects\obj_trap</object>
       <object>objects\obj_squeeb</object>
       <object>objects\obj_jack</object>
@@ -222,7 +224,6 @@
       <object>objects\obj_sprinkle_shield</object>
     </objects>
     <objects name="Room Makers">
-      <object>objects\obj_level_generator</object>
       <object>objects\obj_level_maker</object>
       <object>objects\obj_boss_room</object>
       <object>objects\obj_overworld</object>
@@ -230,6 +231,9 @@
     </objects>
     <object>objects\obj_music</object>
     <object>objects\obj_squeep_boss</object>
+    <objects name="OLD">
+      <object>objects\obj_level_generator</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <rooms name="Title">

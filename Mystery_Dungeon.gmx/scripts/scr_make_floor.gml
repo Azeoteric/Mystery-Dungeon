@@ -1,13 +1,14 @@
-///scr_make_floor(grid, width, height, min_rooms, max_rooms, num_tiles)
+///scr_make_floor(grid, width, height, min_rooms, max_rooms, num_tiles, grid_path)
 grid = argument[0];
 var width = argument[1];
 var height = argument[2];
 var min_rooms = argument[3];
 var max_rooms = argument[4];
 var num_tiles = argument[5];
+grid_path = argument[6];
 //Fill the grid with the void
 ds_grid_set_region(grid, 0, 0, width - 1, height - 1, VOID);
-scr_tile(width, height, grid);
+scr_tile(width, height, grid, grid_path);
 
 //Randomized the world
 randomize();
@@ -68,7 +69,7 @@ if(rooms <= min_rooms) {
    room_restart();
 }
 // Tiles the room
-scr_tile(width, height, grid);
+scr_tile(width, height, grid, grid_path);
 // Makes the stairs
 scr_stairs(width, height);
 // Create the player
