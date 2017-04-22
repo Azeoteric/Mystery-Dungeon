@@ -123,6 +123,9 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="Boss Mechanics">
+      <script>scripts\scr_boss_sees_player.gml</script>
+    </scripts>
     <script>scripts\scr_grid.gml</script>
     <scripts name="Title">
       <script>scripts\scr_title_manager.gml</script>
@@ -226,6 +229,7 @@
       <object>objects\obj_level</object>
     </objects>
     <object>objects\obj_music</object>
+    <object>objects\obj_squeep_boss</object>
   </objects>
   <rooms name="rooms">
     <rooms name="Title">
