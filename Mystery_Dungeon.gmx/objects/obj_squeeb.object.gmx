@@ -57,27 +57,27 @@ switch(global.level){
     case 1:
         MOVE_SPEED = 2;
         attack = 1;
-        hp = 3;
+        hit_points = 3;
         break;
     case 2:
         MOVE_SPEED = 2.5;
         attack = 1;
-        hp = 3;
+        hit_points = 3;
         break;
     case 3:
         MOVE_SPEED = 2.5;
         attack = 1;
-        hp = 4;
+        hit_points = 4;
         break;
     case 4:
         MOVE_SPEED = 3;
         attack = 2;
-        hp = 5;
+        hit_points = 5;
         break;
     case 5:
         MOVE_SPEED = 3.5;
         attack = 2;
-        hp = 6;
+        hit_points = 6;
         break;
     default:
         break;
@@ -154,10 +154,12 @@ alarm[0] = room_speed;
           <argument>
             <kind>1</kind>
             <string>///Move Toward Player
+if(global.is_game_running){
 if(sees_player){
     scr_path_to_player();
 }
 //alarm[0] = room_speed;
+}
 </string>
           </argument>
         </arguments>
@@ -308,7 +310,7 @@ moveFrames = irandom(80) + 40;
 currentX = x;
 currentY = y;
 if(!sees_player){
-    //sees_player = scr_sees_player();
+    sees_player = scr_sees_player();
     if(global.is_game_running) {
        /*if(moveCounter &gt;= moveFrames) {
           moveDir = irandom(3);
@@ -622,12 +624,14 @@ else {
           <argument>
             <kind>1</kind>
             <string>///Handles damage
+
 if(place_meeting(x, y, obj_arrow_projectile)) {
                    hit_points -= obj_player.attack;
 }
 if(hit_points &lt; 0) {
  instance_destroy();
 }
+
 </string>
           </argument>
         </arguments>

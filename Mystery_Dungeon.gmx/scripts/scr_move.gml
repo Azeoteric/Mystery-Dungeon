@@ -29,6 +29,9 @@ if (scr_grid_place_meeting(x, y + vspd, grid)) {
    if(scr_meeting_portal(x, y + sign(vspd), grid)){
          event_user(1);
    }
+   if(scr_meeting_npc(x, y + sign(vspd), grid)){
+         event_user(2);
+   }
 vspd = 0;
 }
 

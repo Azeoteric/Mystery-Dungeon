@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-17</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,22 +25,104 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>chances = (irandom(100) % 2);
+            <string>/// Set-up
+global.totalEvil = 0;
+chances = (irandom(100) % 2);
+range = 300;
 evil = 0;
 
-switch(chances) {
-
- case 0:
- instance_create(x, y, obj_squeeb);
- break;
- 
- case 1:
- instance_create(x, y, obj_nacho_duck);
- break;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Controls Spawning
+if (object_exists(obj_player)) {
+   if (distance_to_object(obj_player) &gt; range) {
+      switch(global.level) {
+       case 0:
+            break
+       
+       case 1:
+            bad = 3;
+            break;
+       case 2:
+            bad = 3;
+            break;     
+       
+       case 3:
+            bad = 4;
+            break;
+       case 4:
+            bad = 5;
+            break;     
+      
+       case 5:     
+            bad = 6;
+            break;
+      }     
+      
+      if(global.totalEvil &lt; bad) {
+      chances = (irandom(100) % 2);
+      switch(chances) {
+      
+       case 0:
+       instance_create(x, y, obj_squeeb);
+       break;
+       
+       case 1:
+       instance_create(x, y, obj_squeeb);
+       break;
+      }
+      
+      global.totalEvil++;
+      }
+   }
+   else {
+   sprite_index = spr_player; 
+   }
 }
-evil++;
-//global.totalEvil += evil;
- 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(x,y, global.totalEvil);
+
 </string>
           </argument>
         </arguments>

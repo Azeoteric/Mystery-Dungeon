@@ -34,14 +34,28 @@ gamepad_set_axis_deadzone(0,0.3);
 
 ACTION_COOLDOWN_MAX = 3600;
 action_cooldown_current = 0;
+player_has_piercing = 0;
 
 //Health object management
 health_array[0] = 0;
+temp = scr_get_variable('player_health');
+if (scr_get_player_variable('current_health') == 0) {
+    scr_set_player_variable('current_health', temp);
+}
+
+if (room == rm_overworld) {
+    scr_set_player_variable('current_health', temp);
+}  
+
+player_health = scr_get_player_variable('current_health');
+
+//orbs
+orbs = scr_get_player_variable('orbs');
 
 //handles invincibility frames
-INVINCIBILITY_FRAMES = 15;
+INVINCIBILITY_FRAMES = 20;
 invincibility_timer = 0;
-health_last_frame = 0;
+health_last_frame = player_health;
 
 // for the alchemist active
 is_storming = false;
@@ -73,11 +87,12 @@ scr_load_player();
 
 var tempy;
 var tempx;
-test_squeeb_spawn = true;
-test_jack_spawn = true;
-test_trap_spawn = true;
-test_nacho_spawn = true;
-test_squeep_boss_spawn = true;
+
+test_squeeb_spawn = false;
+test_jack_spawn = false;
+test_trap_spawn = false;
+test_nacho_spawn = false;
+test_squeep_boss_spawn = false;
 
 // Creates a music object (might change this later)
 music = 0;
@@ -87,6 +102,9 @@ if (!instance_exists(obj_music)) {
 
 //Draws initial health
 scr_draw_health();
+
+//draws the orbs
+instance_create(obj_player.x + 290, obj_player.y - 160, obj_orb_display);
 </string>
           </argument>
         </arguments>
@@ -109,26 +127,17 @@ scr_draw_health();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Enables invincibility frames
+            <string>///Enables invincibility frames and health management
 if (health_last_frame != player_health &amp;&amp; invulnerable == false) {
     //invincibility frames
     invincibility_timer = INVINCIBILITY_FRAMES;
     invulnerable = true;
     
     //health
-    if (player_health &lt; health_last_frame &amp;&amp; player_health &gt; 0) {
-        if (player_health % 2 == 0) {
-            health_array[player_health div 2 - 1].image_index = 0;
-            i = player_health div 2;
-        }
-        else {
-            health_array[player_health div 2].image_index = 1;
-            i = player_health div 2 + 1;
-        }
-        
-        for (i = i; i &lt; array_length_1d(health_array); i++) {
-            health_array[i].image_index = 2;
-        }
+    scr_set_player_variable('current_health', player_health);
+    if (player_health &gt; 0) {
+        scr_update_hearts();
+    }
         /*
         while (player_health != health_last_frame) {
             switch(health_last_frame % 2) {
@@ -141,7 +150,6 @@ if (health_last_frame != player_health &amp;&amp; invulnerable == false) {
             }
             health_last_frame--;
         } */
-    }
 }
 health_last_frame = player_health;
 </string>
@@ -734,7 +742,6 @@ scr_action_skill();
           <argument>
             <kind>1</kind>
             <string>/// test
-
 scr_level_up();
 scr_load_player();
 scr_delete_hearts();

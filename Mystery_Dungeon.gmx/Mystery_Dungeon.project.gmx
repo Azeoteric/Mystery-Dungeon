@@ -121,6 +121,7 @@
           <sprite>sprites\spr_blitz_windup_back</sprite>
         </sprites>
         <sprite>sprites\spr_golden_squeep</sprite>
+        <sprite>sprites\spr_boss_barbearian</sprite>
       </sprites>
       <sprite>sprites\sprite25</sprite>
     </sprites>
@@ -182,6 +183,7 @@
     <script>scripts\scr_get_direction.gml</script>
     <scripts name="Player Mechanics">
       <script>scripts\scr_meeting_stairs.gml</script>
+      <script>scripts\scr_meeting_npc.gml</script>
       <script>scripts\scr_meeting_portal.gml</script>
       <script>scripts\scr_reveal_stairs.gml</script>
       <script>scripts\scr_reveal_floor.gml</script>
@@ -202,6 +204,8 @@
       </scripts>
     </scripts>
     <scripts name="Player Progression">
+      <script>scripts\scr_get_player_variable.gml</script>
+      <script>scripts\scr_set_player_variable.gml</script>
       <script>scripts\scr_initialize.gml</script>
       <script>scripts\scr_set_variable.gml</script>
       <script>scripts\scr_get_variable.gml</script>
@@ -218,6 +222,8 @@
       <script>scripts\scr_action_skill.gml</script>
       <script>scripts\scr_draw_health.gml</script>
       <script>scripts\scr_delete_hearts.gml</script>
+      <script>scripts\scr_update_hearts.gml</script>
+      <script>scripts\scr_enemy_drops.gml</script>
     </scripts>
     <scripts name="Music">
       <script>scripts\scr_play_music.gml</script>
@@ -228,6 +234,7 @@
     <font>fonts\Munro</font>
     <font>fonts\Munro_title</font>
     <font>fonts\fnt_large</font>
+    <font>fonts\retro</font>
   </fonts>
   <objects name="objects">
     <objects name="Title">
@@ -243,7 +250,15 @@
     <objects name="Enemies">
       <object>objects\obj_badguy</object>
       <object>objects\obj_enemy_spawner</object>
+      <object>objects\obj_dorito_duck</object>
+      <object>objects\obj_taco_boss</object>
+      <object>objects\obj_taco_demon</object>
       <object>objects\obj_nacho_duck</object>
+      <object>objects\obj_ghost_pepper</object>
+      <object>objects\obj_birthday_surprise</object>
+      <object>objects\obj_turrito</object>
+      <object>objects\obj_gundrop</object>
+      <object>objects\obj_bush</object>
       <object>objects\obj_trap</object>
       <object>objects\obj_gummy_barbearian</object>
       <object>objects\obj_squeeb</object>
@@ -260,17 +275,23 @@
       <object>objects\obj_level_select</object>
       <object>objects\obj_floor_text</object>
       <object>objects\obj_level_select_text</object>
-      <object>objects\obj_arrow</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
       <objects name="Projectiles">
         <object>objects\obj_candle_projectile</object>
+        <object>objects\obj_gundrop_projectile</object>
+        <object>objects\obj_turrito_projectile</object>
+        <object>objects\obj_bush_projectile</object>
         <object>objects\obj_arrow_projectile</object>
+        <object>objects\obj_taco_projectile</object>
         <object>objects\obj_nacho_duck_projectile</object>
       </objects>
       <object>objects\obj_sprinkle_shield</object>
       <object>objects\obj_health</object>
+      <object>objects\obj_health_pickup</object>
+      <object>objects\obj_orb</object>
+      <object>objects\obj_orb_display</object>
     </objects>
     <objects name="Room Makers">
       <object>objects\obj_level_maker</object>
