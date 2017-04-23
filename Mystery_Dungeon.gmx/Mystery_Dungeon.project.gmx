@@ -217,6 +217,7 @@
       <script>scripts\scr_sprinklestorm.gml</script>
       <script>scripts\scr_action_skill.gml</script>
       <script>scripts\scr_draw_health.gml</script>
+      <script>scripts\scr_delete_hearts.gml</script>
     </scripts>
     <scripts name="Music">
       <script>scripts\scr_play_music.gml</script>
