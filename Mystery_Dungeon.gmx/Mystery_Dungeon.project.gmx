@@ -244,6 +244,8 @@
       <object>objects\obj_badguy</object>
       <object>objects\obj_enemy_spawner</object>
       <object>objects\obj_dorito_duck</object>
+      <object>objects\obj_taco_boss</object>
+      <object>objects\obj_taco_demon</object>
       <object>objects\obj_nacho_duck</object>
       <object>objects\obj_trap</object>
       <object>objects\obj_gummy_barbearian</object>
@@ -268,6 +270,7 @@
       <objects name="Projectiles">
         <object>objects\obj_candle_projectile</object>
         <object>objects\obj_arrow_projectile</object>
+        <object>objects\obj_taco_projectile</object>
         <object>objects\obj_nacho_duck_projectile</object>
       </objects>
       <object>objects\obj_sprinkle_shield</object>
