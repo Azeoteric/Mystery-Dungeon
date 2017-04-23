@@ -121,7 +121,9 @@ alarm[0] = room_speed;
           <argument>
             <kind>1</kind>
             <string>///Move Toward Player
-scr_path_to_player();
+if(sees_player){
+    scr_path_to_player();
+}
 //alarm[0] = room_speed;
 </string>
           </argument>
@@ -275,7 +277,7 @@ currentX = x;
 currentY = y;
 if(!sees_player){
     
-   /* if(global.is_game_running) {
+    if(global.is_game_running) {
        if(moveCounter &gt;= moveFrames) {
           moveDir = irandom(3);
           moveCounter = 0;
@@ -308,9 +310,9 @@ if(!sees_player){
                     break;
                 }
        scr_move_enemy(hspd + sign(hspd) , vspd + sign(vspd));         
-    }*/
+    }
     
-        /*var currentX = x;
+        var currentX = x;
         var currentY = y;
         if(has_hit_wall){
             switch(direction_choice){
@@ -417,37 +419,34 @@ if(!sees_player){
         else {
             switch(direction_choice){
                 case 0:
-                    scr_move_enemy(-1, 0);
-                    if(currentX == x){
+                    if(!scr_move_enemy(-1, 0)){
                         has_hit_wall = true;
                     }
                     break;
                 case 1:
-                    scr_move_enemy(0 , 1);
-                    if(currentY == y){
+                    if(!scr_move_enemy(0, 1)){
                         has_hit_wall = true;
                     }
                     break;
                 case 2:
-                    scr_move_enemy(0, -1);
-                    if(currentY == y){
+                    if(!scr_move_enemy(0, -1)){
                         has_hit_wall = true;
                     }
+                    
                     break;
                 case 3:
-                    scr_move_enemy(1, 0);
-                    if(currentX == x) {
+                    if(!scr_move_enemy(1, 0)){
                         has_hit_wall = true;
                     }
                     break;
             }
-        }*/
+        }
         
         
         
         //SECOND ATTEMPT
         
-        if (randomDirCounter &gt; requirement) {
+       /* if (randomDirCounter &gt; requirement) {
             var willChangeDir = irandom(100);
             if (willChangeDir &gt; 65) {
                 direction_choice = irandom(3);   
@@ -477,7 +476,7 @@ if(!sees_player){
                 }
                 break;
         }
-        
+        */
         
 
         
