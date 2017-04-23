@@ -74,10 +74,15 @@ for (ypos  = 0;  ypos < height - 1; ypos++) {
              
         }  
         
-        if (grid[# xpos, ypos] == NODE && room == rm_test2) {
+        if (grid[# xpos, ypos] == NODE) {
             // Draw nodes
             //tile_add(bg_node, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);
-            instance_create(xpos * CELL_WIDTH, ypos * CELL_HEIGHT, obj_enemy_spawner);
+            if(room == rm_test2) {
+                    instance_create(xpos * CELL_WIDTH, ypos * CELL_HEIGHT, obj_enemy_spawner);
+            }
+            if(room != rm_test2) {
+                    grid[# xpos, ypos] = NODE_MAPPED;   
+            }     
         }
         
             if (grid[# xpos, ypos] == PLAYER) {
