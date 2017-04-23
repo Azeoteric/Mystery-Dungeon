@@ -31,7 +31,7 @@ print = "";
 spd = 0.3;
 time = 0;
 text_length = 10;
-levels = 5;
+levels = scr_get_player_variable('level') + 1;
 for (i = 0; i &lt; levels; i++) {
     level[i] = "level " + string(i+1);
 } 

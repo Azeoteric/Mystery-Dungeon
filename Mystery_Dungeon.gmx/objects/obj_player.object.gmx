@@ -49,9 +49,9 @@ if (room == rm_overworld) {
 player_health = scr_get_player_variable('current_health');
 
 //handles invincibility frames
-INVINCIBILITY_FRAMES = 15;
+INVINCIBILITY_FRAMES = 20;
 invincibility_timer = 0;
-health_last_frame = 0;
+health_last_frame = player_health;
 
 // for the alchemist active
 is_storming = false;
