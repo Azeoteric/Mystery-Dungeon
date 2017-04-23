@@ -131,6 +131,7 @@
     </sprites>
     <sprite>sprites\spr_stairs</sprite>
     <sprite>sprites\spr_minimap_box</sprite>
+    <sprite>sprites\spr_crate</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Menu">
@@ -139,6 +140,7 @@
     <background>background\bg_floor</background>
     <background>background\bg_wall</background>
     <background>background\bg_portal_sm</background>
+    <background>background\bg_crate</background>
     <background>background\bg_portal</background>
     <background>background\bg_walltiles</background>
     <background>background\bg_stairs</background>
@@ -270,6 +272,9 @@
       <object>objects\obj_boss_room</object>
       <object>objects\obj_overworld</object>
       <object>objects\obj_level</object>
+    </objects>
+    <objects name="NPCs">
+      <object>objects\obj_sword_guy</object>
     </objects>
     <object>objects\obj_music</object>
     <object>objects\obj_squeep_boss</object>

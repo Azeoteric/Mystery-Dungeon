@@ -59,6 +59,9 @@ scr_make_room(cx, cy, true);
 
 cy -= 5;
 scr_make_room(cx, cy, true);
+instance_create((cx + .5) * CELL_WIDTH, (cy - 2) * CELL_HEIGHT, obj_sword_guy);
+sgx = cx;
+sgy = cy;
 
 cx += 5;
 scr_make_room(cx, cy, true);
@@ -179,6 +182,14 @@ instance_create(tempX, tempY, obj_player);
 scr_tile(width, height, grid, grid_path);
 tile_add(bg_portal, 0, 0, CELL_WIDTH, CELL_HEIGHT, cx * CELL_WIDTH, cy * CELL_HEIGHT, 0); 
 grid[# cx, cy] = PORTAL;
+for (i = 2; i &lt; 8; i++) {
+      for (j = 1; j &lt; 8; j++) {
+   tile_add(bg_crate, 0, 0, CELL_WIDTH, CELL_HEIGHT, (sgx + i) * CELL_WIDTH, (sgy - j) * CELL_HEIGHT, 0); 
+   tile_add(bg_crate, 0, 0, CELL_WIDTH, CELL_HEIGHT, (sgx - i) * CELL_WIDTH, (sgy - j) * CELL_HEIGHT, 0); 
+   grid[# sgx + i, sgy - j] = WALL;
+   grid[# sgx - i, sgy - j] = WALL;
+   }
+}
 </string>
           </argument>
         </arguments>

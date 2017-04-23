@@ -74,7 +74,7 @@ for (ypos  = 0;  ypos < height - 1; ypos++) {
              
         }  
         
-        if (grid[# xpos, ypos] == NODE) {
+        if (grid[# xpos, ypos] == NODE && room == rm_test2) {
             // Draw nodes
             //tile_add(bg_node, 0, 0, CELL_WIDTH, CELL_HEIGHT, xpos * CELL_WIDTH, ypos * CELL_HEIGHT, 0);
             instance_create(xpos * CELL_WIDTH, ypos * CELL_HEIGHT, obj_enemy_spawner);
