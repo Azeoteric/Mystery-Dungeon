@@ -9,7 +9,11 @@ for (ypos  = 0;  ypos < height; ypos++) {
             tile_add(bg_wall, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);
         }  
         
-        if (grid[# xpos, ypos] == NODE_MAPPED || grid[# xpos, ypos] == NODE) {
+        if(grid[# xpos, ypos] == NODE) {
+                          grid[# xpos, ypos] = NODE_MAPPED;
+        }
+        
+        if (grid[# xpos, ypos] == NODE_MAPPED) {
             // Draw nodes mapped
             tile_add(bg_node, 0, 0, MAP_WIDTH, MAP_HEIGHT, (xpos * MAP_WIDTH) + (x - 130), (ypos * MAP_HEIGHT) + (y - 120), -9000);    
         }
