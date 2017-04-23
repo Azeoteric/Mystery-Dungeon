@@ -127,7 +127,7 @@ if (health_last_frame != player_health &amp;&amp; invulnerable == false) {
     
     //health
     scr_set_player_variable('current_health', player_health);
-    if (player_health &lt; health_last_frame &amp;&amp; player_health &gt; 0) {
+    if (player_health &gt; 0) {
         scr_update_hearts();
     }
         /*

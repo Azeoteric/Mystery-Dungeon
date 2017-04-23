@@ -279,6 +279,7 @@
       </objects>
       <object>objects\obj_sprinkle_shield</object>
       <object>objects\obj_health</object>
+      <object>objects\obj_health_pickup</object>
     </objects>
     <objects name="Room Makers">
       <object>objects\obj_level_maker</object>
