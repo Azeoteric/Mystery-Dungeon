@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-15</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_enemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -30,14 +30,21 @@ scr_grid();
 image_speed = 0.2;
 hspd = 0;
 vspd = 0;
-DEFAULT_SPEED = 2;
-CHARGE_SPEED = 5;
-move_speed = DEFAULT_SPEED;
+DEFAULT_SPEED = 3;
+CHARGE_SPEED = 10;
+SLOW_SPEED = 4;
+MOVE_SPEED = DEFAULT_SPEED;
 MAX_HEALTH = 50;
-VISION_RADIUS = 2500;
-CHARGE_RADIUS = 200;
-CHANGE_DIRECTION = 180;
+VISION_RADIUS = 512;
+CHARGE_RADIUS = 512;
+CHANGE_DIRECTION = 100;
 change_timer = 0;
+UP = 0;
+DOWN = 1;
+RIGHT = 2;
+LEFT = 3;
+attack_direction = DOWN;
+unstick = DOWN;
 
 /************************
  *    STATE VARABLES    *
@@ -46,8 +53,8 @@ STATE_NORMAL = 0;
 STATE_CHARGE = 1;
 STATE_ATTACK = 2;
 state = STATE_NORMAL;
-CHARGE_DELAY = 60;
-ATTACK_DURATION = 30;
+CHARGE_DELAY = 32;
+ATTACK_DURATION = 70;
 charge_timer = 0;
 attack_timer = 0;
 COOLDOWN = 300;
@@ -76,33 +83,40 @@ cooldown_timer = 0;
             <kind>1</kind>
             <string>/// Gets state variables
 //picks a direction every second
-same_x_y = x == obj_player.x || y == obj_player.y;
 
-if (change_timer == 0 || same_x_y) {
-    change_timer = CHANGE_DIRECTION;
-    if (abs(obj_player.x - x) &gt;= abs(obj_player.y - y)) {
-        hspd = sign(obj_player.x - x);
-        vspd = 0;
-    }
-    else {
-        hspd = 0;
-        vspd = sign(obj_player.y - y);
-    }
+var same_x_y = (abs(obj_player.x - x) &lt; 20 || abs(obj_player.y - y) &lt; 20);
+
+if (attack_timer &lt;= 0 &amp;&amp; state == STATE_ATTACK) {
+    state = STATE_NORMAL;
+    MOVE_SPEED = DEFAULT_SPEED;
+    change_timer = 30;
 }
 
-if ((same_x_y) &amp;&amp; state != STATE_CHARGE
+if ((same_x_y) &amp;&amp; (state == STATE_NORMAL)
         &amp;&amp; scr_boss_sees_player(CHARGE_RADIUS)) {
     state = STATE_CHARGE;
     charge_timer = CHARGE_DELAY;
+    if (abs(obj_player.x - x) &lt; 20) {
+        if (obj_player.y &lt; y) {
+            attack_direction = UP;
+        } else {
+            attack_direction = DOWN;
+        }
+    }
+    else if (abs(obj_player.y - y) &lt; 20) {
+        if (obj_player.x &gt; x) {
+            attack_direction = RIGHT;
+        } else {
+            attack_direction = LEFT;
+        } 
+    }
 }
 
 if (charge_timer == 0 &amp;&amp; state == STATE_CHARGE) {
     state = STATE_ATTACK;
     attack_timer = ATTACK_DURATION;
-    move_speed = CHARGE_SPEED;
+    MOVE_SPEED = CHARGE_SPEED;
 }
-
-change_timer--;
 </string>
           </argument>
         </arguments>
@@ -128,20 +142,86 @@ change_timer--;
             <string>/// Handles state mechanics
 switch (state) {
     case 0:
-        //scr_move_boss(hspd, vspd, VISION_RADIUS, move_speed);
+        if (change_timer == 0) {
+            change_timer = CHANGE_DIRECTION; // CHANGE_DIRECTION = 100
+            if (abs(obj_player.x - x) &gt;= abs(obj_player.y - y)) {
+                hspd = sign(obj_player.x - x);
+                vspd = 0;
+            }
+            else {
+                hspd = 0;
+                vspd = sign(obj_player.y - y);
+            }
+        }
+        scr_move_enemy(hspd, vspd);
+        change_timer--;
         break;
     case 1:
+        hspd = 0;
+        vspd = 0;
         charge_timer--;
         break;
     case 2:
+            switch (attack_direction) {
+                case UP:
+                    if (!scr_move_enemy(0, -1)){
+                        attack_timer = 0;
+                    }
+                    break;
+                case DOWN:
+                    if (!scr_move_enemy(0, 1)){
+                        attack_timer = 0;
+                    }
+                    break;
+                case RIGHT:
+                    if (!scr_move_enemy(1, 0)){
+                        attack_timer = 0;
+                    }
+                    break;
+                case LEFT:
+                    if (!scr_move_enemy(-1, 0)){
+                        attack_timer = 0;
+                    }
+                    break;
+            }
         attack_timer--;
-        if (attack_timer == 0) {
-            //stop attacking 
-            state = STATE_NORMAL;
-            move_speed = DEFAULT_SPEED;
+        if (attack_timer == 40) {
+            MOVE_SPEED = SLOW_SPEED;
         }
         break;
 }
+if (x == xprevious &amp;&amp; y == yprevious) {
+    forfeitCounter++;
+} else {
+    forfeitCounter = 0;
+}
+if (forfeitCounter == 1) {
+    unstick = attack_direction;
+}
+if (forfeitCounter == 40) {
+    forfeitCounter = 0;
+    switch (unstick) {
+        case UP:
+            y += 10;
+            state = STATE_NORMAL;
+            break;
+        case DOWN:
+            y -= 10;
+            state = STATE_NORMAL;
+            break;
+        case RIGHT:
+            state = STATE_NORMAL;
+            x -= 10;        
+            break;
+        case LEFT:
+            state = STATE_NORMAL;
+            x += 10;
+            break;    
+    }
+}
+
+
+
 </string>
           </argument>
         </arguments>
