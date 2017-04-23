@@ -194,7 +194,7 @@ for (i = 0; i &lt; 8; i++) {
    }
 }
 tile_add(bg_crate, 0, 0, CELL_WIDTH, CELL_HEIGHT, sgx * CELL_WIDTH, (sgy - 2) * CELL_HEIGHT, 0); 
-grid[# sgx, sgy-2] = WALL;
+grid[# sgx, sgy-2] = NPC;
 </string>
           </argument>
         </arguments>

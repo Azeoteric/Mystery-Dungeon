@@ -299,7 +299,7 @@
       <room>rooms\rm_ruins</room>
     </rooms>
   </rooms>
-  <constants number="16">
+  <constants number="17">
     <constant name="CELL_WIDTH">72</constant>
     <constant name="CELL_HEIGHT">72</constant>
     <constant name="MAP_WIDTH">6</constant>
@@ -316,6 +316,7 @@
     <constant name="NODE_PLAYER">-13</constant>
     <constant name="PLAYER">-14</constant>
     <constant name="PLAYER_PATH">-15</constant>
+    <constant name="NPC">-16</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
