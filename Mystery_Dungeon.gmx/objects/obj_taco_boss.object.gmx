@@ -98,6 +98,7 @@ fireRate = 100;
           <argument>
             <kind>1</kind>
             <string>///Move
+if(global.is_game_running){
 sees_player = scr_sees_player();
 if (sees_player) {
 
@@ -134,6 +135,7 @@ if (randomDirCounter &gt; requirement) {
         }
     randomDirCounter++;
 }
+}
 </string>
           </argument>
         </arguments>
@@ -155,6 +157,7 @@ if (randomDirCounter &gt; requirement) {
           <argument>
             <kind>1</kind>
             <string>///Attack
+if(global.is_game_running){
 sees_player = scr_sees_player();
 if (sees_player) {
     if (attackTimer &lt; fireRate) {
@@ -175,7 +178,7 @@ if (sees_player) {
         attackTimer = 0;
     }
 }
-
+}
 </string>
           </argument>
         </arguments>

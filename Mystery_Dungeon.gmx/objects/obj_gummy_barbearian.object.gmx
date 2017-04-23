@@ -124,10 +124,12 @@ circleStart = 0;
           <argument>
             <kind>1</kind>
             <string>///Move Toward Player
+if(global.is_game_running){
 if(sees_player){
     scr_path_to_player();
 }
 //alarm[0] = room_speed;
+}
 </string>
           </argument>
         </arguments>

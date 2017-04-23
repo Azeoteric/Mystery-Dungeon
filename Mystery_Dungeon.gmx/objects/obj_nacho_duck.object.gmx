@@ -97,6 +97,7 @@ requirement = 60;
           <argument>
             <kind>1</kind>
             <string>///Attack
+if(global.is_game_running){
 sees_player = scr_sees_player();
 if (sees_player) {
     if (attackTimer &lt; 100) {
@@ -117,7 +118,7 @@ if (sees_player) {
         attackTimer = 0;
     }
 }
-
+}
 </string>
           </argument>
         </arguments>
@@ -139,6 +140,7 @@ if (sees_player) {
           <argument>
             <kind>1</kind>
             <string>///Move
+if(global.is_game_running){
 sees_player = scr_sees_player();
 if (sees_player) {
 
@@ -174,6 +176,7 @@ if (randomDirCounter &gt; requirement) {
                 break;
         }
     randomDirCounter++;
+}
 }
 </string>
           </argument>

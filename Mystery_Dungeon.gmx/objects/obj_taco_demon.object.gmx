@@ -125,10 +125,12 @@ alarm[0] = room_speed;
           <argument>
             <kind>1</kind>
             <string>///Move Toward Player
+if(global.is_game_running){
 if(sees_player){
     scr_path_to_player();
 }
 //alarm[0] = room_speed;
+}
 </string>
           </argument>
         </arguments>
@@ -179,6 +181,7 @@ if(hit_points &lt; 0) {
           <argument>
             <kind>1</kind>
             <string>///Attack
+if(global.is_game_running){
 if (sees_player) {
     if (attackTimer &lt; fireRate) {
         attackTimer++;
@@ -189,7 +192,7 @@ if (sees_player) {
         projectile1.vspeed = lengthdir_y(4, dir1);
     }
 }
-
+}
 </string>
           </argument>
         </arguments>
