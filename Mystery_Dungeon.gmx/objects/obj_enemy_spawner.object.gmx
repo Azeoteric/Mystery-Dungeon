@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Set-up
+global.totalEvil = 0;
 chances = (irandom(100) % 2);
 evil = 0;
 
