@@ -30,6 +30,7 @@ with (obj_player) {
     orbs++;
     scr_set_player_variable('orbs', orbs);
 }
+audio_play_sound(sfx_pickup, 15, false);
 instance_destroy();
 </string>
           </argument>
