@@ -29,7 +29,8 @@
 global.floor_count = 1;
 global.is_game_running = true;
 global.totalEvil = 0;
-
+global.totalShoot = 0;
+global.totalOuch = 0;
 </string>
           </argument>
         </arguments>
