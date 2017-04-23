@@ -14,6 +14,7 @@ switch(class) {
     case 3:
         if (action_cooldown_current == 0 && player_has_sprinkle_shield) {
             invulnerable = true;
+            is_shielding = true;
             invulnerable_timer = TIME_INVINCIBLE;
             shield_object = instance_create(x, y, obj_sprinkle_shield);
             shield_object.image_alpha = 0.75;

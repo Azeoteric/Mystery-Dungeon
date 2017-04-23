@@ -10,6 +10,8 @@ switch (argument0) {
         break;
     case 2:
         //implement level 2 music
+        temp_music_id = music_forest;
+        audio_play_sound(music_forest, 20, true);
         break;
     case 3:
         temp_music_id = music_cave;
@@ -17,9 +19,13 @@ switch (argument0) {
         break;
     case 4:
         //implement level 4 music
+        temp_music_id = music_ruins;
+        audio_play_sound(music_ruins, 20, true);
         break;
     case 5: 
         // implement level 5 music
+        temp_music_id = music_tower;
+        audio_play_sound(music_tower, 20, true);
         break;
 }
 
