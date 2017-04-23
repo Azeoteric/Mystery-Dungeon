@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-17</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,22 +28,9 @@
             <string>/// Set-up
 global.totalEvil = 0;
 chances = (irandom(100) % 2);
+range = 300;
 evil = 0;
 
-if (distance_to_object(obj_player) &gt; 1000) {
-switch(chances) {
-
- case 0:
- instance_create(x, y, obj_squeeb);
- break;
- 
- case 1:
- instance_create(x, y, obj_squeeb);
- break;
-}
-evil++;
-global.totalEvil += evil;
-} 
 </string>
           </argument>
         </arguments>
@@ -67,44 +54,49 @@ global.totalEvil += evil;
           <argument>
             <kind>1</kind>
             <string>///Controls Spawning
-if (distance_to_object(obj_player) &gt; 1000) {
-   switch(global.level) {
-    case 0:
-         break
-    
-    case 1:
-         bad = 3;
-         break;
-    case 2:
-         bad = 3;
-         break;     
-    
-    case 3:
-         bad = 4;
-         break;
-    case 4:
-         bad = 5;
-         break;     
-   
-    case 5:     
-         bad = 6;
-         break;
-   }     
-   
-   if(global.totalEvil &lt; bad) {
-   chances = (irandom(100) % 2);
-   switch(chances) {
-   
-    case 0:
-    instance_create(x, y, obj_squeeb);
-    break;
-    
-    case 1:
-    instance_create(x, y, obj_squeeb);
-    break;
+if (object_exists(obj_player)) {
+   if (distance_to_object(obj_player) &gt; range) {
+      switch(global.level) {
+       case 0:
+            break
+       
+       case 1:
+            bad = 3;
+            break;
+       case 2:
+            bad = 3;
+            break;     
+       
+       case 3:
+            bad = 4;
+            break;
+       case 4:
+            bad = 5;
+            break;     
+      
+       case 5:     
+            bad = 6;
+            break;
+      }     
+      
+      if(global.totalEvil &lt; bad) {
+      chances = (irandom(100) % 2);
+      switch(chances) {
+      
+       case 0:
+       instance_create(x, y, obj_squeeb);
+       break;
+       
+       case 1:
+       instance_create(x, y, obj_squeeb);
+       break;
+      }
+      
+      global.totalEvil++;
+      }
    }
-   evil++;
-   global.totalEvil += evil;
+   else {
+   sprite_index = spr_player; 
    }
 }
 </string>
@@ -129,7 +121,7 @@ if (distance_to_object(obj_player) &gt; 1000) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(x,y, distance_to_object(obj_player))
+            <string>draw_text(x,y, global.totalEvil);
 
 </string>
           </argument>

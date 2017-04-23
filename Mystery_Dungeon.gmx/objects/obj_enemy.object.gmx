@@ -56,6 +56,7 @@ sees_player = false;
             <string>/// play death sound
 audio_play_sound(sfx_enemy_death, 11, false);
 scr_enemy_drops();
+global.totalEvil--;
 </string>
           </argument>
         </arguments>
