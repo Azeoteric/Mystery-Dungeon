@@ -161,7 +161,35 @@ instance_create(room_width div 2, room_height div 2, obj_squeep_boss);
             <kind>1</kind>
             <string>///Spawns the portal
 if(boss_defeated) {
-                  event_user(0);
+    event_user(0);
+    
+    switch(global.level) {
+        case 1:
+            if (scr_get_player_variable('beaten_level_1') == 0) {
+                scr_set_player_variable('beaten_level_1', 1);
+                scr_level_up();
+            }
+            break;
+        case 2:
+            if (scr_get_player_variable('beaten_level_2') == 0) {
+                scr_set_player_variable('beaten_level_2', 1);
+                scr_level_up();
+            }
+            break;
+        case 3:
+            if (scr_get_player_variable('beaten_level_3') == 0) {
+                scr_set_player_variable('beaten_level_3', 1);
+                scr_level_up();
+            }
+            break;
+        case 4:
+            if (scr_get_player_variable('beaten_level_4') == 0) {
+                scr_set_player_variable('beaten_level_4', 1);
+                scr_level_up();
+            }
+            break;
+    }
+    
 }
 </string>
           </argument>

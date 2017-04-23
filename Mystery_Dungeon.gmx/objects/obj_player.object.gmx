@@ -48,10 +48,13 @@ if (room == rm_overworld) {
 
 player_health = scr_get_player_variable('current_health');
 
+//orbs
+orbs = scr_get_player_variable('orbs');
+
 //handles invincibility frames
-INVINCIBILITY_FRAMES = 15;
+INVINCIBILITY_FRAMES = 20;
 invincibility_timer = 0;
-health_last_frame = 0;
+health_last_frame = player_health;
 
 // for the alchemist active
 is_storming = false;
@@ -97,6 +100,9 @@ if (!instance_exists(obj_music)) {
 
 //Draws initial health
 scr_draw_health();
+
+//draws the orbs
+instance_create(obj_player.x + 290, obj_player.y - 160, obj_orb_display);
 </string>
           </argument>
         </arguments>
@@ -127,7 +133,7 @@ if (health_last_frame != player_health &amp;&amp; invulnerable == false) {
     
     //health
     scr_set_player_variable('current_health', player_health);
-    if (player_health &lt; health_last_frame &amp;&amp; player_health &gt; 0) {
+    if (player_health &gt; 0) {
         scr_update_hearts();
     }
         /*
