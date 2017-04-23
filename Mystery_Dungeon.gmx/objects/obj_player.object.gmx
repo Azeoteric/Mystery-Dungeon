@@ -115,19 +115,29 @@ if (health_last_frame != player_health &amp;&amp; invulnerable == false) {
     invulnerable = true;
     
     //health
-    if (player_health &lt; health_last_frame) {
-        missing_hearts = health_last_frame - player_health;
+    if (player_health &lt; health_last_frame &amp;&amp; player_health &gt; 0) {
+        if (player_health % 2 == 0) {
+            health_array[player_health div 2 - 1].image_index = 2;
+        }
+        else {
+            health_array[player_health div 2 - 1].image_index = 1;
+        }
+        
+        for (i = player_health div 2; i &lt; array_length_1d(health_array); i++) {
+            health_array[i].image_index = 2;
+        }
+        /*
         while (player_health != health_last_frame) {
             switch(health_last_frame % 2) {
                 case 0:
-                    health_array[health_last_frame div 2].image_index = 1;
+                    health_array[health_last_frame div 2 - 1].image_index = 2;
                     break;
                 case 1:
-                    health_array[health_last_frame div 2].image_index = 2;
+                    health_array[health_last_frame div 2 - 1].image_index = 1;
                     break;
             }
             health_last_frame--;
-        }
+        } */
     }
 }
 health_last_frame = player_health;
