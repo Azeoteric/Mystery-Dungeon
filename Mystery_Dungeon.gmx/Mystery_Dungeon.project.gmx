@@ -254,8 +254,11 @@
       <object>objects\obj_taco_boss</object>
       <object>objects\obj_taco_demon</object>
       <object>objects\obj_nacho_duck</object>
-      <object>objects\obj_birthday_surprise</object>
       <object>objects\obj_ghost_pepper</object>
+      <object>objects\obj_birthday_surprise</object>
+      <object>objects\obj_turrito</object>
+      <object>objects\obj_gundrop</object>
+      <object>objects\obj_bush</object>
       <object>objects\obj_trap</object>
       <object>objects\obj_gummy_barbearian</object>
       <object>objects\obj_squeeb</object>
@@ -278,6 +281,9 @@
       <object>objects\obj_player</object>
       <objects name="Projectiles">
         <object>objects\obj_candle_projectile</object>
+        <object>objects\obj_gundrop_projectile</object>
+        <object>objects\obj_turrito_projectile</object>
+        <object>objects\obj_bush_projectile</object>
         <object>objects\obj_arrow_projectile</object>
         <object>objects\obj_taco_projectile</object>
         <object>objects\obj_nacho_duck_projectile</object>
