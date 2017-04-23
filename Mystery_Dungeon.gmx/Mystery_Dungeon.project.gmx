@@ -244,6 +244,7 @@
       <object>objects\obj_enemy_spawner</object>
       <object>objects\obj_nacho_duck</object>
       <object>objects\obj_trap</object>
+      <object>objects\obj_gummy_barbearian</object>
       <object>objects\obj_squeeb</object>
       <object>objects\obj_jack</object>
       <object>objects\obj_enemy</object>
