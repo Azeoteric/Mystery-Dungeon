@@ -88,7 +88,7 @@ if(hit_points &lt; 0) {
           <argument>
             <kind>1</kind>
             <string>///SHOOT PROJECTILES
-
+if(global.is_game_running){
 if (sees_player) {
     if (attackTimer &lt; 100) {
         attackTimer++;
@@ -99,6 +99,7 @@ if (sees_player) {
         projectile.vspeed = lengthdir_y(5, dir);
         attackTimer = 0;
     }
+}
 }
 
 </string>
@@ -122,6 +123,7 @@ if (sees_player) {
           <argument>
             <kind>1</kind>
             <string>///Handles activation
+if(global.is_game_running){
 sees_player = scr_sees_player();
 if (sees_player &amp;&amp; shootWait != 70) {
     sprite_index = spr_pumpkin_activate;
@@ -131,6 +133,7 @@ if (sees_player &amp;&amp; shootWait != 70) {
 if (shootWait == 70) {
     sprite_index = spr_pumpkin_shoot;
     image_speed = .2;
+}
 }
 </string>
           </argument>

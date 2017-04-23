@@ -154,10 +154,12 @@ alarm[0] = room_speed;
           <argument>
             <kind>1</kind>
             <string>///Move Toward Player
+if(global.is_game_running){
 if(sees_player){
     scr_path_to_player();
 }
 //alarm[0] = room_speed;
+}
 </string>
           </argument>
         </arguments>
@@ -308,7 +310,7 @@ moveFrames = irandom(80) + 40;
 currentX = x;
 currentY = y;
 if(!sees_player){
-    //sees_player = scr_sees_player();
+    sees_player = scr_sees_player();
     if(global.is_game_running) {
        /*if(moveCounter &gt;= moveFrames) {
           moveDir = irandom(3);
