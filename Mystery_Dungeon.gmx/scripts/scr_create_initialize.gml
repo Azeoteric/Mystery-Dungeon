@@ -4,6 +4,9 @@ ini_open("initialize_player.ini");
 
 ini_write_real('player', 'class', 0);
 ini_write_real('player', 'level', 0);
+ini_write_real('player', 'orbs', 0);
+ini_write_real('player', 'experience', 0);
+ini_write_real('player', 'current_health', 0);
 
 //alchemist
 ini_write_real('alchemy', 'player_bullet_speed', 3);

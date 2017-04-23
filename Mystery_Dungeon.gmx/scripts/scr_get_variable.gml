@@ -1,4 +1,4 @@
-// argument0 is the name of the variable to check
+///scr_get_variable(variable_name)
 // if variable cannot be found, -1 is returned
 if (!file_exists("player_class.ini")) {
     return -1;

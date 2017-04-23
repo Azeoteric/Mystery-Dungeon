@@ -1,3 +1,4 @@
+///scr_set_variable(variable_name, variable_value)
 // argument0 is the name of the variable to set
 // argument1 is the value to set the variable to
 // if variable cannot be found, false is returned
