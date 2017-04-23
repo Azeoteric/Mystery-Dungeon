@@ -35,6 +35,9 @@ gamepad_set_axis_deadzone(0,0.3);
 ACTION_COOLDOWN_MAX = 3600;
 action_cooldown_current = 0;
 
+//Health object management
+health_array[0] = 0;
+
 //handles invincibility frames
 INVINCIBILITY_FRAMES = 15;
 invincibility_timer = 0;
@@ -76,9 +79,13 @@ test_trap_spawn = true;
 test_nacho_spawn = true;
 
 // Creates a music object (might change this later)
+music = 0;
 if (!instance_exists(obj_music)) {
     music = instance_create(x, y, obj_music);
 }
+
+//Draws initial health
+scr_draw_health();
 </string>
           </argument>
         </arguments>
@@ -103,8 +110,25 @@ if (!instance_exists(obj_music)) {
             <kind>1</kind>
             <string>///Enables invincibility frames
 if (health_last_frame != player_health &amp;&amp; invulnerable == false) {
+    //invincibility frames
     invincibility_timer = INVINCIBILITY_FRAMES;
     invulnerable = true;
+    
+    //health
+    if (player_health &lt; health_last_frame) {
+        missing_hearts = health_last_frame - player_health;
+        while (player_health != health_last_frame) {
+            switch(health_last_frame % 2) {
+                case 0:
+                    health_array[health_last_frame div 2].image_index = 1;
+                    break;
+                case 1:
+                    health_array[health_last_frame div 2].image_index = 2;
+                    break;
+            }
+            health_last_frame--;
+        }
+    }
 }
 health_last_frame = player_health;
 </string>
