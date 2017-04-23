@@ -86,11 +86,12 @@ scr_load_player();
 
 var tempy;
 var tempx;
-test_squeeb_spawn = true;
-test_jack_spawn = true;
-test_trap_spawn = true;
-test_nacho_spawn = true;
-test_squeep_boss_spawn = true;
+
+test_squeeb_spawn = false;
+test_jack_spawn = false;
+test_trap_spawn = false;
+test_nacho_spawn = false;
+test_squeep_boss_spawn = false;
 
 // Creates a music object (might change this later)
 music = 0;
