@@ -182,8 +182,12 @@ instance_create(tempX, tempY, obj_player);
 scr_tile(width, height, grid, grid_path);
 tile_add(bg_portal, 0, 0, CELL_WIDTH, CELL_HEIGHT, cx * CELL_WIDTH, cy * CELL_HEIGHT, 0); 
 grid[# cx, cy] = PORTAL;
-for (i = 2; i &lt; 8; i++) {
-      for (j = 1; j &lt; 8; j++) {
+//grid[# sgx, sgy] = WALL;
+//tile_add(bg_crate, 0, 0, CELL_WIDTH, CELL_HEIGHT, sgx * CELL_WIDTH, sgy * CELL_HEIGHT, 0); 
+
+
+for (i = 0; i &lt; 8; i++) {
+      for (j = 4; j &lt; 8; j++) {
    tile_add(bg_crate, 0, 0, CELL_WIDTH, CELL_HEIGHT, (sgx + i) * CELL_WIDTH, (sgy - j) * CELL_HEIGHT, 0); 
    tile_add(bg_crate, 0, 0, CELL_WIDTH, CELL_HEIGHT, (sgx - i) * CELL_WIDTH, (sgy - j) * CELL_HEIGHT, 0); 
    grid[# sgx + i, sgy - j] = WALL;
