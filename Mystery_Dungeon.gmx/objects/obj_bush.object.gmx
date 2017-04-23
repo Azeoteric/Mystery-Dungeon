@@ -94,7 +94,7 @@ if (shootWait == 70) {
           <argument>
             <kind>1</kind>
             <string>///Handles damage
-/*
+
 if(place_meeting(x, y, obj_arrow_projectile)) {
                    hit_points -= obj_player.attack;
 }
