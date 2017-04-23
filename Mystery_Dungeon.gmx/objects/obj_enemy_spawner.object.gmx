@@ -27,10 +27,13 @@
             <kind>1</kind>
             <string>/// Set-up
 global.totalEvil = 0;
+global.totalShoot = 0;
+global.totalOuch = 0;
 chances = (irandom(100) % 2);
 range = 300;
 evil = 0;
-
+shoot = 0;
+ouch = 0;
 </string>
           </argument>
         </arguments>
@@ -61,21 +64,32 @@ if (object_exists(obj_player)) {
             break
        
        case 1:
+            shoot = 2;
             bad = 3;
+            ouch = 0;
             break;
        case 2:
+           
+            shoot = 2; 
             bad = 3;
+            ouch = 1;
             break;     
        
        case 3:
+            shoot = 3
             bad = 4;
+            ouch = 2;
             break;
        case 4:
+            shoot = 3;
             bad = 5;
+            ouch = 3;
             break;     
       
        case 5:     
+            shoot = 4;
             bad = 6;
+            ouch = 4;
             break;
       }     
       
@@ -112,7 +126,56 @@ if (object_exists(obj_player)) {
       
       global.totalEvil++;
       }
+   
+   if (global.totalShoot &lt; shoot) {
+      switch(global.level) {
+             case 1: 
+                instance_create(x, y, obj_jack);
+                break;
+             
+             case 2:
+                instance_create(x, y, obj_bush);
+                break;
+             
+             case 3:
+                 instance_create(x, y, obj_turrito);
+                 break;
+             
+             
+             case 4:
+                 instance_create(x, y, obj_gundrop);
+                 break;
+       
+      }
+                  global.totalShoot++;
+}
+      if (global.totalOuch &lt; ouch) {
+      switch(global.level) {
+             
+             
+             case 2:
+                instance_create(x, y, obj_trap);
+                break;
+             
+             case 3:
+                 instance_create(x, y, obj_ghost_pepper);
+                 break;
+             
+             
+             case 4:
+                 instance_create(x, y, obj_birthday_surprise);
+                 break;
+       
+      }
+                  global.totalOuch++;
+
+      
+      }
+   
+   
    }
+   
+   
    else {
    sprite_index = spr_player; 
    }
@@ -139,7 +202,7 @@ if (object_exists(obj_player)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(x,y, global.totalEvil);
+            <string>//draw_text(x,y, global.totalEvil);
 
 </string>
           </argument>
