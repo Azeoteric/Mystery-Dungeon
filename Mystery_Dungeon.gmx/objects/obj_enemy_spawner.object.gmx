@@ -88,7 +88,25 @@ if (object_exists(obj_player)) {
        break;
        
        case 1:
-       instance_create(x, y, obj_squeeb);
+       switch(global.level){
+             case 1: 
+                instance_create(x, y, obj_squeeb);
+                break;
+             
+             case 2:
+                instance_create(x, y, obj_dorito_duck);
+                break;
+             
+             case 3:
+                 instance_create(x, y, obj_taco_demon);
+                 break;
+             
+             
+             case 4:
+                 instance_create(x, y, obj_gummy_barbearian);
+                 break;
+                   
+      }
        break;
       }
       
