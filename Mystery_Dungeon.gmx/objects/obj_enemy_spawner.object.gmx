@@ -30,6 +30,7 @@ global.totalEvil = 0;
 chances = (irandom(100) % 2);
 evil = 0;
 
+if (distance_to_object(obj_player) &gt; 1000) {
 switch(chances) {
 
  case 0:
@@ -37,12 +38,12 @@ switch(chances) {
  break;
  
  case 1:
- instance_create(x, y, obj_nacho_duck);
+ instance_create(x, y, obj_squeeb);
  break;
 }
 evil++;
 global.totalEvil += evil;
- 
+} 
 </string>
           </argument>
         </arguments>
@@ -66,44 +67,45 @@ global.totalEvil += evil;
           <argument>
             <kind>1</kind>
             <string>///Controls Spawning
-switch(global.level) {
- case 0:
-      break
- 
- case 1:
-      bad = 3;
-      break;
- case 2:
-      bad = 3;
-      break;     
- 
- case 3:
-      bad = 4;
-      break;
- case 4:
-      bad = 5;
-      break;     
-
- case 5:     
-      bad = 6;
-      break;
-}     
-
-if(global.totalEvil &lt; bad) {
-chances = (irandom(100) % 2);
-switch(chances) {
-
- case 0:
- instance_create(x, y, obj_squeeb);
- break;
- 
- case 1:
- instance_create(x, y, obj_nacho_duck);
- break;
-}
-evil++;
-global.totalEvil += evil;
-
+if (distance_to_object(obj_player) &gt; 1000) {
+   switch(global.level) {
+    case 0:
+         break
+    
+    case 1:
+         bad = 3;
+         break;
+    case 2:
+         bad = 3;
+         break;     
+    
+    case 3:
+         bad = 4;
+         break;
+    case 4:
+         bad = 5;
+         break;     
+   
+    case 5:     
+         bad = 6;
+         break;
+   }     
+   
+   if(global.totalEvil &lt; bad) {
+   chances = (irandom(100) % 2);
+   switch(chances) {
+   
+    case 0:
+    instance_create(x, y, obj_squeeb);
+    break;
+    
+    case 1:
+    instance_create(x, y, obj_squeeb);
+    break;
+   }
+   evil++;
+   global.totalEvil += evil;
+   }
 }
 </string>
           </argument>
