@@ -55,6 +55,7 @@ sees_player = false;
             <kind>1</kind>
             <string>/// play death sound
 audio_play_sound(sfx_enemy_death, 11, false);
+scr_enemy_drops();
 </string>
           </argument>
         </arguments>
