@@ -48,6 +48,9 @@ if (room == rm_overworld) {
 
 player_health = scr_get_player_variable('current_health');
 
+//orbs
+orbs = scr_get_player_variable('orbs');
+
 //handles invincibility frames
 INVINCIBILITY_FRAMES = 20;
 invincibility_timer = 0;
@@ -97,6 +100,9 @@ if (!instance_exists(obj_music)) {
 
 //Draws initial health
 scr_draw_health();
+
+//draws the orbs
+instance_create(obj_player.x + 290, obj_player.y - 160, obj_orb_display);
 </string>
           </argument>
         </arguments>

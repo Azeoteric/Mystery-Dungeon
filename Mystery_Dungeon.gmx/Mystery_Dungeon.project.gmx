@@ -222,6 +222,7 @@
       <script>scripts\scr_draw_health.gml</script>
       <script>scripts\scr_delete_hearts.gml</script>
       <script>scripts\scr_update_hearts.gml</script>
+      <script>scripts\scr_enemy_drops.gml</script>
     </scripts>
     <scripts name="Music">
       <script>scripts\scr_play_music.gml</script>
@@ -232,6 +233,7 @@
     <font>fonts\Munro</font>
     <font>fonts\Munro_title</font>
     <font>fonts\fnt_large</font>
+    <font>fonts\retro</font>
   </fonts>
   <objects name="objects">
     <objects name="Title">
@@ -282,6 +284,8 @@
       <object>objects\obj_sprinkle_shield</object>
       <object>objects\obj_health</object>
       <object>objects\obj_health_pickup</object>
+      <object>objects\obj_orb</object>
+      <object>objects\obj_orb_display</object>
     </objects>
     <objects name="Room Makers">
       <object>objects\obj_level_maker</object>
