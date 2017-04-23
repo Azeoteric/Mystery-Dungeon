@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>-16</depth>
   <persistent>0</persistent>
-  <parentName>obj_enemy</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -88,7 +88,7 @@ if(lengthVector &lt; VISION_RADIUS) {
             <kind>1</kind>
             <string>///Explode
 
-if (sees_player = true &amp;&amp; explosionCounter == 0) {
+if (sees_player == true &amp;&amp; explosionCounter == 0) {
     visible = true;
     image_index = 0;
     explosionCounter++;
@@ -98,12 +98,15 @@ if (explosionCounter &gt; 0) {
 }
 
 if (explosionCounter == 85) {
-    //take damage
+    if(point_distance(x, y, obj_player.x, obj_player.y) &lt;= 72){
+        obj_player.hit_points -= 2;
+    }
 }
 
 if (explosionCounter == 105) {
     instance_destroy();
 }
+
 </string>
           </argument>
         </arguments>

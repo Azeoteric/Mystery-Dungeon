@@ -251,6 +251,8 @@
       <object>objects\obj_taco_boss</object>
       <object>objects\obj_taco_demon</object>
       <object>objects\obj_nacho_duck</object>
+      <object>objects\obj_birthday_surprise</object>
+      <object>objects\obj_ghost_pepper</object>
       <object>objects\obj_trap</object>
       <object>objects\obj_gummy_barbearian</object>
       <object>objects\obj_squeeb</object>
