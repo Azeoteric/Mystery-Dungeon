@@ -272,6 +272,7 @@
       <object>objects\obj_game_variables</object>
       <object>objects\obj_stairs</object>
       <object>objects\obj_leave_floor_menu</object>
+      <object>objects\obj_arrow</object>
       <object>objects\obj_level_select</object>
       <object>objects\obj_floor_text</object>
       <object>objects\obj_level_select_text</object>

@@ -3,7 +3,7 @@ var hspd = argument[0];
 var vspd = argument[1];
 
 // Horizontal Collisions
-if (scr_grid_place_meeting(x + hspd, y, grid)) {
+if (scr_grid_place_meeting(x + (hspd * MOVE_SPEED), y, grid)) {
    while (!scr_grid_place_meeting(x + sign(hspd), y, grid)) {
       x += sign(hspd);                     
    }
@@ -15,7 +15,7 @@ if (scr_grid_place_meeting(x + hspd, y, grid)) {
 x += hspd * MOVE_SPEED;
 
 // Vertical Collisions
-if (scr_grid_place_meeting(x, y + vspd, grid)) {
+if (scr_grid_place_meeting(x, y + (vspd * MOVE_SPEED), grid)) {
    while (!scr_grid_place_meeting(x, y + sign(vspd), grid)) {
       y += sign(vspd);                     
    }

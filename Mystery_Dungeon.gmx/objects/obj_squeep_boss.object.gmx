@@ -190,7 +190,7 @@ switch (state) {
         }
         break;
 }
-if (x == xprevious &amp;&amp; y == yprevious) {
+/*if (x == xprevious &amp;&amp; y == yprevious) {
     forfeitCounter++;
 } else {
     forfeitCounter = 0;
@@ -218,7 +218,7 @@ if (forfeitCounter == 40) {
             x += 10;
             break;    
     }
-}
+} */
 
 
 
