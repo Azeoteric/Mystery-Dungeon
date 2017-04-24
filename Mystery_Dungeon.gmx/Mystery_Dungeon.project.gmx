@@ -250,9 +250,11 @@
     <objects name="Enemies">
       <object>objects\obj_badguy</object>
       <object>objects\obj_enemy_spawner</object>
+      <object>objects\obj_nacho_duck</object>
       <object>objects\obj_dorito_duck</object>
       <object>objects\obj_taco_boss</object>
       <object>objects\obj_taco_demon</object>
+      <object>objects\obj_gummy_barbearian</object>
       <object>objects\obj_squeeb</object>
       <object>objects\obj_ghost_pepper</object>
       <object>objects\obj_birthday_surprise</object>
@@ -260,14 +262,13 @@
       <object>objects\obj_gundrop</object>
       <object>objects\obj_bush</object>
       <object>objects\obj_trap</object>
-      <object>objects\obj_gummy_barbearian</object>
-      <object>objects\obj_squeeb</object>
       <object>objects\obj_jack</object>
       <object>objects\obj_enemy</object>
     </objects>
     <objects name="Room assets">
       <object>objects\obj_minimap_box</object>
       <object>objects\obj_arrow</object>
+      <object>objects\obj_minimap</object>
       <object>objects\obj_wall</object>
       <object>objects\obj_game_variables</object>
       <object>objects\obj_stairs</object>
@@ -290,7 +291,6 @@
       </objects>
       <object>objects\obj_sprinkle_shield</object>
       <object>objects\obj_health</object>
-      <object>objects\obj_orb</object>
       <object>objects\obj_orb</object>
       <object>objects\obj_orb_display</object>
     </objects>

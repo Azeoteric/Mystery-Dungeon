@@ -37,7 +37,7 @@ moveDir = irandom(3);
 moveFrames = 80;
 hspd = 0;
 vspd = 0;
-hit_points = 25;
+hit_points = 100;
 image_speed = .2;
 direction_choice = irandom(3);
 LEFT = 0;
@@ -51,6 +51,7 @@ currentY = y;
 attackTimer = 0;
 randomDirCounter = 0;
 requirement = 60;
+hp = 25;
 </string>
           </argument>
         </arguments>
@@ -74,6 +75,10 @@ requirement = 60;
           <argument>
             <kind>1</kind>
             <string>obj_boss_room.boss_defeated  = true;
+
+instance_create(x-1,y,obj_orb);
+
+instance_create(x+1,y,obj_orb);
 </string>
           </argument>
         </arguments>
@@ -140,7 +145,7 @@ if (sees_player) {
           <argument>
             <kind>1</kind>
             <string>///Handles damage
-
+/*
 if(place_meeting(x, y, obj_arrow_projectile)) {
                    hit_points -= obj_player.attack;
 }

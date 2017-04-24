@@ -135,8 +135,16 @@ scr_tile(width, height, grid, grid_path);
 px = cx;
 py = cy;
 
-
+switch(global.level){
+case 1:
 instance_create(room_width div 2, room_height div 2, obj_squeep_boss);
+break;
+
+case 2:
+instance_create(room_width div 2, room_height div 2, obj_nacho_duck);
+break;
+}
+
 </string>
           </argument>
         </arguments>

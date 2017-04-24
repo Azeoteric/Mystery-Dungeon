@@ -228,35 +228,7 @@ if(!global.is_game_running) {
      image_speed = 0;
 }
 
-if(test_squeeb_spawn) {
-    instance_create(x + 72, y, obj_squeeb);
-    test_squeeb_spawn = false;
-    //show_message("SPAWNED SQUEEB");
-}
 
-if(test_jack_spawn) {
-    instance_create(x, y + 72, obj_jack);
-    test_jack_spawn = false;
-    //show_message("SPAWNED JACK");
-}
-
-if(test_trap_spawn) {
-    instance_create(x + 72, y - 72, obj_trap);
-    test_trap_spawn = false;
-    //show_message("SPAWNED TRAP");
-}
-
-if(test_nacho_spawn) {
-    instance_create(x - 72, y - 400, obj_nacho_duck);
-    test_nacho_spawn = false;
-    //show_message("SPAWNED NACHO");
-}
-
-if(test_squeep_boss_spawn) {
-    instance_create(x - 400, y + 72, obj_squeep_boss);
-    test_squeep_boss_spawn = false;
-    //show_message("SPAWNED SQUEEP BOSS");
-}
 </string>
           </argument>
         </arguments>

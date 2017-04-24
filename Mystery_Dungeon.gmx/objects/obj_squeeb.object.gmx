@@ -39,7 +39,7 @@ moveDir = irandom(3);
 moveFrames = 80;
 hspd = 0;
 vspd = 0;
-hit_points = 3;
+//hit_points = 3;
 image_speed = .2;
 direction_choice = irandom(3);
 LEFT = 0;
@@ -582,6 +582,8 @@ else {
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="4" ename="obj_arrow_projectile">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -600,45 +602,11 @@ else {
             <kind>1</kind>
             <string>///Handles damage
 
-if(place_meeting(x, y, obj_arrow_projectile)) {
-                   hit_points -= obj_player.attack;
-}
-if(hit_points &lt; 0) {
+hit_points -= obj_player.attack;
+
+if(hit_points &lt;= 0) {
  instance_destroy();
 }
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_squeeb">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Move away 
-if (x == other.x &amp;&amp; y == other.y) {
-    scr_move_enemy(sign(other.id - id), 0);
-}
-
-var dir = point_direction(other.x, other.y, x, y);
-var hspd = lengthdir_x(1, dir);  
-var vspd = lengthdir_y(1, dir);
-  
-scr_move_enemy(hspd, vspd);
 </string>
           </argument>
         </arguments>
