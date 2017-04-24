@@ -85,9 +85,9 @@ cooldown_timer = 0;
             <kind>1</kind>
             <string>obj_boss_room.boss_defeated  = true;
 
-instance_create(x-1,y,obj_orb);
+instance_create(x-5,y,obj_orb);
 
-instance_create(x+1,y,obj_orb);
+instance_create(x+5,y,obj_orb);
 </string>
           </argument>
         </arguments>
