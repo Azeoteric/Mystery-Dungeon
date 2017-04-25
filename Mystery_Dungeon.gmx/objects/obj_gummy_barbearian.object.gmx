@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-16</depth>
   <persistent>0</persistent>
-  <parentName>obj_enemy</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -38,7 +38,7 @@ moveDir = irandom(3);
 moveFrames = 80;
 hspd = 0;
 vspd = 0;
-hit_points = 150;
+hit_points = 3;
 image_speed = .2;
 direction_choice = irandom(3);
 LEFT = 0;
@@ -133,7 +133,7 @@ if(sees_player){
 if(place_meeting(x, y, obj_arrow_projectile)) {
                    hit_points -= obj_player.attack;
 }
-if(hit_points &lt; 0) {
+if(hit_points &lt;= 0) {
  instance_destroy();
 }
 </string>
@@ -481,7 +481,7 @@ else {
 
 if (place_meeting(x, y, obj_player)) {
     if (!obj_player.invulnerable &amp;&amp; hitCounter &gt; 60) {
-        obj_player.player_health -= 2;
+        //obj_player.player_health -= 2;
         hitCounter = 0;
     }
 }

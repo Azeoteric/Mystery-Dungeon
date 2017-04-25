@@ -34,7 +34,7 @@ DEFAULT_SPEED = 3;
 CHARGE_SPEED = 10;
 SLOW_SPEED = 4;
 MOVE_SPEED = DEFAULT_SPEED;
-hit_points = 200;
+hit_points = 50;
 VISION_RADIUS = 512;
 CHARGE_RADIUS = 300;
 CHANGE_DIRECTION = 100;
@@ -280,7 +280,7 @@ if (forfeitCounter == 40) {
           <argument>
             <kind>1</kind>
             <string>///Handles damage
-if (sees_player) {
+
 if(place_meeting(x, y, obj_arrow_projectile)) {
                    hit_points -= obj_player.attack;
 }
@@ -299,7 +299,7 @@ if (place_meeting(x, y, obj_player)) {
 }
 
 hitCounter++;
-}
+
 </string>
           </argument>
         </arguments>

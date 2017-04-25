@@ -152,6 +152,12 @@ case 4:
 instance_create(room_width div 2, room_height div 2, obj_nacho_duck);
 instance_create(room_width div 2, room_height div 2, obj_squeep_boss);
 break;
+
+case 5:
+instance_create(room_width div 2, room_height div 2, obj_nacho_duck);
+instance_create(room_width div 2, room_height div 2, obj_squeep_boss);
+instance_create(room_width div 2, room_height div 2, obj_taco_boss);
+break;
 }
 
 </string>

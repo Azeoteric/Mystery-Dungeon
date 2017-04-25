@@ -35,7 +35,7 @@ speedFactor = 4;
 //yDirection = 0;
 image_speed = .5;
 destroyTimer = 0;
-projectileDamage = 2;
+projectileDamage = 1;
 audio_play_sound(sfx_enemy_shoot, 9, false);
 invincibilityFrames = 0;
 bulletHeight = 75;
