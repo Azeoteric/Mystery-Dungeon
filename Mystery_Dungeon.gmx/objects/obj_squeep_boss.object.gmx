@@ -34,9 +34,9 @@ DEFAULT_SPEED = 3;
 CHARGE_SPEED = 10;
 SLOW_SPEED = 4;
 MOVE_SPEED = DEFAULT_SPEED;
-hit_points = 20;
+hit_points = 200;
 VISION_RADIUS = 512;
-CHARGE_RADIUS = 512;
+CHARGE_RADIUS = 300;
 CHANGE_DIRECTION = 100;
 change_timer = 0;
 UP = 0;
@@ -45,6 +45,8 @@ RIGHT = 2;
 LEFT = 3;
 attack_direction = DOWN;
 unstick = DOWN;
+sees_player = false;
+hitCounter = 0;
 
 /************************
  *    STATE VARABLES    *
@@ -112,6 +114,9 @@ instance_create(x+5,y,obj_orb);
             <kind>1</kind>
             <string>/// Gets state variables
 //picks a direction every second
+sees_player = scr_sees_player();
+
+if (sees_player) {
 
 var same_x_y = (abs(obj_player.x - x) &lt; 20 || abs(obj_player.y - y) &lt; 20);
 
@@ -146,6 +151,7 @@ if (charge_timer == 0 &amp;&amp; state == STATE_CHARGE) {
     attack_timer = ATTACK_DURATION;
     MOVE_SPEED = CHARGE_SPEED;
 }
+}
 </string>
           </argument>
         </arguments>
@@ -169,6 +175,8 @@ if (charge_timer == 0 &amp;&amp; state == STATE_CHARGE) {
           <argument>
             <kind>1</kind>
             <string>/// Handles state mechanics
+if (sees_player) {
+
 switch (state) {
     case 0:
         if (change_timer == 0) {
@@ -250,7 +258,7 @@ if (forfeitCounter == 40) {
 } */
 
 
-
+}
 </string>
           </argument>
         </arguments>
@@ -272,7 +280,7 @@ if (forfeitCounter == 40) {
           <argument>
             <kind>1</kind>
             <string>///Handles damage
-
+if (sees_player) {
 if(place_meeting(x, y, obj_arrow_projectile)) {
                    hit_points -= obj_player.attack;
 }
@@ -280,6 +288,18 @@ if(hit_points &lt; 0) {
  instance_destroy();
 }
 
+
+//Hurt player
+
+if (place_meeting(x, y, obj_player)) {
+    if (!obj_player.invulnerable &amp;&amp; hitCounter &gt; 60) {
+        obj_player.player_health -= 1;
+        hitCounter = 0;
+    }
+}
+
+hitCounter++;
+}
 </string>
           </argument>
         </arguments>

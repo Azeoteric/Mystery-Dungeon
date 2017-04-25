@@ -279,7 +279,6 @@
       <object>objects\obj_level_select_text</object>
     </objects>
     <objects name="Player">
-      <object>objects\obj_player</object>
       <objects name="Projectiles">
         <object>objects\obj_candle_projectile</object>
         <object>objects\obj_gundrop_projectile</object>
@@ -288,10 +287,12 @@
         <object>objects\obj_arrow_projectile</object>
         <object>objects\obj_taco_projectile</object>
         <object>objects\obj_nacho_duck_projectile</object>
+        <object>objects\obj_player</object>
       </objects>
       <object>objects\obj_sprinkle_shield</object>
       <object>objects\obj_health</object>
       <object>objects\obj_orb</object>
+      <object>objects\obj_health_pickup</object>
       <object>objects\obj_orb_display</object>
     </objects>
     <objects name="Room Makers">

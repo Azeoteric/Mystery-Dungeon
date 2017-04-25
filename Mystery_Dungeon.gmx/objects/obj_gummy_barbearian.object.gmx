@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-16</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_enemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,10 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make stuff work
-path = path_add();
-alarm[0] = room_speed;
-
+            <string>///Variable inits.
+MOVE_SPEED = 4;
+attack = 3;
+VISION_RADIUS = 256;
+vSpeed = 0;
+scr_grid();
+hSpeed = 0;
+sees_player = false;
+moveCounter = 0;
+moveDir = irandom(3);
+moveFrames = 80;
+hspd = 0;
+vspd = 0;
+hit_points = 150;
+image_speed = .2;
+direction_choice = irandom(3);
+LEFT = 0;
+DOWN = 1;
+UP = 2;
+RIGHT = 3;
+has_hit_wall = false;
+randomDirCounter = 0;
+requirement = 60;
+currentX = x;
+currentY = y;
+circleCounter = 0;
+circleStart = 0;
+hitCounter = 0;
 </string>
           </argument>
         </arguments>
@@ -49,33 +73,10 @@ alarm[0] = room_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variable inits.
-MOVE_SPEED = 3;
-attack = 3;
-VISION_RADIUS = 256;
-vSpeed = 0;
-scr_grid();
-hSpeed = 0;
-sees_player = false;
-moveCounter = 0;
-moveDir = irandom(3);
-moveFrames = 80;
-hspd = 0;
-vspd = 0;
-hit_points = 10;
-image_speed = .2;
-direction_choice = irandom(3);
-LEFT = 0;
-DOWN = 1;
-UP = 2;
-RIGHT = 3;
-has_hit_wall = false;
-randomDirCounter = 0;
-requirement = 60;
-currentX = x;
-currentY = y;
-circleCounter = 0;
-circleStart = 0;
+            <string>///Make stuff work
+path = path_add();
+alarm[0] = room_speed;
+
 </string>
           </argument>
         </arguments>
@@ -161,7 +162,7 @@ moveFrames = irandom(80) + 40;
 currentX = x;
 currentY = y;
 if(!sees_player){
-    //sees_player = scr_sees_player();
+    sees_player = scr_sees_player();
     if(global.is_game_running) {
        /*if(moveCounter &gt;= moveFrames) {
           moveDir = irandom(3);
@@ -458,6 +459,38 @@ else {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Hurt player
+
+
+
+if (place_meeting(x, y, obj_player)) {
+    if (!obj_player.invulnerable &amp;&amp; hitCounter &gt; 60) {
+        obj_player.player_health -= 2;
+        hitCounter = 0;
+    }
+}
+
+hitCounter++;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_gummy_barbearian">
       <action>
@@ -477,15 +510,15 @@ else {
           <argument>
             <kind>1</kind>
             <string>/// Move away 
-if (x == other.x &amp;&amp; y == other.y) {
-    scr_move_enemy(sign(other.id - id), 0);
-}
+//if (x == other.x &amp;&amp; y == other.y) {
+    //scr_move_enemy(sign(other.id - id), 0);
+//}
 
-var dir = point_direction(other.x, other.y, x, y);
-var hspd = lengthdir_x(1, dir);  
-var vspd = lengthdir_y(1, dir);
+//var dir = point_direction(other.x, other.y, x, y);
+//var hspd = lengthdir_x(1, dir);  
+//var vspd = lengthdir_y(1, dir);
   
-scr_move_enemy(hspd, vspd);
+//scr_move_enemy(hspd, vspd);
 </string>
           </argument>
         </arguments>

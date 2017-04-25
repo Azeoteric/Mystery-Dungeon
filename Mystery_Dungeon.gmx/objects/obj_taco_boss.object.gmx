@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Variable inits.
-MOVE_SPEED = 2.5;
+MOVE_SPEED = 3;
 VISION_RADIUS = 512;
 vSpeed = 0;
 scr_grid();
@@ -37,7 +37,7 @@ moveDir = irandom(3);
 moveFrames = 80;
 hspd = 0;
 vspd = 0;
-hit_points = 40;
+hit_points = 1000;
 image_speed = .2;
 direction_choice = irandom(3);
 LEFT = 0;
@@ -203,6 +203,15 @@ if (sees_player) {
         var dir3 = point_direction(x, y, obj_player.x, obj_player.y);
         projectile3.hspeed = lengthdir_x(4, dir3 - 30);
         projectile3.vspeed = lengthdir_y(4, dir3 - 30);
+            var projectile4 = instance_create(x, y, obj_taco_projectile);
+        var dir4 = point_direction(x, y, obj_player.x, obj_player.y);
+        projectile4.hspeed = lengthdir_x(4, dir4 + 60);
+        projectile4.vspeed = lengthdir_y(4, dir4 + 60);
+            var projectile5 = instance_create(x, y, obj_taco_projectile);
+        var dir5 = point_direction(x, y, obj_player.x, obj_player.y);
+        projectile5.hspeed = lengthdir_x(4, dir5 - 60);
+        projectile5.vspeed = lengthdir_y(4, dir5 - 60);
+        
         attackTimer = 0;
     }
 }

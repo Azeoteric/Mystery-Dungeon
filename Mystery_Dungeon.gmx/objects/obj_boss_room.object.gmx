@@ -143,6 +143,14 @@ break;
 case 2:
 instance_create(room_width div 2, room_height div 2, obj_nacho_duck);
 break;
+
+case 3:
+instance_create(room_width div 2, room_height div 2, obj_taco_boss);
+break;
+
+case 4:
+instance_create(room_width div 2, room_height div 2, obj_taco_boss);
+break;
 }
 
 </string>

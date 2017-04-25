@@ -165,6 +165,19 @@ if(place_meeting(x, y, obj_jack) &amp;&amp; invincibilityFrames &lt; 0){
 if (place_meeting(x, y, obj_enemy) &amp;&amp; invincibilityFrames &lt;= 0) {
     instance_destroy();
     audio_play_sound(sfx_enemy_damaged, 10, false);
+}    
+if (place_meeting(x, y, obj_squeep_boss) &amp;&amp; invincibilityFrames &lt;= 0) {
+    instance_destroy();
+    audio_play_sound(sfx_enemy_damaged, 10, false);
+ }   
+if (place_meeting(x, y, obj_nacho_duck) &amp;&amp; invincibilityFrames &lt;= 0) {
+    instance_destroy();
+    audio_play_sound(sfx_enemy_damaged, 10, false);
+}
+if (place_meeting(x, y, obj_taco_boss) &amp;&amp; invincibilityFrames &lt;= 0) {
+    instance_destroy();
+    audio_play_sound(sfx_enemy_damaged, 10, false);
+}
     /*
     current_enemy_id = instance_position(x, y, obj_enemy);
     deal_damage = true;
@@ -196,7 +209,7 @@ if (place_meeting(x, y, obj_enemy) &amp;&amp; invincibilityFrames &lt;= 0) {
             }
         }
     } */
-}
+
 //Destroys the projectile after it moves far enough.
 if (abs(x) &gt; 10000 || abs(y) &gt; 10000 &amp;&amp; invincibilityFrames &lt;= 0)
 {
